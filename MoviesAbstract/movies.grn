@@ -1,0 +1,39 @@
+<uml>
+   <greenVersion="30500"/>
+   <type>
+      <name="=MoviesAbstract/src<hu.qwaevisz.movies{Movie.java[Movie"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="210"/>
+      <y="17"/>
+   </type>
+   <type>
+      <name="=MoviesAbstract/src<hu.qwaevisz.movies{Comedy.java[Comedy"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="13"/>
+      <y="318"/>
+   </type>
+   <type>
+      <name="=MoviesAbstract/src<hu.qwaevisz.movies{Cartoon.java[Cartoon"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="354"/>
+      <y="301"/>
+   </type>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=MoviesAbstract/src<hu.qwaevisz.movies{Comedy.java[Comedy"/>
+      <targetType="=MoviesAbstract/src<hu.qwaevisz.movies{Movie.java[Movie"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+   <relationship>
+      <class="edu.buffalo.cse.green.relationship.generalization.GeneralizationPart"/>
+      <sourceType="=MoviesAbstract/src<hu.qwaevisz.movies{Cartoon.java[Cartoon"/>
+      <targetType="=MoviesAbstract/src<hu.qwaevisz.movies{Movie.java[Movie"/>
+      <bendpoints>
+      </bendpoints>
+   </relationship>
+</uml>
+
