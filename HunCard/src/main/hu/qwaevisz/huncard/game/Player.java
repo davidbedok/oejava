@@ -1,16 +1,20 @@
-package hu.qwaevisz.card;
+package hu.qwaevisz.huncard.game;
+
+import hu.qwaevisz.huncard.card.Card;
+import hu.qwaevisz.huncard.card.CardRank;
+import hu.qwaevisz.huncard.card.CardSuit;
 
 public class Player extends java.lang.Object {
 
-	public static final int NUM_OF_PLAYER_CARDS = 3;
+	public static final int	NUM_OF_PLAYER_CARDS	= 3;
 
-	private final String name;
-	private final Card[] cards;
-	private int cardnum;
+	private final String	name;
+	private final Card[]	cards;
+	private int				cardnum;
 
 	public Player(String name) {
 		this.name = name;
-		this.cards = new Card[NUM_OF_PLAYER_CARDS];
+		this.cards = new Card[Player.NUM_OF_PLAYER_CARDS];
 		this.cardnum = 0;
 	}
 

@@ -1,0 +1,5 @@
+Download: http://eclipse.org/ (Eclipse IDE for Java EE Developers) Eclipse Juno
+Import Java cody style, formatter rules (eclipse-oe-java-formatter.epf): File | Import... | General - Preferences 
+Window | Preferences | Java - Editor - Save Actions | Turn on
+Install plugins (Help | Install New Software... 
+- TestNG update site: http://beust.com/eclipse

@@ -1,4 +1,12 @@
-package hu.qwaevisz.card;
+package hu.qwaevisz.huncard.main;
+
+import hu.qwaevisz.huncard.card.Card;
+import hu.qwaevisz.huncard.card.CardRank;
+import hu.qwaevisz.huncard.card.CardSuit;
+import hu.qwaevisz.huncard.game.Deck;
+import hu.qwaevisz.huncard.game.Game;
+import hu.qwaevisz.huncard.game.Player;
+import hu.qwaevisz.huncard.off.Fruit;
 
 public class Program {
 

@@ -1,14 +1,18 @@
-package hu.qwaevisz.card;
+package hu.qwaevisz.huncard.game;
+
+import hu.qwaevisz.huncard.card.Card;
+import hu.qwaevisz.huncard.card.CardRank;
+import hu.qwaevisz.huncard.card.CardSuit;
 
 import java.util.Random;
 
 public class Deck extends java.lang.Object {
 
-	public static final int NUM_OF_CARDS = CardSuit.values().length * CardRank.values().length;
-	public static final int NUM_ROTATE = 100;
+	public static final int	NUM_OF_CARDS	= CardSuit.values().length * CardRank.values().length;
+	public static final int	NUM_ROTATE		= 100;
 
-	private final Card[] cards;
-	private int topcardindex;
+	private final Card[]	cards;
+	private int				topcardindex;
 
 	public Deck() {
 		this.cards = new Card[Deck.NUM_OF_CARDS];

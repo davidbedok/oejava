@@ -1,11 +1,11 @@
-package hu.qwaevisz.card;
+package hu.qwaevisz.huncard.card;
 
 import java.util.Random;
 
 public class Card extends java.lang.Object {
 
-	private final CardSuit cardSuit;
-	private final CardRank cardRank;
+	private final CardSuit	cardSuit;
+	private final CardRank	cardRank;
 
 	public Card(CardSuit cardSuit, CardRank cardRank) {
 		this.cardSuit = cardSuit;

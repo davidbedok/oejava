@@ -1,12 +1,12 @@
-package hu.qwaevisz.card;
+package hu.qwaevisz.huncard.game;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game extends java.lang.Object {
 
-	private final List<Player> players;
-	private final Deck gamedeck;
+	private final List<Player>	players;
+	private final Deck			gamedeck;
 
 	public Game() {
 		this.players = new ArrayList<Player>();

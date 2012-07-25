@@ -1,4 +1,4 @@
-package hu.qwaevisz.card;
+package hu.qwaevisz.huncard.off;
 
 public enum Fruit {
 

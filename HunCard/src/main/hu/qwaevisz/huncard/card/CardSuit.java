@@ -1,4 +1,4 @@
-package hu.qwaevisz.card;
+package hu.qwaevisz.huncard.card;
 
 public enum CardSuit {
 
@@ -10,9 +10,9 @@ public enum CardSuit {
 	Leaves(2, 3, "Zold"), //
 	Hearts(3, 4, "Piros");
 
-	private int order;
-	private int value;
-	private String hungarianName;
+	private int		order;
+	private int		value;
+	private String	hungarianName;
 
 	private CardSuit(int order, int value, String hungarianName) {
 		this.order = order;

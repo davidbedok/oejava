@@ -1,4 +1,4 @@
-package hu.qwaevisz.card;
+package hu.qwaevisz.huncard.card;
 
 public enum CardRank {
 
@@ -11,10 +11,10 @@ public enum CardRank {
 	King(6, 30, true, "Kiraly"), //
 	Ace(7, 50, true, "Asz");
 
-	private int order;
-	private int value;
-	private boolean isFigure;
-	private String label;
+	private int		order;
+	private int		value;
+	private boolean	isFigure;
+	private String	label;
 
 	private CardRank(int order, int clvalue, boolean isFigure, String label) {
 		this.value = clvalue;
