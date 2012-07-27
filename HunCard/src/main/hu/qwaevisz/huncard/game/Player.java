@@ -10,31 +10,34 @@ public class Player extends java.lang.Object {
 
 	private final String	name;
 	private final Card[]	cards;
-	private int				cardnum;
+	private int				cardIndex;
 
 	public Player(String name) {
 		this.name = name;
 		this.cards = new Card[Player.NUM_OF_PLAYER_CARDS];
-		this.cardnum = 0;
+		this.cardIndex = 0;
 	}
 
 	public void addCard(Card card) {
-		if (this.cardnum < Player.NUM_OF_PLAYER_CARDS) {
-			this.cards[this.cardnum++] = card;
+		if (this.cardIndex < Player.NUM_OF_PLAYER_CARDS) {
+			this.cards[this.cardIndex++] = card;
 		}
 	}
 
+	// not required
 	public void addCard(CardSuit cardSuit, CardRank cardRank) {
 		this.addCard(new Card(cardSuit, cardRank));
 	}
 
 	public void dropCards() {
-		this.cardnum = 0;
+		this.cardIndex = 0;
 	}
 
+	// other way 1: return -1 if not enough cards
+	// other way 2: throw NotEnoughCardsException (maybe a parameter, how many cards missing)
 	public int getCardsValue() {
 		int ret = 0;
-		for (int i = 0; i < this.cardnum; ++i) {
+		for (int i = 0; i < this.cardIndex; ++i) {
 			ret += this.cards[i].getValue();
 		}
 		return ret;
@@ -52,7 +55,7 @@ public class Player extends java.lang.Object {
 		StringBuilder sb = new StringBuilder(500);
 		sb.append("------------------------------------------------\n");
 		sb.append(this.toPrint());
-		for (int i = 0; i < this.cardnum; i++) {
+		for (int i = 0; i < this.cardIndex; i++) {
 			sb.append("[").append(i + 1).append("] ").append(this.cards[i]).append("\n");
 		}
 		sb.append("------------------------------------------------\n");

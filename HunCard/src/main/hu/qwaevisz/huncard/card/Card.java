@@ -2,6 +2,8 @@ package hu.qwaevisz.huncard.card;
 
 import java.util.Random;
 
+// equals hashcode --> Deck --> lehetne set()
+
 public class Card extends java.lang.Object {
 
 	private final CardSuit	cardSuit;

@@ -3,3 +3,8 @@ Import Java cody style, formatter rules (eclipse-oe-java-formatter.epf): File | 
 Window | Preferences | Java - Editor - Save Actions | Turn on
 Install plugins (Help | Install New Software... 
 - TestNG update site: http://beust.com/eclipse
+
+
+Preferences | Java | Buils Path | Variables | New...
+ Name: OE_THIRDPARTY
+ Path (Folder): C:/work/workspacejava/oejava/thirdparty
