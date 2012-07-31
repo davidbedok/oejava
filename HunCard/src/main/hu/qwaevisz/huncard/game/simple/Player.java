@@ -1,8 +1,8 @@
-package hu.qwaevisz.huncard.game;
+package hu.qwaevisz.huncard.game.simple;
 
-import hu.qwaevisz.huncard.card.Card;
-import hu.qwaevisz.huncard.card.CardRank;
-import hu.qwaevisz.huncard.card.CardSuit;
+import hu.qwaevisz.huncard.common.Card;
+import hu.qwaevisz.huncard.common.CardRank;
+import hu.qwaevisz.huncard.common.CardSuit;
 
 public class Player extends java.lang.Object {
 

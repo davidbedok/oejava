@@ -1,8 +1,9 @@
-package hu.qwaevisz.huncard.game;
+package hu.qwaevisz.huncard.game.simple;
 
-import hu.qwaevisz.huncard.card.Card;
-import hu.qwaevisz.huncard.card.CardRank;
-import hu.qwaevisz.huncard.card.CardSuit;
+import hu.qwaevisz.huncard.common.Card;
+import hu.qwaevisz.huncard.common.CardRank;
+import hu.qwaevisz.huncard.common.CardSuit;
+import hu.qwaevisz.huncard.game.simple.Player;
 
 import org.mockito.Mockito;
 import org.testng.Assert;

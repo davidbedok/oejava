@@ -1,8 +1,8 @@
-package hu.qwaevisz.huncard.game;
+package hu.qwaevisz.huncard.game.simple;
 
-import hu.qwaevisz.huncard.card.Card;
-import hu.qwaevisz.huncard.card.CardRank;
-import hu.qwaevisz.huncard.card.CardSuit;
+import hu.qwaevisz.huncard.common.Card;
+import hu.qwaevisz.huncard.common.CardRank;
+import hu.qwaevisz.huncard.common.CardSuit;
 
 import java.util.Random;
 
@@ -13,10 +13,12 @@ public class Deck extends java.lang.Object {
 
 	private final Card[]	cards;
 	private int				topcardindex;
+	private final Random	rand;
 
-	public Deck() {
+	public Deck(Random rand) {
 		this.cards = new Card[Deck.NUM_OF_CARDS];
 		this.init();
+		this.rand = rand;
 	}
 
 	protected void init() {
@@ -41,11 +43,18 @@ public class Deck extends java.lang.Object {
 	}
 
 	public void rotate(int time) {
-		Random rand = new Random();
 		for (int i = 0; i < time; i++) {
-			this.changeCards(rand.nextInt(Deck.NUM_OF_CARDS), rand.nextInt(Deck.NUM_OF_CARDS));
+			this.changeCards(this.rand.nextInt(Deck.NUM_OF_CARDS), this.rand.nextInt(Deck.NUM_OF_CARDS));
 		}
 		this.topcardindex = 0;
+	}
+
+	public Card getTopCard() {
+		if (this.topcardindex >= Deck.NUM_OF_CARDS) {
+			this.rotate(Deck.NUM_ROTATE);
+			// this is not too realistic..
+		}
+		return this.cards[this.topcardindex++];
 	}
 
 	@Override
@@ -58,14 +67,6 @@ public class Deck extends java.lang.Object {
 		}
 		sb.append("###############################################\n");
 		return sb.toString();
-	}
-
-	public Card getTopCard() {
-		if (this.topcardindex >= Deck.NUM_OF_CARDS) {
-			this.rotate(Deck.NUM_ROTATE);
-			// this is not too realistic..
-		}
-		return this.cards[this.topcardindex++];
 	}
 
 }

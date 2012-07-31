@@ -1,16 +1,23 @@
-package hu.qwaevisz.huncard.game;
+package hu.qwaevisz.huncard.game.simple;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Game extends java.lang.Object {
 
 	private final List<Player>	players;
 	private final Deck			gamedeck;
 
-	public Game() {
+	// For test
+	protected Game(Deck gamedeck) {
 		this.players = new ArrayList<Player>();
-		this.gamedeck = new Deck();
+		this.gamedeck = gamedeck;
+	}
+
+	public Game(Random rand) {
+		this.players = new ArrayList<Player>();
+		this.gamedeck = new Deck(rand);
 	}
 
 	public void addPlayer(Player player) {
@@ -21,11 +28,16 @@ public class Game extends java.lang.Object {
 		this.players.add(new Player(name));
 	}
 
+	private void dropCards() {
+		for (Player player : this.players) {
+			player.dropCards();
+		}
+	}
+
 	private void dealer() {
-		for (Player p : this.players) {
-			p.dropCards();
-			for (int j = 0; j < Player.NUM_OF_PLAYER_CARDS; j++) {
-				p.addCard(this.gamedeck.getTopCard());
+		for (int j = 0; j < Player.NUM_OF_PLAYER_CARDS; j++) {
+			for (Player player : this.players) {
+				player.addCard(this.gamedeck.getTopCard());
 			}
 		}
 	}
@@ -34,9 +46,9 @@ public class Game extends java.lang.Object {
 		Player winner = null;
 		if (this.players.size() > 1) {
 			winner = this.players.get(0);
-			for (Player p : this.players) {
-				if (p.getCardsValue() > winner.getCardsValue()) {
-					winner = p;
+			for (Player player : this.players) {
+				if (player.getCardsValue() > winner.getCardsValue()) {
+					winner = player;
 				}
 			}
 		}
@@ -48,6 +60,7 @@ public class Game extends java.lang.Object {
 	}
 
 	public Player newGame() {
+		this.dropCards();
 		this.rotate();
 		this.dealer();
 		return this.getWinner();
@@ -59,8 +72,8 @@ public class Game extends java.lang.Object {
 		sb.append("**********************************************\n");
 		sb.append("Game :\n");
 		int i = 1;
-		for (Player p : this.players) {
-			sb.append("[").append(i++).append(" player] \n").append(p).append("\n");
+		for (Player player : this.players) {
+			sb.append("[").append(i++).append(" player] \n").append(player).append("\n");
 		}
 		sb.append(this.gamedeck);
 		sb.append("**********************************************\n");

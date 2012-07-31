@@ -1,27 +1,20 @@
-package hu.qwaevisz.huncard.card;
+package hu.qwaevisz.huncard.common;
+
+import java.util.Random;
 
 public enum CardSuit {
 
-	// public static final CardSuit Acorns = new CardSuit(0,1,"Makk");
-	// CardSuit.Acorns --> statikus eleres
+	Acorns(1, "Makk"), //
+	Bells(2, "Tok"), //
+	Leaves(3, "Zold"), //
+	Hearts(4, "Piros");
 
-	Acorns(0, 1, "Makk"), //
-	Bells(1, 2, "Tok"), //
-	Leaves(2, 3, "Zold"), //
-	Hearts(3, 4, "Piros");
-
-	private int		order;
 	private int		value;
 	private String	hungarianName;
 
-	private CardSuit(int order, int value, String hungarianName) {
-		this.order = order;
+	private CardSuit(int value, String hungarianName) {
 		this.value = value;
 		this.hungarianName = hungarianName;
-	}
-
-	public int getOrder() {
-		return this.order;
 	}
 
 	public int getValue() {
@@ -32,10 +25,10 @@ public enum CardSuit {
 		return this.hungarianName;
 	}
 
-	public static CardSuit fromOrder(int order) {
+	public static CardSuit fromValue(int value) {
 		CardSuit ret = CardSuit.getDefault();
 		for (CardSuit cs : CardSuit.values()) {
-			if (cs.getOrder() == order) {
+			if (cs.getValue() == value) {
 				ret = cs;
 			}
 		}
@@ -44,6 +37,11 @@ public enum CardSuit {
 
 	public static CardSuit getDefault() {
 		return CardSuit.Acorns;
+	}
+
+	public static CardSuit randomSuit(Random rand) {
+		CardSuit[] values = CardSuit.values();
+		return values[rand.nextInt(values.length)];
 	}
 
 	@Override
