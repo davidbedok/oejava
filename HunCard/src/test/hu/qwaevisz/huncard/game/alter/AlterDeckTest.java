@@ -12,11 +12,11 @@ import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SuperDeckTest {
+public class AlterDeckTest {
 
 	@Test(groups = "unit")
 	public void The_whole_deck_is_ready_to_use() {
-		SuperDeck hunDeck = new SuperDeck(new Random());
+		AlterDeck hunDeck = new AlterDeck(new Random());
 		Assert.assertEquals(hunDeck.getTopCard(), new Card(CardSuit.Hearts, CardRank.Ace));
 		Assert.assertEquals(hunDeck.getTopCard(), new Card(CardSuit.Hearts, CardRank.King));
 		Assert.assertEquals(hunDeck.getTopCard(), new Card(CardSuit.Hearts, CardRank.Over));
@@ -56,7 +56,7 @@ public class SuperDeckTest {
 
 	@Test(groups = "unit")
 	public void After_custom_rotate_of_deck_every_cards_remains_unique() {
-		SuperDeck hunDeck = new SuperDeck(new Random());
+		AlterDeck hunDeck = new AlterDeck(new Random());
 		Set<Card> setOfCards = new HashSet<Card>();
 		for (int i = 0; i < 32; i++) {
 			setOfCards.add(hunDeck.getTopCard());
@@ -68,7 +68,7 @@ public class SuperDeckTest {
 	public void Rotate_deck_with_mock() {
 		Random mockedRandom = Mockito.mock(Random.class);
 		Mockito.when(mockedRandom.nextInt(32)).thenReturn(31).thenReturn(30);
-		SuperDeck hunDeck = new SuperDeck(mockedRandom);
+		AlterDeck hunDeck = new AlterDeck(mockedRandom);
 		hunDeck.rotate(1);
 		Assert.assertEquals(hunDeck.getTopCard(), new Card(CardSuit.Hearts, CardRank.King));
 		Assert.assertEquals(hunDeck.getTopCard(), new Card(CardSuit.Hearts, CardRank.Ace));
@@ -76,9 +76,9 @@ public class SuperDeckTest {
 
 	@Test(groups = "unit")
 	public void Give_back_cards_after_deal() {
-		SuperDeck hunDeck = new SuperDeck(new Random());
+		AlterDeck hunDeck = new AlterDeck(new Random());
 
-		hunDeck.rotate(SuperDeck.NUM_ROTATE);
+		hunDeck.rotate(AlterDeck.NUM_ROTATE);
 
 		Assert.assertEquals(hunDeck.getCardsCount(), 32);
 

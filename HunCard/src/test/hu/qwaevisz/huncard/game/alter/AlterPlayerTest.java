@@ -1,22 +1,23 @@
-package hu.qwaevisz.huncard.game.simple;
+package hu.qwaevisz.huncard.game.alter;
 
 import hu.qwaevisz.huncard.common.Card;
 import hu.qwaevisz.huncard.common.CardRank;
 import hu.qwaevisz.huncard.common.CardSuit;
-import hu.qwaevisz.huncard.game.simple.Player;
+
+import java.util.Set;
 
 import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class PlayerTest {
+public class AlterPlayerTest {
 
 	@Test(groups = "unit")
 	public void Add_three_card_to_Player_and_return_the_appropriate_values_of_card_TestCase1() {
-		Player player = new Player("Nemecsek Erno");
+		AlterPlayer player = new AlterPlayer("Nemecsek Erno");
 		player.addCard(new Card(CardSuit.Leaves, CardRank.King));
-		player.addCard(CardSuit.Bells, CardRank.l8);
-		player.addCard(CardSuit.Hearts, CardRank.King);
+		player.addCard(new Card(CardSuit.Bells, CardRank.l8));
+		player.addCard(new Card(CardSuit.Hearts, CardRank.King));
 
 		Assert.assertEquals(player.getCardsValue(), 226);
 
@@ -35,7 +36,7 @@ public class PlayerTest {
 		Mockito.when(cardTwo.getValue()).thenReturn(20);
 		Mockito.when(cardThree.getValue()).thenReturn(30);
 
-		Player player = new Player("Nemecsek Erno");
+		AlterPlayer player = new AlterPlayer("Nemecsek Erno");
 
 		player.addCard(cardOne);
 		player.addCard(cardTwo);
@@ -47,9 +48,13 @@ public class PlayerTest {
 		Mockito.verify(cardTwo).getValue();
 		Mockito.verify(cardThree).getValue();
 
-		player.dropCards();
+		Set<Card> dropCards = player.dropCards();
 
 		Assert.assertEquals(player.getCardsValue(), 0);
+		Assert.assertEquals(dropCards.size(), 3);
+		Assert.assertTrue(dropCards.contains(cardOne));
+		Assert.assertTrue(dropCards.contains(cardTwo));
+		Assert.assertTrue(dropCards.contains(cardThree));
 	}
 
 }

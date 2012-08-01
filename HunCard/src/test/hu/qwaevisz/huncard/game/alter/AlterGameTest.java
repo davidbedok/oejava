@@ -1,8 +1,11 @@
-package hu.qwaevisz.huncard.game.simple;
+package hu.qwaevisz.huncard.game.alter;
 
+import hu.qwaevisz.huncard.api.IDeck;
 import hu.qwaevisz.huncard.common.Card;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -11,34 +14,34 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class GameTest {
+public class AlterGameTest {
 
-	private Game	game;
+	private AlterGame	game;
 
 	@Mock
-	private Deck	mockedDeck;
+	private AlterDeck	mockedDeck;
 	@Mock
-	private Player	mockedPlayer1;
+	private AlterPlayer	mockedPlayer1;
 	@Mock
-	private Player	mockedPlayer2;
+	private AlterPlayer	mockedPlayer2;
 
-	private Card[]	mockedCards;
+	private Card[]		mockedCards;
 
 	@BeforeClass(alwaysRun = true)
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
-		this.mockedCards = new Card[Deck.NUM_OF_CARDS];
+		this.mockedCards = new Card[IDeck.NUM_OF_CARDS];
 		this.mockedCards[0] = this.createMockedCard(0);
-		for (int i = 1; i < Deck.NUM_OF_CARDS; i++) {
+		for (int i = 1; i < IDeck.NUM_OF_CARDS; i++) {
 			this.mockedCards[i] = this.createMockedCard(i);
 		}
-		Mockito.when(this.mockedDeck.getTopCard()).thenReturn(this.mockedCards[0], Arrays.copyOfRange(this.mockedCards, 1, Deck.NUM_OF_CARDS));
+		Mockito.when(this.mockedDeck.getTopCard()).thenReturn(this.mockedCards[0], Arrays.copyOfRange(this.mockedCards, 1, IDeck.NUM_OF_CARDS));
 
-		this.game = new Game(this.mockedDeck);
+		this.game = new AlterGame(this.mockedDeck);
 
-		this.mockedPlayer1 = Mockito.mock(Player.class);
+		this.mockedPlayer1 = Mockito.mock(AlterPlayer.class);
 		Mockito.when(this.mockedPlayer1.getCardsValue()).thenReturn(40);
-		this.mockedPlayer2 = Mockito.mock(Player.class);
+		this.mockedPlayer2 = Mockito.mock(AlterPlayer.class);
 		Mockito.when(this.mockedPlayer2.getCardsValue()).thenReturn(42);
 		this.game.addPlayer(this.mockedPlayer1);
 		this.game.addPlayer(this.mockedPlayer2);
@@ -52,10 +55,15 @@ public class GameTest {
 
 	@Test(groups = "unit")
 	public void Start_new_game() {
-		Player winner = (Player) this.game.newGame();
+		Set<Card> emptySet = new HashSet<Card>();
+		Mockito.when(this.mockedPlayer1.dropCards()).thenReturn(emptySet);
+		Mockito.when(this.mockedPlayer2.dropCards()).thenReturn(emptySet);
+
+		AlterPlayer winner = (AlterPlayer) this.game.newGame();
 		Mockito.verify(this.mockedPlayer1).dropCards();
+		Mockito.verify(this.mockedDeck, Mockito.times(2)).backCard(emptySet);
 		Mockito.verify(this.mockedPlayer2).dropCards();
-		Mockito.verify(this.mockedDeck).rotate(Deck.NUM_ROTATE);
+		Mockito.verify(this.mockedDeck).rotate(IDeck.NUM_ROTATE);
 		Mockito.verify(this.mockedPlayer1).addCard(this.mockedCards[0]);
 		Mockito.verify(this.mockedPlayer2).addCard(this.mockedCards[1]);
 		Mockito.verify(this.mockedPlayer1).addCard(this.mockedCards[2]);
@@ -64,4 +72,5 @@ public class GameTest {
 		Mockito.verify(this.mockedPlayer2).addCard(this.mockedCards[5]);
 		Assert.assertEquals(winner, this.mockedPlayer2);
 	}
+
 }

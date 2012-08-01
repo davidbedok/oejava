@@ -1,10 +1,11 @@
 package hu.qwaevisz.huncard.main;
 
+import hu.qwaevisz.huncard.api.IDeck;
 import hu.qwaevisz.huncard.common.Card;
 import hu.qwaevisz.huncard.common.CardRank;
 import hu.qwaevisz.huncard.common.CardSuit;
-import hu.qwaevisz.huncard.game.alter.SuperGame;
-import hu.qwaevisz.huncard.game.alter.SuperPlayer;
+import hu.qwaevisz.huncard.game.alter.AlterGame;
+import hu.qwaevisz.huncard.game.alter.AlterPlayer;
 import hu.qwaevisz.huncard.game.simple.Deck;
 import hu.qwaevisz.huncard.game.simple.Game;
 import hu.qwaevisz.huncard.game.simple.Player;
@@ -42,7 +43,7 @@ public class Program {
 
 		Deck iDeck = new Deck(new Random());
 		System.out.println(iDeck);
-		iDeck.rotate(Deck.NUM_ROTATE);
+		iDeck.rotate(IDeck.NUM_ROTATE);
 		System.out.println("After rotate:");
 		System.out.println(iDeck);
 
@@ -66,10 +67,10 @@ public class Program {
 	}
 
 	public static void playSuperGame() {
-		System.out.println("\nPlay super game...\n");
+		System.out.println("\nPlay alter game...\n");
 
-		SuperGame iGame = new SuperGame(new Random());
-		iGame.addPlayer(new SuperPlayer("Hannibal Lexter"));
+		AlterGame iGame = new AlterGame(new Random());
+		iGame.addPlayer(new AlterPlayer("Hannibal Lexter"));
 		iGame.addPlayer("Nemecsek Erno");
 		iGame.addPlayer("Mekk Elek");
 
@@ -92,12 +93,12 @@ public class Program {
 
 	public static void main(String[] args) {
 		Random rand = new Random();
-		// Program.testEnum();
-		// Program.useCard(rand);
-		// Program.usePlayer(rand);
-		// Program.useDeck();
+		Program.testEnum();
+		Program.useCard(rand);
+		Program.usePlayer(rand);
+		Program.useDeck();
 		Program.playGame();
-		// Program.playSuperGame();
+		Program.playSuperGame();
 	}
 
 }

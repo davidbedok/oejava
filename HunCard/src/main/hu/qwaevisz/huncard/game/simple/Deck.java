@@ -1,24 +1,23 @@
 package hu.qwaevisz.huncard.game.simple;
 
+import hu.qwaevisz.huncard.api.AbstractDeck;
+import hu.qwaevisz.huncard.api.IDeck;
 import hu.qwaevisz.huncard.common.Card;
 import hu.qwaevisz.huncard.common.CardRank;
 import hu.qwaevisz.huncard.common.CardSuit;
 
 import java.util.Random;
+import java.util.Set;
 
-public class Deck extends java.lang.Object {
-
-	public static final int	NUM_OF_CARDS	= CardSuit.values().length * CardRank.values().length;
-	public static final int	NUM_ROTATE		= 100;
+public class Deck extends AbstractDeck {
 
 	private final Card[]	cards;
 	private int				topcardindex;
-	private final Random	rand;
 
 	public Deck(Random rand) {
-		this.cards = new Card[Deck.NUM_OF_CARDS];
+		super(rand);
+		this.cards = new Card[IDeck.NUM_OF_CARDS];
 		this.init();
-		this.rand = rand;
 	}
 
 	protected void init() {
@@ -31,41 +30,38 @@ public class Deck extends java.lang.Object {
 		this.topcardindex = 0;
 	}
 
-	private void changeCards(int indexA, int indexB) {
+	@Override
+	protected void changeCards(int indexA, int indexB) {
 		Card tmp = this.cards[indexA];
 		this.cards[indexA] = this.cards[indexB];
 		this.cards[indexB] = tmp;
 	}
 
-	public void rotate() {
-		this.rotate(Deck.NUM_ROTATE);
-		// Collections.shuffle(deck);
-	}
-
-	public void rotate(int time) {
-		for (int i = 0; i < time; i++) {
-			this.changeCards(this.rand.nextInt(Deck.NUM_OF_CARDS), this.rand.nextInt(Deck.NUM_OF_CARDS));
-		}
-		this.topcardindex = 0;
-	}
-
+	@Override
 	public Card getTopCard() {
-		if (this.topcardindex >= Deck.NUM_OF_CARDS) {
-			this.rotate(Deck.NUM_ROTATE);
+		if (this.topcardindex >= IDeck.NUM_OF_CARDS) {
+			this.rotate();
 			// this is not too realistic..
 		}
 		return this.cards[this.topcardindex++];
 	}
 
 	@Override
-	public String toString() {
+	public int getCardsCount() {
+		return IDeck.NUM_OF_CARDS;
+	}
+
+	@Override
+	public void backCard(Set<Card> playerCards) {
+		this.topcardindex = 0;
+	}
+
+	@Override
+	public String toStringCards() {
 		StringBuilder sb = new StringBuilder(500);
-		sb.append("###############################################\n");
-		sb.append("Cards:\n");
-		for (int i = 0; i < Deck.NUM_OF_CARDS; i++) {
+		for (int i = 0; i < IDeck.NUM_OF_CARDS; i++) {
 			sb.append("[").append(i + 1).append("] ").append(this.cards[i]).append("\n");
 		}
-		sb.append("###############################################\n");
 		return sb.toString();
 	}
 

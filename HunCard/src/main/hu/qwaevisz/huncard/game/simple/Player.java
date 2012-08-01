@@ -1,25 +1,27 @@
 package hu.qwaevisz.huncard.game.simple;
 
+import hu.qwaevisz.huncard.api.AbstractPlayer;
+import hu.qwaevisz.huncard.api.IPlayer;
 import hu.qwaevisz.huncard.common.Card;
 import hu.qwaevisz.huncard.common.CardRank;
 import hu.qwaevisz.huncard.common.CardSuit;
 
-public class Player extends java.lang.Object {
+import java.util.Set;
 
-	public static final int	NUM_OF_PLAYER_CARDS	= 3;
+public class Player extends AbstractPlayer {
 
-	private final String	name;
 	private final Card[]	cards;
 	private int				cardIndex;
 
 	public Player(String name) {
-		this.name = name;
-		this.cards = new Card[Player.NUM_OF_PLAYER_CARDS];
+		super(name);
+		this.cards = new Card[IPlayer.NUM_OF_PLAYER_CARDS];
 		this.cardIndex = 0;
 	}
 
+	@Override
 	public void addCard(Card card) {
-		if (this.cardIndex < Player.NUM_OF_PLAYER_CARDS) {
+		if (this.cardIndex < IPlayer.NUM_OF_PLAYER_CARDS) {
 			this.cards[this.cardIndex++] = card;
 		}
 	}
@@ -29,12 +31,15 @@ public class Player extends java.lang.Object {
 		this.addCard(new Card(cardSuit, cardRank));
 	}
 
-	public void dropCards() {
+	@Override
+	public Set<Card> dropCards() {
 		this.cardIndex = 0;
+		return null;
 	}
 
 	// other way 1: return -1 if not enough cards
 	// other way 2: throw NotEnoughCardsException (maybe a parameter, how many cards missing)
+	@Override
 	public int getCardsValue() {
 		int ret = 0;
 		for (int i = 0; i < this.cardIndex; ++i) {
@@ -43,22 +48,12 @@ public class Player extends java.lang.Object {
 		return ret;
 	}
 
-	public String toPrint() {
-		StringBuilder sb = new StringBuilder(100);
-		sb.append("Player " + this.name + ". ");
-		sb.append("All card value: " + this.getCardsValue() + "\n");
-		return sb.toString();
-	}
-
 	@Override
-	public String toString() {
+	public String toStringCards() {
 		StringBuilder sb = new StringBuilder(500);
-		sb.append("------------------------------------------------\n");
-		sb.append(this.toPrint());
 		for (int i = 0; i < this.cardIndex; i++) {
 			sb.append("[").append(i + 1).append("] ").append(this.cards[i]).append("\n");
 		}
-		sb.append("------------------------------------------------\n");
 		return sb.toString();
 	}
 
