@@ -1,0 +1,45 @@
+package hu.qwaevisz.store.api;
+
+import hu.qwaevisz.store.common.Material;
+import hu.qwaevisz.store.common.Room;
+import hu.qwaevisz.store.common.Size;
+
+public abstract class AbstractFurniture {
+
+	protected final Room		room;
+	protected final Material	material;
+	protected final Size		size;
+
+	protected final double		price;		// tmp
+
+	// protected boolean available; // tmp
+
+	public AbstractFurniture(final Room room, final Material material, final Size size, double price) {
+		this.room = room;
+		this.material = material;
+		this.size = size;
+		this.price = price;
+	}
+
+	public Material getMaterial() {
+		return this.material;
+	}
+
+	public double getPrice() {
+		return this.price;
+	}
+
+	public Room getRoom() {
+		return this.room;
+	}
+
+	public Size getSize() {
+		return this.size;
+	}
+
+	@Override
+	public String toString() {
+		return "room: " + this.room + ", material: " + this.material + ", size: " + this.size + ", price: " + this.price;
+	}
+
+}
