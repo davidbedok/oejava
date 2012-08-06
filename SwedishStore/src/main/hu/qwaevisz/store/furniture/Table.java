@@ -32,6 +32,28 @@ public class Table extends AbstractFurniture implements CompactSizeCapable {
 	public boolean isScratchResistant() {
 		return this.scratchResistant;
 	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode() * Integer.valueOf(numberOfChairs).hashCode() * Boolean.valueOf(scratchResistant).hashCode() * Boolean.valueOf(compactSize).hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object othat) {
+		if (this == othat) {
+			return true;
+		}
+		if ( (othat != null) && (!(othat.getClass() == this.getClass())) ) {
+			return false;
+		}
+		if ( super.equals(othat) ) {
+			Table that = (Table) othat;
+			if ( this.numberOfChairs == that.numberOfChairs && this.scratchResistant == that.scratchResistant && this.compactSize == that.compactSize ) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	@Override
 	public String toString() {

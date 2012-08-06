@@ -31,6 +31,7 @@ public class Card extends java.lang.Object {
 		if (this == othat) {
 			return true;
 		}
+		// if ( (othat != null) && (!(othat.getClass() == this.getClass())) ) {
 		if (!(othat instanceof Card)) {
 			// explict check for "that == null" !! --> "null instanceof [type]" always returns false
 			return false;

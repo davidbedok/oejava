@@ -1,6 +1,6 @@
 package hu.qwaevisz.store.common;
 
-public class Size {
+public final class Size {
 
 	public final static String	UNIT	= "mm";
 
@@ -24,6 +24,26 @@ public class Size {
 
 	public double getWidth() {
 		return this.width;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Double.valueOf(width).hashCode() * Double.valueOf(height).hashCode() * Double.valueOf(length).hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object othat) {
+		if (this == othat) {
+			return true;
+		}
+		if (!(othat instanceof Size)) {
+			return false;
+		}
+		Size that = (Size) othat;
+		if ( this.width == that.width && this.height == that.height && this.length == that.length ) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override

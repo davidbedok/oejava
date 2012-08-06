@@ -40,6 +40,28 @@ public class Bed extends AbstractFurniture implements BuiltInLampCapable, Compac
 	public boolean isDoubleSize() {
 		return this.doubleSize;
 	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode() * this.mattress.hashCode() * Boolean.valueOf(doubleSize).hashCode() * Boolean.valueOf(compactSize).hashCode() * Boolean.valueOf(builtInLamp).hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object othat) {
+		if (this == othat) {
+			return true;
+		}
+		if ( (othat != null) && (!(othat.getClass() == this.getClass())) ) {
+			return false;
+		}
+		if ( super.equals(othat) ) {
+			Bed that = (Bed) othat;
+			if ((this.mattress.equals(that.mattress)) && this.doubleSize == that.doubleSize && this.compactSize == that.compactSize && this.builtInLamp == that.builtInLamp ) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	@Override
 	public String toString() {
