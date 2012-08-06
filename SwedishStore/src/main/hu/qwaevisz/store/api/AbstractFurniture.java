@@ -6,15 +6,14 @@ import hu.qwaevisz.store.common.Size;
 
 public abstract class AbstractFurniture {
 
-	protected final Room		room;
-	protected final Material	material;
-	protected final Size		size;
+	protected final Room room;
+	protected final Material material;
+	protected final Size size;
 
-	protected final double		price;		// tmp
+	protected final double price;
 
-	// protected boolean available; // tmp
-
-	public AbstractFurniture(final Room room, final Material material, final Size size, double price) {
+	public AbstractFurniture(final Room room, final Material material,
+			final Size size, double price) {
 		this.room = room;
 		this.material = material;
 		this.size = size;
@@ -36,12 +35,13 @@ public abstract class AbstractFurniture {
 	public Size getSize() {
 		return this.size;
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return this.room.hashCode() * this.material.hashCode() * this.size.hashCode();
+		return this.room.hashCode() * this.material.hashCode()
+				* this.size.hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object othat) {
 		if (this == othat) {
@@ -51,7 +51,9 @@ public abstract class AbstractFurniture {
 			return false;
 		}
 		AbstractFurniture that = (AbstractFurniture) othat;
-		if ((this.room.equals(that.room)) && this.material.equals(that.material) && this.size.equals(that.size) ) {
+		if ((this.room.equals(that.room))
+				&& this.material.equals(that.material)
+				&& this.size.equals(that.size)) {
 			return true;
 		}
 		return false;
@@ -59,7 +61,8 @@ public abstract class AbstractFurniture {
 
 	@Override
 	public String toString() {
-		return "room: " + this.room + ", material: " + this.material + ", size: " + this.size + ", price: " + this.price;
+		return "room: " + this.room + ", material: " + this.material
+				+ ", size: " + this.size + ", price: " + this.price;
 	}
 
 }

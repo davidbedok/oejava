@@ -25,12 +25,12 @@ public final class Size {
 	public double getWidth() {
 		return this.width;
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return Double.valueOf(width).hashCode() * Double.valueOf(height).hashCode() * Double.valueOf(length).hashCode();
+		return Double.valueOf(this.width).hashCode() * Double.valueOf(this.height).hashCode() * Double.valueOf(this.length).hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object othat) {
 		if (this == othat) {
@@ -40,7 +40,7 @@ public final class Size {
 			return false;
 		}
 		Size that = (Size) othat;
-		if ( this.width == that.width && this.height == that.height && this.length == that.length ) {
+		if (this.width == that.width && this.height == that.height && this.length == that.length) {
 			return true;
 		}
 		return false;
@@ -48,7 +48,7 @@ public final class Size {
 
 	@Override
 	public String toString() {
-		return this.width + "x" + this.length + "x" + this.height + "(" + Size.UNIT + ")";
+		return this.width + "x" + this.height + "x" + this.length + "(" + Size.UNIT + ")";
 	}
 
 }
