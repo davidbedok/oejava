@@ -1,0 +1,247 @@
+<class-diagram version="1.0.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.api.BooleanCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/api/BooleanCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="115" y="426"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.api.DoubleRange" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/api/DoubleRange.java" binary="false">    
+    <position height="-1" width="-1" x="311" y="98"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.api.EnumCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/api/EnumCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="762" y="79"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.api.IntegerRange" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/api/IntegerRange.java" binary="false">    
+    <position height="-1" width="-1" x="776" y="494"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.common.BuiltInLampCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/common/BuiltInLampCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="106" y="305"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="6" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.common.ClassCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/common/ClassCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="537" y="309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="7" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.common.CompactSizeCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/common/CompactSizeCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="304" y="322"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="8" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.common.MaterialCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/common/MaterialCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="797" y="221"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="9" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.common.PriceCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/common/PriceCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="311" y="241"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="10" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.common.RoomCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/common/RoomCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="609" y="199"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="11" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.common.SizeHeightCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/common/SizeHeightCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="105" y="236"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="12" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.common.SizeLengthCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/common/SizeLengthCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="94" y="114"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="13" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.common.SizeWidthCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/common/SizeWidthCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="91" y="42"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="14" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.spec.BedDoubleSizeCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/spec/BedDoubleSizeCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="345" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="15" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.spec.BedMattressCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/spec/BedMattressCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="554" y="120"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="16" corner="BOTTOM_RIGHT" language="java" 
+    name="hu.qwaevisz.store.criteria.spec.TableNumberOfChairsCriterion" project="SwedishStore" 
+    file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/spec/TableNumberOfChairsCriterion.java" binary="false">    
+    <position height="-1" width="-1" x="564" y="473"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="17" corner="BOTTOM_RIGHT" language="java" 
+    name="hu.qwaevisz.store.criteria.spec.TableScratchResistantCriterion" project="SwedishStore" 
+    file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/spec/TableScratchResistantCriterion.java" binary="false">    
+    <position height="-1" width="-1" x="346" y="411"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="18" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.spec.WardrobeDoorTypeCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/spec/WardrobeDoorTypeCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="548" y="43"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="19" corner="BOTTOM_RIGHT" language="java" name="hu.qwaevisz.store.criteria.spec.WardrobeMirrorCriterion" 
+    project="SwedishStore" file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/spec/WardrobeMirrorCriterion.java" 
+    binary="false">    
+    <position height="-1" width="-1" x="134" y="550"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="20" corner="BOTTOM_RIGHT" language="java" 
+    name="hu.qwaevisz.store.criteria.spec.WardrobeNumberOfShelvesCriterion" project="SwedishStore" 
+    file="/SwedishStore/src/main/hu/qwaevisz/store/criteria/spec/WardrobeNumberOfShelvesCriterion.java" binary="false">    
+    <position height="-1" width="-1" x="768" y="341"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <generalization id="21">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="23">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

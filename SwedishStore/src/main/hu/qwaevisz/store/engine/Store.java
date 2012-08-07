@@ -35,18 +35,18 @@ public class Store implements IStore {
 
 	@Override
 	public void addBed(Room room, Material material, Size size, double price, Mattress mattress, boolean doubleSize, boolean compactSize, boolean builtInLamp,
-			Integer count) {
+			int count) {
 		this.addFurniture(new Bed(room, material, size, price, mattress, doubleSize, compactSize, builtInLamp), count);
 	}
 
 	@Override
-	public void addTable(Room room, Material material, Size size, double price, int numberOfChairs, boolean scratchResistant, boolean compactSize, Integer count) {
+	public void addTable(Room room, Material material, Size size, double price, int numberOfChairs, boolean scratchResistant, boolean compactSize, int count) {
 		this.addFurniture(new Table(room, material, size, price, numberOfChairs, scratchResistant, compactSize), count);
 	}
 
 	@Override
 	public void addWardrobe(Room room, Material material, Size size, double price, int numberOfShelves, DoorType typeOfDoor, boolean mirror,
-			boolean builtInLamp, Integer count) {
+			boolean builtInLamp, int count) {
 		this.addFurniture(new Wardrobe(room, material, size, price, numberOfShelves, typeOfDoor, mirror, builtInLamp), count);
 	}
 

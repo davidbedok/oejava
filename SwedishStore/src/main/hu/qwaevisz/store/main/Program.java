@@ -2,6 +2,7 @@ package hu.qwaevisz.store.main;
 
 import hu.qwaevisz.store.api.AbstractFurniture;
 import hu.qwaevisz.store.api.BuiltInLampCapable;
+import hu.qwaevisz.store.api.CompactSizeCapable;
 import hu.qwaevisz.store.common.DoorType;
 import hu.qwaevisz.store.common.Material;
 import hu.qwaevisz.store.common.Mattress;
@@ -11,6 +12,8 @@ import hu.qwaevisz.store.criteria.bad.BedSearchCriteria;
 import hu.qwaevisz.store.criteria.bad.FurnitureSearchCriteria;
 import hu.qwaevisz.store.engine.FurnitureSearch;
 import hu.qwaevisz.store.engine.Store;
+import hu.qwaevisz.store.furniture.Bed;
+import hu.qwaevisz.store.furniture.Wardrobe;
 
 import java.util.List;
 
@@ -90,6 +93,29 @@ public class Program {
 		searchB.addFurnitureSearchCriterion(searchA);
 
 		Program.echoSearchResult("Composite", store.search(searchB));
+	}
+
+	private static void fewgre(Store store) {
+
+		FurnitureSearch search = new FurnitureSearch();
+		search.addMaterialCriterion(Material.Oak, Material.Beech, Material.Pine, Material.CherryTree);
+		search.addBedMattressCriterion(Mattress.Antiallergic);
+		search.addClassCriterion(CompactSizeCapable.class);
+		search.addRoomCriterion(Room.Hall);
+		search.addClassCriterion(BuiltInLampCapable.class);
+
+		search.addClassCriterion(Wardrobe.class, BuiltInLampCapable.class);
+		search.addPriceCriterion(null, 300.);
+		search.addWardrobeMirrorCriterion(true);
+		search.addCompactSizeCriterion(true);
+		search.addBedMattressCriterion(Mattress.Antiallergic, Mattress.Healthy);
+		search.addRoomCriterion(Room.Bedroom, Room.LivingRoom);
+		search.addClassCriterion(Bed.class);
+		search.addBuiltInLampCriterion(true);
+		search.addClassCriterion(Wardrobe.class);
+		search.addSizeHeightCriterion(200., 240.);
+
+		List<AbstractFurniture> items = store.search(search);
 	}
 
 	private static void echoSearchResult(String header, List<AbstractFurniture> items) {
