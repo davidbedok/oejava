@@ -48,7 +48,7 @@ public final class Size {
 
 	@Override
 	public String toString() {
-		return this.width + "x" + this.height + "x" + this.length + "(" + Size.UNIT + ")";
+		return this.width + " x " + this.height + " x " + this.length + " (" + Size.UNIT + ")";
 	}
 
 }

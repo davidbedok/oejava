@@ -32,23 +32,24 @@ public class Table extends AbstractFurniture implements CompactSizeCapable {
 	public boolean isScratchResistant() {
 		return this.scratchResistant;
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return super.hashCode() * Integer.valueOf(numberOfChairs).hashCode() * Boolean.valueOf(scratchResistant).hashCode() * Boolean.valueOf(compactSize).hashCode();
+		return super.hashCode() * Integer.valueOf(this.numberOfChairs).hashCode() * Boolean.valueOf(this.scratchResistant).hashCode()
+				* Boolean.valueOf(this.compactSize).hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object othat) {
 		if (this == othat) {
 			return true;
 		}
-		if ( (othat != null) && (!(othat.getClass() == this.getClass())) ) {
+		if ((othat != null) && (!(othat.getClass() == this.getClass()))) {
 			return false;
 		}
-		if ( super.equals(othat) ) {
+		if (super.equals(othat)) {
 			Table that = (Table) othat;
-			if ( this.numberOfChairs == that.numberOfChairs && this.scratchResistant == that.scratchResistant && this.compactSize == that.compactSize ) {
+			if (this.numberOfChairs == that.numberOfChairs && this.scratchResistant == that.scratchResistant && this.compactSize == that.compactSize) {
 				return true;
 			}
 		}
@@ -57,8 +58,7 @@ public class Table extends AbstractFurniture implements CompactSizeCapable {
 
 	@Override
 	public String toString() {
-		return super.toString() + ", numberOfChairs: " + this.numberOfChairs + ", scratchResistant: " + this.scratchResistant + ", compactSize: "
-				+ this.compactSize;
+		return "<Table> " + super.toString() + ", " + this.numberOfChairs + " chair(s) " + (this.scratchResistant ? "[ScratchResistant] " : "")
+				+ (this.compactSize ? "[CompactSize] " : "");
 	}
-
 }

@@ -8,6 +8,11 @@ public enum Room {
 	Bedroom, //
 	Chamber, // kamra
 	Garage, //
-	Hall // eloszoba
+	Hall; // eloszoba
+
+	@Override
+	public String toString() {
+		return "[" + super.toString() + "]";
+	}
 
 }

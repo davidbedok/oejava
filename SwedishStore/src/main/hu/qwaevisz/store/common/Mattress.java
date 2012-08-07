@@ -8,4 +8,9 @@ public enum Mattress {
 	Antiallergic, //
 	Exclusive; //
 
+	@Override
+	public String toString() {
+		return "[" + super.toString() + " mattress]";
+	}
+
 }

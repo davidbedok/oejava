@@ -38,23 +38,25 @@ public class Wardrobe extends AbstractFurniture implements BuiltInLampCapable {
 	public boolean isMirror() {
 		return this.mirror;
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return super.hashCode() * Integer.valueOf(numberOfShelves).hashCode() * this.typeOfDoor.hashCode() * Boolean.valueOf(mirror).hashCode() * Boolean.valueOf(builtInLamp).hashCode();
+		return super.hashCode() * Integer.valueOf(this.numberOfShelves).hashCode() * this.typeOfDoor.hashCode() * Boolean.valueOf(this.mirror).hashCode()
+				* Boolean.valueOf(this.builtInLamp).hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object othat) {
 		if (this == othat) {
 			return true;
 		}
-		if ( (othat != null) && (!(othat.getClass() == this.getClass())) ) {
+		if ((othat != null) && (!(othat.getClass() == this.getClass()))) {
 			return false;
 		}
-		if ( super.equals(othat) ) {
+		if (super.equals(othat)) {
 			Wardrobe that = (Wardrobe) othat;
-			if ( this.numberOfShelves == that.numberOfShelves && this.typeOfDoor.equals(that.typeOfDoor) && this.mirror == that.mirror && this.builtInLamp == that.builtInLamp ) {
+			if (this.numberOfShelves == that.numberOfShelves && this.typeOfDoor.equals(that.typeOfDoor) && this.mirror == that.mirror
+					&& this.builtInLamp == that.builtInLamp) {
 				return true;
 			}
 		}
@@ -63,8 +65,8 @@ public class Wardrobe extends AbstractFurniture implements BuiltInLampCapable {
 
 	@Override
 	public String toString() {
-		return super.toString() + ", numberOfShelves: " + this.numberOfShelves + ", typeOfDoor: " + this.typeOfDoor + ", mirror: " + this.mirror
-				+ ", builtInLamp: " + this.builtInLamp;
+		return "<Wardrobe> " + super.toString() + ", " + this.numberOfShelves + " shelf/shelves " + this.typeOfDoor + " " + (this.mirror ? "[Mirror]" : "")
+				+ (this.builtInLamp ? "[BuiltInLamp]" : "");
 	}
 
 }

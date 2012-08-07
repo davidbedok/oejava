@@ -67,8 +67,8 @@ public class Bed extends AbstractFurniture implements BuiltInLampCapable, Compac
 
 	@Override
 	public String toString() {
-		return super.toString() + ", mattress: " + this.mattress + ", doubleSize: " + this.doubleSize + ", compactSize: " + this.compactSize
-				+ ", builtInLamp: " + this.builtInLamp;
+		return "<Bed> " + super.toString() + " " + this.mattress + " " + (this.doubleSize ? "[DoubleSize] " : "[SingleSize] ")
+				+ (this.compactSize ? "[CompactSize] " : "") + (this.builtInLamp ? "[BuiltInLamp]" : "");
 	}
 
 }

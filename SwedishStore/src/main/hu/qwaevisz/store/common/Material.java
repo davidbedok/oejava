@@ -9,4 +9,9 @@ public enum Material {
 	Plastic, // muanyag
 	Metal; // fem
 
+	@Override
+	public String toString() {
+		return "[" + super.toString() + " material]";
+	}
+
 }

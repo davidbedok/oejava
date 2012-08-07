@@ -1,27 +1,28 @@
-package hu.qwaevisz.store.criteria;
+package hu.qwaevisz.store.criteria.bad;
 
 import hu.qwaevisz.store.api.AbstractFurniture;
 import hu.qwaevisz.store.common.Material;
 import hu.qwaevisz.store.common.Room;
+import hu.qwaevisz.store.criteria.api.DoubleRange;
 
 import java.util.Arrays;
 import java.util.EnumSet;
 
 public class FurnitureSearchCriteria {
 
-	protected EnumCriteria<Room>	rooms;
+	protected EnumSet<Room>			rooms;
 	protected EnumSet<Material>		materials;
 	protected SizeSearchCriteria	sizeCriteria;
 	protected DoubleRange			priceRange;
 
 	public FurnitureSearchCriteria() {
-		this.rooms = new EnumCriteria<Room>();
+		this.rooms = EnumSet.noneOf(Room.class);
 		this.materials = EnumSet.noneOf(Material.class);
 		this.sizeCriteria = new SizeSearchCriteria();
 	}
 
 	public void addRoomCriteria(Room... rooms) {
-		this.rooms.addCriteria(rooms);
+		this.rooms.addAll(Arrays.asList(rooms));
 	}
 
 	public void addMaterialCriteria(Material... materials) {
@@ -47,10 +48,14 @@ public class FurnitureSearchCriteria {
 	public boolean isValid(AbstractFurniture furniture) {
 		boolean valid = true;
 		if (furniture != null) {
-			valid = this.rooms.isValid(furniture.getRoom()) && this.isValidMaterial(furniture.getMaterial()) && this.sizeCriteria.isValid(furniture.getSize())
+			valid = this.isValidRoom(furniture.getRoom()) && this.isValidMaterial(furniture.getMaterial()) && this.sizeCriteria.isValid(furniture.getSize())
 					&& DoubleRange.isValid(this.priceRange, furniture.getPrice());
 		}
 		return valid;
+	}
+
+	private boolean isValidRoom(Room room) {
+		return (this.rooms.size() == 0 || this.rooms.contains(room));
 	}
 
 	private boolean isValidMaterial(Material material) {

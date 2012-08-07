@@ -1,4 +1,4 @@
-package hu.qwaevisz.store.criteria;
+package hu.qwaevisz.store.criteria.bad;
 
 import hu.qwaevisz.store.api.AbstractFurniture;
 import hu.qwaevisz.store.common.Mattress;

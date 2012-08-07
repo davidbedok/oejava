@@ -1,13 +1,13 @@
-package hu.qwaevisz.store.criteria;
+package hu.qwaevisz.store.criteria.api;
 
 import java.util.Arrays;
 import java.util.EnumSet;
 
-public class EnumCriteria<E extends Enum<E>> {
+public abstract class EnumCriterion<E extends Enum<E>> {
 
 	protected EnumSet<E>	criteria;
 
-	public void addCriteria(E... values) {
+	public EnumCriterion(E... values) {
 		if (values.length > 0) {
 			this.criteria = EnumSet.copyOf(Arrays.asList(values));
 		}

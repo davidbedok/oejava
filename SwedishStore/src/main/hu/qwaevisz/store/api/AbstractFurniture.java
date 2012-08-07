@@ -6,14 +6,15 @@ import hu.qwaevisz.store.common.Size;
 
 public abstract class AbstractFurniture {
 
-	protected final Room room;
-	protected final Material material;
-	protected final Size size;
+	private static final String	CURRENCY	= "EUR";
 
-	protected final double price;
+	protected final Room		room;
+	protected final Material	material;
+	protected final Size		size;
 
-	public AbstractFurniture(final Room room, final Material material,
-			final Size size, double price) {
+	protected final double		price;
+
+	public AbstractFurniture(final Room room, final Material material, final Size size, double price) {
 		this.room = room;
 		this.material = material;
 		this.size = size;
@@ -38,8 +39,7 @@ public abstract class AbstractFurniture {
 
 	@Override
 	public int hashCode() {
-		return this.room.hashCode() * this.material.hashCode()
-				* this.size.hashCode();
+		return this.room.hashCode() * this.material.hashCode() * this.size.hashCode();
 	}
 
 	@Override
@@ -51,9 +51,7 @@ public abstract class AbstractFurniture {
 			return false;
 		}
 		AbstractFurniture that = (AbstractFurniture) othat;
-		if ((this.room.equals(that.room))
-				&& this.material.equals(that.material)
-				&& this.size.equals(that.size)) {
+		if ((this.room.equals(that.room)) && this.material.equals(that.material) && this.size.equals(that.size)) {
 			return true;
 		}
 		return false;
@@ -61,8 +59,7 @@ public abstract class AbstractFurniture {
 
 	@Override
 	public String toString() {
-		return "room: " + this.room + ", material: " + this.material
-				+ ", size: " + this.size + ", price: " + this.price;
+		return this.room + " " + this.material + " " + this.size + " " + this.price + " " + AbstractFurniture.CURRENCY;
 	}
 
 }
