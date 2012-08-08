@@ -1,0 +1,55 @@
+type	;room		;material	;width	;height	;length	;price	;mattress		;double	;compact;lamp	;chairs	;scratch;shelves;door		;mirror	;count	;name
+BED		;LivingRoom	;Oak		;180	;50		;210	;310	;Normal			;true	;false	;false	;-		;-		;-		;-			;-		;3		;Alpha
+BED		;LivingRoom	;Beech		;190	;40		;210	;450	;Comfortable	;true	;true	;false	;-		;-		;-		;-			;-		;2		;Bravo
+BED		;LivingRoom	;Pine		;200	;45		;210	;330	;Healthy		;true	;true	;false	;-		;-		;-		;-			;-		;1		;Charlie
+BED		;LivingRoom	;Oak		;90		;50		;210	;260	;Normal			;false	;false	;true	;-		;-		;-		;-			;-		;1		;Delta
+BED		;LivingRoom	;Beech		;95		;40		;210	;200	;Antiallergic	;false	;false	;true	;-		;-		;-		;-			;-		;3		;Echo
+BED		;LivingRoom	;Pine		;100	;45		;210	;185	;Comfortable	;false	;true	;false	;-		;-		;-		;-			;-		;2		;Foxtrot
+BED		;Bedroom	;Oak		;185	;55		;220	;300	;Healthy		;true	;true	;false	;-		;-		;-		;-			;-		;1		;Golf
+BED		;Bedroom	;Beech		;180	;50		;210	;315	;Antiallergic	;true	;true	;false	;-		;-		;-		;-			;-		;5		;Hotel
+BED		;Bedroom	;Pine		;190	;40		;200	;340	;Normal			;true	;false	;false	;-		;-		;-		;-			;-		;2		;India
+BED		;Bedroom	;CherryTree	;180	;25		;200	;455	;Exclusive		;true	;true	;true	;-		;-		;-		;-			;-		;3		;Juliet
+BED		;Bedroom	;CherryTree	;200	;35		;210	;520	;Exclusive		;true	;true	;false	;-		;-		;-		;-			;-		;1		;Kilo
+BED		;Bedroom	;Metal		;190	;50		;200	;360	;Comfortable	;true	;true	;false	;-		;-		;-		;-			;-		;2		;Lima
+BED		;Bedroom	;Oak		;100	;55		;220	;310	;Antiallergic	;false	;false	;true	;-		;-		;-		;-			;-		;3		;Mike
+BED		;Bedroom	;Beech		;110	;50		;210	;280	;Normal			;false	;false	;false	;-		;-		;-		;-			;-		;1		;November
+BED		;Bedroom	;Pine		;95		;40		;200	;250	;Comfortable	;false	;false	;false	;-		;-		;-		;-			;-		;2		;Oscar
+BED		;Bedroom	;CherryTree	;90		;25		;200	;290	;Exclusive		;false	;false	;false	;-		;-		;-		;-			;-		;4		;Papa
+BED		;Bedroom	;CherryTree	;100	;35		;210	;305	;Antiallergic	;false	;true	;false	;-		;-		;-		;-			;-		;1		;Quebec
+BED		;Bedroom	;Metal		;105	;50		;200	;180	;Healthy		;false	;false	;true	;-		;-		;-		;-			;-		;3		;Romeo
+BED		;Hall		;Beech		;90		;45		;200	;130	;Exclusive		;false	;true	;false	;-		;-		;-		;-			;-		;5		;Sierra
+TABLE	;Kitchen	;Oak		;80		;90		;100	;120	;-				;-		;false	;-		;4		;false	;-		;-			;-		;3		;Tango
+TABLE	;Kitchen	;Beech		;120	;95		;150	;140	;-				;-		;true	;-		;4		;true	;-		;-			;-		;2		;Uniform
+TABLE	;Kitchen	;Pine		;100	;90		;110	;115	;-				;-		;true	;-		;0		;true	;-		;-			;-		;6		;Victor
+TABLE	;Kitchen	;Metal		;100	;80		;100	;150	;-				;-		;true	;-		;0		;false	;-		;-			;-		;4		;Whiskey
+TABLE	;Bathroom	;Plastic	;60		;80		;50		;210	;-				;-		;false	;-		;0		;false	;-		;-			;-		;2		;Xray
+TABLE	;LivingRoom	;CherryTree	;45		;40		;45		;80		;-				;-		;false	;-		;0		;false	;-		;-			;-		;2		;Yankee
+TABLE	;LivingRoom	;Beech		;50		;30		;40		;145	;-				;-		;false	;-		;0		;false	;-		;-			;-		;3		;Zulu
+TABLE	;LivingRoom	;Oak		;120	;70		;100	;120	;-				;-		;true	;-		;0		;true	;-		;-			;-		;1		;Adams
+TABLE	;LivingRoom	;Pine		;80		;45		;60		;55		;-				;-		;false	;-		;0		;false	;-		;-			;-		;4		;Boston
+TABLE	;LivingRoom	;Beech		;40		;40		;120	;70		;-				;-		;false	;-		;0		;true	;-		;-			;-		;6		;Chicago
+TABLE	;Bedroom	;CherryTree	;70		;60		;70		;105	;-				;-		;false	;-		;0		;true	;-		;-			;-		;2		;Denver
+TABLE	;Bedroom	;Pine		;90		;75		;60		;130	;-				;-		;false	;-		;1		;false	;-		;-			;-		;1		;Easy
+TABLE	;Chamber	;Plastic	;120	;90		;110	;45		;-				;-		;true	;-		;0		;false	;-		;-			;-		;4		;Frank
+TABLE	;Garage		;Beech		;150	;95		;50		;70		;-				;-		;true	;-		;0		;false	;-		;-			;-		;2		;George
+TABLE	;Garage		;Metal		;120	;95		;50		;80		;-				;-		;false	;-		;0		;true	;-		;-			;-		;3		;Henry
+TABLE	;Hall		;CherryTree	;90		;120	;30		;55		;-				;-		;false	;-		;0		;false	;-		;-			;-		;5		;Ida
+WARDROBE;Kitchen	;Pine		;50		;160	;90		;180	;-				;-		;-		;false	;-		;-		;3		;Double		;true	;2		;John
+WARDROBE;Kitchen	;CherryTree	;55		;190	;110	;230	;-				;-		;-		;false	;-		;-		;2		;Shutter	;false	;1		;King
+WARDROBE;Bathroom	;Beech		;45		;120	;50		;150	;-				;-		;-		;true	;-		;-		;3		;Shutter	;true	;5		;Lincoln
+WARDROBE;Bathroom	;CherryTree	;50		;160	;50		;90		;-				;-		;-		;false	;-		;-		;4		;Double		;true	;3		;Mary
+WARDROBE;Bathroom	;Pine		;45		;150	;90		;130	;-				;-		;-		;false	;-		;-		;2		;Sliding	;false	;5		;NewYork
+WARDROBE;LivingRoom	;Beech		;60		;200	;110	;235	;-				;-		;-		;true	;-		;-		;6		;Sliding	;true	;2		;Ocean
+WARDROBE;LivingRoom	;CherryTree	;55		;210	;130	;195	;-				;-		;-		;true	;-		;-		;5		;Double		;true	;1		;Peter
+WARDROBE;LivingRoom	;Pine		;60		;230	;200	;200	;-				;-		;-		;false	;-		;-		;8		;Sliding	;false	;4		;Queen
+WARDROBE;Bedroom	;Pine		;60		;235	;190	;305	;-				;-		;-		;true	;-		;-		;5		;Sliding	;true	;2		;Roger
+WARDROBE;Bedroom	;Beech		;45		;235	;200	;265	;-				;-		;-		;true	;-		;-		;3		;Double		;true	;1		;Sugar
+WARDROBE;Bedroom	;CherryTree	;55		;255	;210	;285	;-				;-		;-		;true	;-		;-		;5		;Sliding	;false	;3		;Thomas
+WARDROBE;Bedroom	;CherryTree	;60		;210	;200	;300	;-				;-		;-		;false	;-		;-		;5		;Sliding	;false	;2		;Union
+WARDROBE;Chamber	;Beech		;35		;140	;90		;130	;-				;-		;-		;false	;-		;-		;2		;Shutter	;false	;1		;William
+WARDROBE;Chamber	;Metal		;40		;120	;60		;135	;-				;-		;-		;false	;-		;-		;2		;Double		;false	;4		;Young
+WARDROBE;Chamber	;Pine		;45		;90		;60		;50		;-				;-		;-		;true	;-		;-		;0		;Double		;false	;3		;Zero
+WARDROBE;Garage		;Metal		;50		;60		;60		;65		;-				;-		;-		;false	;-		;-		;1		;Double		;false	;1		;Alice
+WARDROBE;Garage		;Plastic	;45		;70		;60		;95		;-				;-		;-		;false	;-		;-		;1		;Shutter	;false	;1		;Bob
+WARDROBE;Hall		;Metal		;35		;180	;80		;105	;-				;-		;-		;false	;-		;-		;3		;Shutter	;true	;2		;Carol
+WARDROBE;Hall		;Pine		;40		;150	;90		;95		;-				;-		;-		;false	;-		;-		;3		;Double		;false	;3		;Chuck

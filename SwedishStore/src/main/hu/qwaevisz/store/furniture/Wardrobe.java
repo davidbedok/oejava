@@ -2,6 +2,7 @@ package hu.qwaevisz.store.furniture;
 
 import hu.qwaevisz.store.api.AbstractFurniture;
 import hu.qwaevisz.store.api.BuiltInLampCapable;
+import hu.qwaevisz.store.common.CsvFurnitureType;
 import hu.qwaevisz.store.common.DoorType;
 import hu.qwaevisz.store.common.Material;
 import hu.qwaevisz.store.common.Room;
@@ -12,10 +13,12 @@ public class Wardrobe extends AbstractFurniture implements BuiltInLampCapable {
 	private final int		numberOfShelves;
 	private final DoorType	typeOfDoor;
 	private final boolean	mirror;
+
 	private final boolean	builtInLamp;
 
-	public Wardrobe(Room room, Material material, Size size, double price, int numberOfShelves, DoorType typeOfDoor, boolean mirror, boolean builtInLamp) {
-		super(room, material, size, price);
+	public Wardrobe(String fancyName, Room room, Material material, Size size, double price, int numberOfShelves, DoorType typeOfDoor, boolean mirror,
+			boolean builtInLamp) {
+		super(fancyName, room, material, size, price);
 		this.numberOfShelves = numberOfShelves;
 		this.typeOfDoor = typeOfDoor;
 		this.mirror = mirror;
@@ -65,8 +68,8 @@ public class Wardrobe extends AbstractFurniture implements BuiltInLampCapable {
 
 	@Override
 	public String toString() {
-		return "<Wardrobe> " + super.toString() + ", " + this.numberOfShelves + " shelf/shelves " + this.typeOfDoor + " " + (this.mirror ? "[Mirror]" : "")
-				+ (this.builtInLamp ? "[BuiltInLamp]" : "");
+		return CsvFurnitureType.WARDROBE.toString() + super.toString() + ", " + this.numberOfShelves + " shel(f/ves) " + this.typeOfDoor + " "
+				+ (this.mirror ? "[Mirror] " : "") + (this.builtInLamp ? "[BuiltInLamp]" : "");
 	}
 
 }

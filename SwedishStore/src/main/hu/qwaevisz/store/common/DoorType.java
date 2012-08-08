@@ -2,13 +2,19 @@ package hu.qwaevisz.store.common;
 
 public enum DoorType {
 
-	Double, // ketszarnyu
-	Sliding, // tolo
-	Shutter; // redony
+	Double("Double door"), // ketszarnyu
+	Sliding("Sliding door"), // tolo
+	Shutter("Shutter door"); // redony
+
+	private final String	label;
+
+	private DoorType(String label) {
+		this.label = label;
+	}
 
 	@Override
 	public String toString() {
-		return "[" + super.toString() + " doortype]";
+		return "[" + String.format("%-13s", this.label) + "]";
 	}
 
 }

@@ -2,7 +2,7 @@ package hu.qwaevisz.store.common;
 
 public final class Size {
 
-	public final static String	UNIT	= "mm";
+	public final static String	UNIT	= "cm";
 
 	private final double		width;			// szélesség
 	private final double		height;		// magasság
@@ -26,6 +26,10 @@ public final class Size {
 		return this.width;
 	}
 
+	public double getSurface() {
+		return this.width * this.length;
+	}
+
 	@Override
 	public int hashCode() {
 		return Double.valueOf(this.width).hashCode() * Double.valueOf(this.height).hashCode() * Double.valueOf(this.length).hashCode();
@@ -46,9 +50,20 @@ public final class Size {
 		return false;
 	}
 
+	private String formatValue(double value) {
+		return String.format("%3s", Math.round(value));
+	}
+
 	@Override
 	public String toString() {
-		return this.width + " x " + this.height + " x " + this.length + " (" + Size.UNIT + ")";
+		return this.formatValue(this.width) + "x" + this.formatValue(this.height) + "x" + this.formatValue(this.length) + " (" + Size.UNIT + ")";
+	}
+
+	public static Size fromString(String widthStr, String heightStr, String lengthStr) {
+		double width = Double.parseDouble(widthStr);
+		double height = Double.parseDouble(heightStr);
+		double length = Double.parseDouble(lengthStr);
+		return new Size(width, height, length);
 	}
 
 }

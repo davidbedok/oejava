@@ -2,6 +2,7 @@ package hu.qwaevisz.store.furniture;
 
 import hu.qwaevisz.store.api.AbstractFurniture;
 import hu.qwaevisz.store.api.CompactSizeCapable;
+import hu.qwaevisz.store.common.CsvFurnitureType;
 import hu.qwaevisz.store.common.Material;
 import hu.qwaevisz.store.common.Room;
 import hu.qwaevisz.store.common.Size;
@@ -13,8 +14,8 @@ public class Table extends AbstractFurniture implements CompactSizeCapable {
 
 	private final boolean	compactSize;
 
-	public Table(Room room, Material material, Size size, double price, int numberOfChairs, boolean scratchResistant, boolean compactSize) {
-		super(room, material, size, price);
+	public Table(String fancyName, Room room, Material material, Size size, double price, int numberOfChairs, boolean scratchResistant, boolean compactSize) {
+		super(fancyName, room, material, size, price);
 		this.numberOfChairs = numberOfChairs;
 		this.scratchResistant = scratchResistant;
 		this.compactSize = compactSize;
@@ -58,7 +59,7 @@ public class Table extends AbstractFurniture implements CompactSizeCapable {
 
 	@Override
 	public String toString() {
-		return "<Table> " + super.toString() + ", " + this.numberOfChairs + " chair(s) " + (this.scratchResistant ? "[ScratchResistant] " : "")
-				+ (this.compactSize ? "[CompactSize] " : "");
+		return CsvFurnitureType.TABLE.toString() + super.toString() + ", " + this.numberOfChairs + " chair(s) "
+				+ (this.scratchResistant ? "[ScratchResistant] " : "") + (this.compactSize ? "[CompactSize] " : "");
 	}
 }

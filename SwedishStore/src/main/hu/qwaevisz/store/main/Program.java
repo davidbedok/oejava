@@ -2,7 +2,6 @@ package hu.qwaevisz.store.main;
 
 import hu.qwaevisz.store.api.AbstractFurniture;
 import hu.qwaevisz.store.api.BuiltInLampCapable;
-import hu.qwaevisz.store.api.CompactSizeCapable;
 import hu.qwaevisz.store.common.DoorType;
 import hu.qwaevisz.store.common.Material;
 import hu.qwaevisz.store.common.Mattress;
@@ -10,9 +9,12 @@ import hu.qwaevisz.store.common.Room;
 import hu.qwaevisz.store.common.Size;
 import hu.qwaevisz.store.criteria.bad.BedSearchCriteria;
 import hu.qwaevisz.store.criteria.bad.FurnitureSearchCriteria;
+import hu.qwaevisz.store.criteria.common.ClassCriterion;
+import hu.qwaevisz.store.criteria.common.MaterialCriterion;
+import hu.qwaevisz.store.criteria.common.RoomCriterion;
+import hu.qwaevisz.store.criteria.common.SizeHeightCriterion;
 import hu.qwaevisz.store.engine.FurnitureSearch;
 import hu.qwaevisz.store.engine.Store;
-import hu.qwaevisz.store.furniture.Bed;
 import hu.qwaevisz.store.furniture.Wardrobe;
 
 import java.util.List;
@@ -23,13 +25,13 @@ public class Program {
 
 		Store store = new Store();
 		Size size = new Size(10, 10, 10);
-		store.addBed(Room.Bathroom, Material.Beech, size, 42, Mattress.Antiallergic, true, false, false, 2);
-		store.addBed(Room.Bathroom, Material.Beech, size, 42, Mattress.Antiallergic, false, false, false, 3);
-		store.addTable(Room.Chamber, Material.Beech, new Size(10, 18, 10), 30, 4, false, true, 3);
-		store.addBed(Room.Bedroom, Material.Beech, size, 42, Mattress.Comfortable, true, false, false, 1);
-		store.addBed(Room.Bathroom, Material.Metal, size, 42, Mattress.Healthy, false, true, false, 6);
-		store.addBed(Room.Chamber, Material.Beech, new Size(10, 15, 10), 42, Mattress.Antiallergic, true, false, true, 6);
-		store.addWardrobe(Room.Bathroom, Material.Oak, size, 20, 1, DoorType.Shutter, true, false, 2);
+		store.addBed("Alpha", Room.Bathroom, Material.Beech, size, 42, Mattress.Antiallergic, true, false, false, 2);
+		store.addBed("Bravo", Room.Bathroom, Material.Beech, size, 42, Mattress.Antiallergic, false, false, false, 3);
+		store.addTable("Charlie", Room.Chamber, Material.Beech, new Size(10, 18, 10), 30, 4, false, true, 3);
+		store.addBed("Delta", Room.Bedroom, Material.Beech, size, 42, Mattress.Comfortable, true, false, false, 1);
+		store.addBed("Echo", Room.Bathroom, Material.Metal, size, 42, Mattress.Healthy, false, true, false, 6);
+		store.addBed("Foxtrot", Room.Chamber, Material.Beech, new Size(10, 15, 10), 42, Mattress.Antiallergic, true, false, true, 6);
+		store.addWardrobe("Golf", Room.Bathroom, Material.Oak, size, 20, 1, DoorType.Shutter, true, false, 2);
 
 		System.out.println(store);
 
@@ -95,29 +97,6 @@ public class Program {
 		Program.echoSearchResult("Composite", store.search(searchB));
 	}
 
-	private static void fewgre(Store store) {
-
-		FurnitureSearch search = new FurnitureSearch();
-		search.addMaterialCriterion(Material.Oak, Material.Beech, Material.Pine, Material.CherryTree);
-		search.addBedMattressCriterion(Mattress.Antiallergic);
-		search.addClassCriterion(CompactSizeCapable.class);
-		search.addRoomCriterion(Room.Hall);
-		search.addClassCriterion(BuiltInLampCapable.class);
-
-		search.addClassCriterion(Wardrobe.class, BuiltInLampCapable.class);
-		search.addPriceCriterion(null, 300.);
-		search.addWardrobeMirrorCriterion(true);
-		search.addCompactSizeCriterion(true);
-		search.addBedMattressCriterion(Mattress.Antiallergic, Mattress.Healthy);
-		search.addRoomCriterion(Room.Bedroom, Room.LivingRoom);
-		search.addClassCriterion(Bed.class);
-		search.addBuiltInLampCriterion(true);
-		search.addClassCriterion(Wardrobe.class);
-		search.addSizeHeightCriterion(200., 240.);
-
-		List<AbstractFurniture> items = store.search(search);
-	}
-
 	private static void echoSearchResult(String header, List<AbstractFurniture> items) {
 		System.out.println("Search result (" + header + "): ");
 		for (AbstractFurniture furniture : items) {
@@ -125,8 +104,36 @@ public class Program {
 		}
 	}
 
+	private static void storeFromFile() {
+		Store store = new Store("resources/furniture.csv");
+		System.out.println(store);
+
+		FurnitureSearch search = new FurnitureSearch();
+		search.addSizeSurfaceCriterion(null, 2500.);
+		Program.echoSearchResult("Surface", store.search(search));
+
+		FurnitureSearch search2 = FurnitureSearch.create(new SizeHeightCriterion(220., 270.), new ClassCriterion(Wardrobe.class));
+		Program.echoSearchResult("High wardrobe", store.search(search2));
+
+		FurnitureSearch search3 = new FurnitureSearch();
+		search3.add(new RoomCriterion(Room.Hall, Room.Garage)).add(new MaterialCriterion(Material.Metal));
+		Program.echoSearchResult("Combine", store.search(search3));
+
+		FurnitureSearch search4 = FurnitureSearch.create(new SizeHeightCriterion(220., 270.), new ClassCriterion(Wardrobe.class)).add(
+				new RoomCriterion(Room.Bedroom));
+
+		List<AbstractFurniture> listOfFurniture = store.search(search4);
+
+		Program.echoSearchResult("S4", listOfFurniture);
+		// Integer count = store.getCount(listOfFurniture.get(0));
+		store.buy(listOfFurniture.get(0), 2);
+
+		Program.echoSearchResult("After buy", store.search(search4));
+	}
+
 	public static void main(String[] args) {
-		Program.testStore();
+		// Program.testStore();
+		Program.storeFromFile();
 	}
 
 }

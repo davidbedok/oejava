@@ -3,6 +3,7 @@ package hu.qwaevisz.store.furniture;
 import hu.qwaevisz.store.api.AbstractFurniture;
 import hu.qwaevisz.store.api.BuiltInLampCapable;
 import hu.qwaevisz.store.api.CompactSizeCapable;
+import hu.qwaevisz.store.common.CsvFurnitureType;
 import hu.qwaevisz.store.common.Material;
 import hu.qwaevisz.store.common.Mattress;
 import hu.qwaevisz.store.common.Room;
@@ -15,8 +16,9 @@ public class Bed extends AbstractFurniture implements BuiltInLampCapable, Compac
 	private final boolean	compactSize;
 	private final boolean	builtInLamp;
 
-	public Bed(Room room, Material material, Size size, double price, Mattress mattress, boolean doubleSize, boolean compactSize, boolean builtInLamp) {
-		super(room, material, size, price);
+	public Bed(String fancyName, Room room, Material material, Size size, double price, Mattress mattress, boolean doubleSize, boolean compactSize,
+			boolean builtInLamp) {
+		super(fancyName, room, material, size, price);
 		this.mattress = mattress;
 		this.doubleSize = doubleSize;
 		this.compactSize = compactSize;
@@ -67,7 +69,7 @@ public class Bed extends AbstractFurniture implements BuiltInLampCapable, Compac
 
 	@Override
 	public String toString() {
-		return "<Bed> " + super.toString() + " " + this.mattress + " " + (this.doubleSize ? "[DoubleSize] " : "[SingleSize] ")
+		return CsvFurnitureType.BED.toString() + super.toString() + " " + this.mattress + " " + (this.doubleSize ? "[DoubleSize] " : "[SingleSize] ")
 				+ (this.compactSize ? "[CompactSize] " : "") + (this.builtInLamp ? "[BuiltInLamp]" : "");
 	}
 

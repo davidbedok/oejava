@@ -8,13 +8,15 @@ public abstract class AbstractFurniture {
 
 	private static final String	CURRENCY	= "EUR";
 
+	protected final String		fancyName;
 	protected final Room		room;
 	protected final Material	material;
 	protected final Size		size;
 
 	protected final double		price;
 
-	public AbstractFurniture(final Room room, final Material material, final Size size, double price) {
+	public AbstractFurniture(final String fancyName, final Room room, final Material material, final Size size, double price) {
+		this.fancyName = fancyName;
 		this.room = room;
 		this.material = material;
 		this.size = size;
@@ -35,6 +37,10 @@ public abstract class AbstractFurniture {
 
 	public Size getSize() {
 		return this.size;
+	}
+
+	public String getFancyName() {
+		return this.fancyName;
 	}
 
 	@Override
@@ -59,7 +65,8 @@ public abstract class AbstractFurniture {
 
 	@Override
 	public String toString() {
-		return this.room + " " + this.material + " " + this.size + " " + this.price + " " + AbstractFurniture.CURRENCY;
+		return String.format("%-10s", this.fancyName.toUpperCase()) + this.room + " " + this.material + " " + this.size + " "
+				+ String.format("%3s", Math.round(this.price)) + " " + AbstractFurniture.CURRENCY;
 	}
 
 }

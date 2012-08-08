@@ -15,6 +15,7 @@ import hu.qwaevisz.store.criteria.common.PriceCriterion;
 import hu.qwaevisz.store.criteria.common.RoomCriterion;
 import hu.qwaevisz.store.criteria.common.SizeHeightCriterion;
 import hu.qwaevisz.store.criteria.common.SizeLengthCriterion;
+import hu.qwaevisz.store.criteria.common.SizeSurfaceCriterion;
 import hu.qwaevisz.store.criteria.common.SizeWidthCriterion;
 import hu.qwaevisz.store.criteria.spec.BedDoubleSizeCriterion;
 import hu.qwaevisz.store.criteria.spec.BedMattressCriterion;
@@ -35,11 +36,28 @@ public class FurnitureSearch implements IFurnitureSearch, FurnitureCriterion {
 		this.criteria = new ArrayList<FurnitureCriterion>();
 	}
 
+	public FurnitureSearch(FurnitureCriterion criterion) {
+		this();
+		this.addCriterion(criterion);
+	}
+
+	public FurnitureSearch(FurnitureSearch baseSearch) {
+		this();
+		this.addFurnitureSearchCriterion(baseSearch);
+	}
+
 	// private
 	public void addCriterion(FurnitureCriterion criterion) {
 		if (!this.criteria.contains(criterion)) {
 			this.criteria.add(criterion);
 		}
+	}
+
+	public FurnitureSearch add(FurnitureCriterion criterion) {
+		if (!this.criteria.contains(criterion)) {
+			this.criteria.add(criterion);
+		}
+		return this;
 	}
 
 	@Override
@@ -126,6 +144,10 @@ public class FurnitureSearch implements IFurnitureSearch, FurnitureCriterion {
 		this.addCriterion(search);
 	}
 
+	public void addSizeSurfaceCriterion(Double minValue, Double maxValue) {
+		this.addCriterion(new SizeSurfaceCriterion(minValue, maxValue));
+	}
+
 	@Override
 	public boolean isValid(AbstractFurniture furniture) {
 		boolean valid = true;
@@ -136,6 +158,14 @@ public class FurnitureSearch implements IFurnitureSearch, FurnitureCriterion {
 			}
 		}
 		return valid;
+	}
+
+	public static FurnitureSearch create(FurnitureCriterion... criteria) {
+		FurnitureSearch search = new FurnitureSearch();
+		for (FurnitureCriterion criterion : criteria) {
+			search.addCriterion(criterion);
+		}
+		return search;
 	}
 
 }
