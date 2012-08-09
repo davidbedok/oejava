@@ -59,7 +59,18 @@ public class Table extends AbstractFurniture implements CompactSizeCapable {
 
 	@Override
 	public String toString() {
-		return CsvFurnitureType.TABLE.toString() + super.toString() + ", " + this.numberOfChairs + " chair(s) "
-				+ (this.scratchResistant ? "[ScratchResistant] " : "") + (this.compactSize ? "[CompactSize] " : "");
+		return super.toString() + ", " + this.numberOfChairs + " chair(s) " + (this.scratchResistant ? "[ScratchResistant] " : "")
+				+ (this.compactSize ? "[CompactSize] " : "");
 	}
+
+	@Override
+	protected String printType() {
+		return CsvFurnitureType.TABLE.toString();
+	}
+
+	@Override
+	protected String sellDetails() {
+		return "The table and the attached " + this.numberOfChairs + " chair(s) have to get from warehouse by customer.";
+	}
+
 }

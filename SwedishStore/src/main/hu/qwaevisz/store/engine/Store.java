@@ -24,6 +24,7 @@ import java.util.Map;
 
 public class Store implements IStore {
 
+	// final Map<Salable, Integer>
 	private final Map<AbstractFurniture, Integer>	items;
 
 	public Store() {
@@ -96,13 +97,16 @@ public class Store implements IStore {
 	}
 
 	@Override
-	public void buy(AbstractFurniture furniture, int count) {
+	public String buy(AbstractFurniture furniture, int count) {
+		String info = null;
 		if (this.items.containsKey(furniture)) {
 			Integer pieces = this.items.get(furniture);
 			if (count > 0 && (pieces - count) >= 0) {
+				info = furniture.sell(count);
 				this.addFurniture(furniture, new Integer(count * -1));
 			}
 		}
+		return info;
 	}
 
 	@Override

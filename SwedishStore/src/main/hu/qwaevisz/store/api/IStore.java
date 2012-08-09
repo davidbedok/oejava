@@ -26,6 +26,6 @@ public interface IStore {
 
 	abstract Integer getCount(AbstractFurniture furniture);
 
-	abstract void buy(AbstractFurniture furniture, int count);
+	abstract String buy(AbstractFurniture furniture, int count);
 
 }

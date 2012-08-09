@@ -68,8 +68,18 @@ public class Wardrobe extends AbstractFurniture implements BuiltInLampCapable {
 
 	@Override
 	public String toString() {
-		return CsvFurnitureType.WARDROBE.toString() + super.toString() + ", " + this.numberOfShelves + " shel(f/ves) " + this.typeOfDoor + " "
-				+ (this.mirror ? "[Mirror] " : "") + (this.builtInLamp ? "[BuiltInLamp]" : "");
+		return super.toString() + ", " + this.numberOfShelves + " shel(f/ves) " + this.typeOfDoor + " " + (this.mirror ? "[Mirror] " : "")
+				+ (this.builtInLamp ? "[BuiltInLamp]" : "");
+	}
+
+	@Override
+	protected String printType() {
+		return CsvFurnitureType.TABLE.toString();
+	}
+
+	@Override
+	protected String sellDetails() {
+		return "Frame have to get from warehouse by customer, but the " + this.typeOfDoor + " has to get by fellow worker of store.";
 	}
 
 }
