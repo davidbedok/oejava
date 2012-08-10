@@ -24,6 +24,8 @@ public interface IStore {
 
 	abstract void loadFurniture(String fileName);
 
+	abstract AbstractFurniture getFurnitureByFancyName(String fancyName);
+
 	abstract Integer getCount(AbstractFurniture furniture);
 
 	abstract String buy(AbstractFurniture furniture, int count);

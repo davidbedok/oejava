@@ -11,7 +11,7 @@ public interface IFurnitureSearch {
 
 	abstract void addMaterialCriterion(Material... values);
 
-	abstract void addSizeWithCriterion(Double minValue, Double maxValue);
+	abstract void addSizeWidthCriterion(Double minValue, Double maxValue);
 
 	abstract void addSizeHeightCriterion(Double minValue, Double maxValue);
 

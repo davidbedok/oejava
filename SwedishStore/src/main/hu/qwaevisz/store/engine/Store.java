@@ -114,7 +114,7 @@ public class Store implements IStore {
 		StringBuilder info = new StringBuilder(100);
 		for (AbstractFurniture furniture : this.items.keySet()) {
 			Integer count = this.items.get(furniture);
-			info.append(String.format("[%2s piece(s)] ", Math.round(count))).append(furniture).append("\n");
+			info.append(String.format("%2s piece(s) - ", Math.round(count))).append(furniture).append("\n");
 		}
 		return info.toString();
 	}
@@ -172,6 +172,18 @@ public class Store implements IStore {
 				}
 			}
 		}
+	}
+
+	@Override
+	public AbstractFurniture getFurnitureByFancyName(String fancyName) {
+		AbstractFurniture ret = null;
+		for (AbstractFurniture furniture : this.items.keySet()) {
+			if (fancyName.equals(furniture.getFancyName())) {
+				ret = furniture;
+				break;
+			}
+		}
+		return ret;
 	}
 
 }

@@ -4,9 +4,9 @@ public final class Size {
 
 	public final static String	UNIT	= "cm";
 
-	private final double		width;			// szélesség
-	private final double		height;		// magasság
-	private final double		length;		// hosszúság
+	private final double		width;
+	private final double		height;
+	private final double		length;
 
 	public Size(double width, double height, double length) {
 		this.width = width;

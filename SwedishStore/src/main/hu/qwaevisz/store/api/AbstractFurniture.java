@@ -68,7 +68,10 @@ public abstract class AbstractFurniture implements Salable {
 			return false;
 		}
 		AbstractFurniture that = (AbstractFurniture) othat;
-		if ((this.room.equals(that.room)) && this.material.equals(that.material) && this.size.equals(that.size)) {
+		if ((this.fancyName.equals(that.fancyName) //
+				&& this.room.equals(that.room)) //
+				&& this.material.equals(that.material) //
+				&& this.size.equals(that.size)) {
 			return true;
 		}
 		return false;

@@ -67,6 +67,10 @@ public class Bed extends AbstractFurniture implements BuiltInLampCapable, Compac
 		return false;
 	}
 
+	public boolean equalsTest(Object othat) {
+		return super.equals(othat);
+	}
+
 	@Override
 	public String toString() {
 		return super.toString() + " " + this.mattress + " " + (this.doubleSize ? "[DoubleSize] " : "[SingleSize] ")
