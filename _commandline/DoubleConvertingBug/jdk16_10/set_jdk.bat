@@ -1,0 +1,1 @@
+call set_jdk16_10.bat

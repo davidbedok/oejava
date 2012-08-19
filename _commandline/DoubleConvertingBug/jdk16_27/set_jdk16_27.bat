@@ -1,0 +1,1 @@
+set JAVA_BIN=c:\qapps\Java\jdk1.6.0_27\bin

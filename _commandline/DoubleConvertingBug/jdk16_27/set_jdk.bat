@@ -1,0 +1,1 @@
+call set_jdk16_27.bat
