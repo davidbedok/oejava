@@ -71,7 +71,7 @@ public class FurnitureSearch implements IFurnitureSearch, FurnitureCriterion {
 	}
 
 	@Override
-	public void addSizeWithCriterion(Double minValue, Double maxValue) {
+	public void addSizeWidthCriterion(Double minValue, Double maxValue) {
 		this.addCriterion(new SizeWidthCriterion(minValue, maxValue));
 	}
 

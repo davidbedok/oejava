@@ -24,6 +24,7 @@ import java.util.Map;
 
 public class Store implements IStore {
 
+	// final Map<Salable, Integer>
 	private final Map<AbstractFurniture, Integer>	items;
 
 	public Store() {
@@ -96,13 +97,16 @@ public class Store implements IStore {
 	}
 
 	@Override
-	public void buy(AbstractFurniture furniture, int count) {
+	public String buy(AbstractFurniture furniture, int count) {
+		String info = null;
 		if (this.items.containsKey(furniture)) {
 			Integer pieces = this.items.get(furniture);
 			if (count > 0 && (pieces - count) >= 0) {
+				info = furniture.sell(count);
 				this.addFurniture(furniture, new Integer(count * -1));
 			}
 		}
+		return info;
 	}
 
 	@Override
@@ -110,7 +114,7 @@ public class Store implements IStore {
 		StringBuilder info = new StringBuilder(100);
 		for (AbstractFurniture furniture : this.items.keySet()) {
 			Integer count = this.items.get(furniture);
-			info.append(String.format("[%2s piece(s)] ", Math.round(count))).append(furniture).append("\n");
+			info.append(String.format("%2s piece(s) - ", Math.round(count))).append(furniture).append("\n");
 		}
 		return info.toString();
 	}
@@ -168,6 +172,18 @@ public class Store implements IStore {
 				}
 			}
 		}
+	}
+
+	@Override
+	public AbstractFurniture getFurnitureByFancyName(String fancyName) {
+		AbstractFurniture ret = null;
+		for (AbstractFurniture furniture : this.items.keySet()) {
+			if (fancyName.equals(furniture.getFancyName())) {
+				ret = furniture;
+				break;
+			}
+		}
+		return ret;
 	}
 
 }

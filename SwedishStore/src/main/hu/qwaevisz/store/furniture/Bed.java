@@ -67,10 +67,24 @@ public class Bed extends AbstractFurniture implements BuiltInLampCapable, Compac
 		return false;
 	}
 
+	public boolean equalsTest(Object othat) {
+		return super.equals(othat);
+	}
+
 	@Override
 	public String toString() {
-		return CsvFurnitureType.BED.toString() + super.toString() + " " + this.mattress + " " + (this.doubleSize ? "[DoubleSize] " : "[SingleSize] ")
+		return super.toString() + " " + this.mattress + " " + (this.doubleSize ? "[DoubleSize] " : "[SingleSize] ")
 				+ (this.compactSize ? "[CompactSize] " : "") + (this.builtInLamp ? "[BuiltInLamp]" : "");
+	}
+
+	@Override
+	protected String printType() {
+		return CsvFurnitureType.BED.toString();
+	}
+
+	@Override
+	protected String sellDetails() {
+		return "Slats have to get from warehouse by customer, but the " + this.mattress + " has to get by fellow worker of store.";
 	}
 
 }

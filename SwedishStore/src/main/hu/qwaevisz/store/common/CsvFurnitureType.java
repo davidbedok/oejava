@@ -1,6 +1,7 @@
 package hu.qwaevisz.store.common;
 
 public enum CsvFurnitureType {
+
 	BED("Bed"), //
 	TABLE("Table"), //
 	WARDROBE("Wardrobe");
@@ -13,7 +14,7 @@ public enum CsvFurnitureType {
 
 	@Override
 	public String toString() {
-		return String.format("%-9s", this.label) + ": ";
+		return String.format("%-9s", this.label);
 	}
 
 }

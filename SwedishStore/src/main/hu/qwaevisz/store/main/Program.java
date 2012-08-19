@@ -126,7 +126,7 @@ public class Program {
 
 		Program.echoSearchResult("S4", listOfFurniture);
 		// Integer count = store.getCount(listOfFurniture.get(0));
-		store.buy(listOfFurniture.get(0), 2);
+		System.out.println(store.buy(listOfFurniture.get(0), 2));
 
 		Program.echoSearchResult("After buy", store.search(search4));
 	}

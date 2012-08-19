@@ -4,7 +4,7 @@ import hu.qwaevisz.store.common.Material;
 import hu.qwaevisz.store.common.Room;
 import hu.qwaevisz.store.common.Size;
 
-public abstract class AbstractFurniture {
+public abstract class AbstractFurniture implements Salable {
 
 	private static final String	CURRENCY	= "EUR";
 
@@ -27,6 +27,7 @@ public abstract class AbstractFurniture {
 		return this.material;
 	}
 
+	@Override
 	public double getPrice() {
 		return this.price;
 	}
@@ -39,6 +40,7 @@ public abstract class AbstractFurniture {
 		return this.size;
 	}
 
+	@Override
 	public String getFancyName() {
 		return this.fancyName;
 	}
@@ -49,6 +51,15 @@ public abstract class AbstractFurniture {
 	}
 
 	@Override
+	public String sell(int pieces) {
+		return pieces + " piece(s) " + this.printFancyName() + " " + this.printType() + " was sold. " + this.sellDetails();
+	}
+
+	protected abstract String printType();
+
+	protected abstract String sellDetails();
+
+	@Override
 	public boolean equals(Object othat) {
 		if (this == othat) {
 			return true;
@@ -57,7 +68,10 @@ public abstract class AbstractFurniture {
 			return false;
 		}
 		AbstractFurniture that = (AbstractFurniture) othat;
-		if ((this.room.equals(that.room)) && this.material.equals(that.material) && this.size.equals(that.size)) {
+		if ((this.fancyName.equals(that.fancyName) //
+				&& this.room.equals(that.room)) //
+				&& this.material.equals(that.material) //
+				&& this.size.equals(that.size)) {
 			return true;
 		}
 		return false;
@@ -65,8 +79,12 @@ public abstract class AbstractFurniture {
 
 	@Override
 	public String toString() {
-		return String.format("%-10s", this.fancyName.toUpperCase()) + this.room + " " + this.material + " " + this.size + " "
+		return this.printType() + this.printFancyName() + this.room + " " + this.material + " " + this.size + " "
 				+ String.format("%3s", Math.round(this.price)) + " " + AbstractFurniture.CURRENCY;
+	}
+
+	private String printFancyName() {
+		return String.format("%-10s", this.fancyName.toUpperCase());
 	}
 
 }
