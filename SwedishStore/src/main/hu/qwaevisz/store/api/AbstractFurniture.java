@@ -61,9 +61,9 @@ public abstract class AbstractFurniture implements Salable {
 
 	@Override
 	public boolean equals(Object othat) {
-		if (this == othat) {
-			return true;
-		}
+		// if (this == othat) {
+		// return true;
+		// }
 		if (!(othat instanceof AbstractFurniture)) {
 			return false;
 		}
