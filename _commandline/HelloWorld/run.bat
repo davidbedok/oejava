@@ -1,3 +1,3 @@
 @echo off
 call set.bat
-%JAVA_BIN%\java hu.qwaevisz.demo.HelloWorld
+%JAVA_BIN%\java -cp .\bin hu.qwaevisz.demo.HelloWorld

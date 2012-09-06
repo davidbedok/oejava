@@ -1,1 +1,1 @@
-set JAVA_BIN=c:\qapps\Java\jdk1.6.0_27\bin
+set JAVA_BIN=c:\qapps\Java\jdk1.7.0_06\bin
