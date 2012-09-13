@@ -2,6 +2,65 @@ package hu.qwaevisz.theorem;
 
 public class Theorems {
 
+	public static int summation(int[] data) {
+		int result = 0;
+		for (int i = 0; i < data.length; i++) {
+			result += data[i];
+		}
+		return result;
+	}
+
+	public static boolean decisionDivisible(int[] data, int divider) {
+		int i = 0;
+		while ((data[i] % divider != 0) && (i < data.length)) {
+			i++;
+		}
+		return (i < data.length);
+	}
+
+	public static int selectionDivisible(int[] data, int divider) {
+		int i = 0;
+		while (data[i] % divider != 0) {
+			i++;
+		}
+		return i;
+	}
+
+	public static int countingDivisible(int[] data, int divider) {
+		int count = 0;
+		for (int i = 0; i < data.length; i++) {
+			if (data[i] % divider == 0) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static int maximumSelection(int[] data) {
+		int maximum = -1;
+		if (data.length > 0) {
+			maximum = data[0];
+			for (int i = 1; i < data.length; i++) {
+				if (maximum < data[i]) {
+					maximum = data[i];
+				}
+			}
+		}
+		return maximum;
+	}
+
+	public static int[] assortmentDivisible(int[] data, int divider) {
+		int numberOfDivisibleItem = Theorems.countingDivisible(data, divider);
+		int[] divisibleData = new int[numberOfDivisibleItem];
+		int index = 0;
+		for (int i = 0; i < data.length; i++) {
+			if (data[i] % divider == 0) {
+				divisibleData[index++] = data[i];
+			}
+		}
+		return divisibleData;
+	}
+
 	public static int countItem(int[] data, int item) {
 		int count = 0;
 		for (int i = 1; i < data.length; i++) {
