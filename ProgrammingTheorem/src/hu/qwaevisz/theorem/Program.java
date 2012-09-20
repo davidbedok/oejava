@@ -102,19 +102,47 @@ public class Program {
 		System.out.println("minimumSelectionSort: " + Arrays.toString(data));
 	}
 
+	private static void testLinearSearch() {
+		System.out.println("# linearSearch");
+		int[] data = { 10, 3, 8, 4, 5, 2 };
+		System.out.println("data: " + Arrays.toString(data));
+		int index = Theorems.linearSearch(data, 8);
+		System.out.println("index: " + index);
+	}
+
+	private static void testLinearSearchInSortedArray() {
+		System.out.println("# linearSearchInSortedArray");
+		int[] data = { 2, 3, 4, 5, 8, 10 };
+		System.out.println("data: " + Arrays.toString(data));
+		int index = Theorems.linearSearchInSortedArray(data, 8);
+		System.out.println("index: " + index);
+	}
+
+	private static void testBinarySearch() {
+		System.out.println("# binarySearch");
+		int[] data = { 2, 3, 4, 5, 8, 10 };
+		System.out.println("data: " + Arrays.toString(data));
+		int index = Theorems.binarySearch(data, 8);
+		System.out.println("index: " + index);
+	}
+
 	public static void main(String[] args) {
-		// Program.testSummation();
-		// Program.testDecisionDivisible();
-		// Program.testSelectionDivisible();
-		// Program.testCountingDivisible();
-		// Program.testMaximumSelection();
-		// Program.testAssortmentDivisible();
-		// Program.testSeparateParity();
+		Program.testSummation();
+		Program.testDecisionDivisible();
+		Program.testSelectionDivisible();
+		Program.testCountingDivisible();
+		Program.testMaximumSelection();
+		Program.testAssortmentDivisible();
+		Program.testSeparateParity();
 		Program.testUnion();
 		Program.testIntersect();
 		Program.testRunUpSortedSet();
 		Program.testSimpleSwapSort();
 		Program.testMinimumSelectionSort();
+		Program.testLinearSearch();
+		Program.testLinearSearchInSortedArray();
+		Program.testBinarySearch();
+
 		// Program.testPassingParameters();
 	}
 

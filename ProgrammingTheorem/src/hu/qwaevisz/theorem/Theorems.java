@@ -199,6 +199,12 @@ public class Theorems {
 		}
 	}
 
+	private static void swap(int[] data, int indexA, int indexB) {
+		int tmp = data[indexA];
+		data[indexA] = data[indexB];
+		data[indexB] = tmp;
+	}
+
 	public static void minimumSelectionSort(int[] data) {
 		if (data.length > 0) {
 			int minPos;
@@ -214,10 +220,45 @@ public class Theorems {
 		}
 	}
 
-	private static void swap(int[] data, int indexA, int indexB) {
-		int tmp = data[indexA];
-		data[indexA] = data[indexB];
-		data[indexB] = tmp;
+	public static int linearSearch(int[] data, int element) {
+		int index = -1;
+		int i = 0;
+		while ((data[i] != element) && (i < data.length)) {
+			i++;
+		}
+		if (i < data.length) {
+			index = i;
+		}
+		return index;
+	}
+
+	public static int linearSearchInSortedArray(int[] data, int element) {
+		int index = -1;
+		int i = 0;
+		while ((data[i] < element) && (i < data.length)) {
+			i++;
+		}
+		if ((i < data.length) && (data[i] == element)) {
+			index = i;
+		}
+		return index;
+	}
+
+	public static int binarySearch(int[] data, int element) {
+		int lower = 0;
+		int upper = data.length - 1;
+		int index = -1;
+		while ((index == -1) && (lower <= upper)) {
+			int i = (lower + upper) / 2;
+			if (data[i] == element) {
+				index = i;
+			} else if (data[i] < element) {
+				lower = i + 1;
+			} else {
+				upper = i - 1;
+			}
+		}
+		return index;
 	}
 
 }
