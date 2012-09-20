@@ -12,21 +12,21 @@ public class Program {
 	}
 
 	private static void testDecisionDivisible() {
-		System.out.println("# decisionDivisible");
+		System.out.println("# decisionDivisible (3)");
 		int[] data = { 6, 4, 2, 8 };
 		System.out.println("input: " + Arrays.toString(data));
 		System.out.println("output: " + Theorems.decisionDivisible(data, 3));
 	}
 
 	private static void testSelectionDivisible() {
-		System.out.println("# selectionDivisible");
+		System.out.println("# selectionDivisible (3)");
 		int[] data = { 2, 6, 4, 8 };
 		System.out.println("input: " + Arrays.toString(data));
-		System.out.println("output: " + Theorems.selectionDivisible(data, 3));
+		System.out.println("output (index): " + Theorems.selectionDivisible(data, 3));
 	}
 
 	private static void testCountingDivisible() {
-		System.out.println("# countingDivisible");
+		System.out.println("# countingDivisible (3)");
 		int[] data = { 4, 1, 6, 12, 7, 5 };
 		System.out.println("input: " + Arrays.toString(data));
 		System.out.println("output: " + Theorems.countingDivisible(data, 3));
@@ -40,7 +40,7 @@ public class Program {
 	}
 
 	private static void testAssortmentDivisible() {
-		System.out.println("# assortmentDivisible");
+		System.out.println("# assortmentDivisible (3)");
 		int[] data = { 2, 15, 7, 6, 9, 12, 11 };
 		System.out.println("input: " + Arrays.toString(data));
 		int[] divisibleData = Theorems.assortmentDivisible(data, 3);
@@ -103,7 +103,7 @@ public class Program {
 	}
 
 	private static void testLinearSearch() {
-		System.out.println("# linearSearch");
+		System.out.println("# linearSearch (8)");
 		int[] data = { 10, 3, 8, 4, 5, 2 };
 		System.out.println("data: " + Arrays.toString(data));
 		int index = Theorems.linearSearch(data, 8);
@@ -111,7 +111,7 @@ public class Program {
 	}
 
 	private static void testLinearSearchInSortedArray() {
-		System.out.println("# linearSearchInSortedArray");
+		System.out.println("# linearSearchInSortedArray (8)");
 		int[] data = { 2, 3, 4, 5, 8, 10 };
 		System.out.println("data: " + Arrays.toString(data));
 		int index = Theorems.linearSearchInSortedArray(data, 8);
@@ -119,7 +119,7 @@ public class Program {
 	}
 
 	private static void testBinarySearch() {
-		System.out.println("# binarySearch");
+		System.out.println("# binarySearch (8)");
 		int[] data = { 2, 3, 4, 5, 8, 10 };
 		System.out.println("data: " + Arrays.toString(data));
 		int index = Theorems.binarySearch(data, 8);
