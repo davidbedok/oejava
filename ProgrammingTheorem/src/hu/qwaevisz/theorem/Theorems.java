@@ -12,7 +12,7 @@ public class Theorems {
 
 	public static boolean decisionDivisible(int[] data, int divider) {
 		int i = 0;
-		while ((data[i] % divider != 0) && (i < data.length)) {
+		while ((i < data.length) && (data[i] % divider != 0)) {
 			i++;
 		}
 		return (i < data.length);
@@ -146,7 +146,7 @@ public class Theorems {
 	}
 
 	public static int[] intersect(int[] dataA, int[] dataB) {
-		int[] intersect = new int[dataA.length + dataB.length];
+		int[] intersect = new int[Math.min(dataA.length, dataB.length)];
 		int index = 0;
 		for (int j = 0; j < dataA.length; j++) {
 			int i = 0;
@@ -223,7 +223,7 @@ public class Theorems {
 	public static int linearSearch(int[] data, int element) {
 		int index = -1;
 		int i = 0;
-		while ((data[i] != element) && (i < data.length)) {
+		while ((i < data.length) && (data[i] != element)) {
 			i++;
 		}
 		if (i < data.length) {
@@ -235,7 +235,7 @@ public class Theorems {
 	public static int linearSearchInSortedArray(int[] data, int element) {
 		int index = -1;
 		int i = 0;
-		while ((data[i] < element) && (i < data.length)) {
+		while ((i < data.length) && (data[i] < element)) {
 			i++;
 		}
 		if ((i < data.length) && (data[i] == element)) {

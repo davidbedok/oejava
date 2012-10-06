@@ -78,7 +78,7 @@ public class Program {
 
 	private static void testRunUpSortedSet() {
 		System.out.println("# runUpSortedSet");
-		int[] dataA = { 2, 3, 5, 12 };
+		int[] dataA = { 3, 4, 5, 8, 12, 17, 23, 42 };
 		int[] dataB = { 1, 2, 3, 8, 9 };
 		System.out.println("dataA: " + Arrays.toString(dataA));
 		System.out.println("dataB: " + Arrays.toString(dataB));
