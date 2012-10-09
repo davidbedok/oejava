@@ -10,7 +10,7 @@ package hu.qwaevisz.problem;
  * @author edvibed
  * 
  */
-public class Problem002 {
+public class Problem002fibonacci {
 
 	public int fibonacci(int index) {
 		if (index < 3) {

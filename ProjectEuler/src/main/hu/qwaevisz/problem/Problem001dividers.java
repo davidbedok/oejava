@@ -7,7 +7,7 @@ package hu.qwaevisz.problem;
  * @author edvibed
  * 
  */
-public class Problem001 {
+public class Problem001dividers {
 
 	public int sumOfAllTheMultiples(int startNumber, int endNumber, int[] dividers) {
 		int sum = 0;

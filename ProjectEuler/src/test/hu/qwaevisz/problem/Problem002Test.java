@@ -6,11 +6,11 @@ import org.testng.annotations.Test;
 
 public class Problem002Test {
 
-	private Problem002	problem;
+	private Problem002fibonacci	problem;
 
 	@BeforeMethod
 	public void setup() {
-		this.problem = new Problem002();
+		this.problem = new Problem002fibonacci();
 	}
 
 	@Test(groups = "unit")
