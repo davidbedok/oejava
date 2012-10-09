@@ -2,30 +2,30 @@ package hu.qwaevisz.demo;
 
 public enum EdgeType implements DemoEnumable {
 
-	NORMAL("Normal arc", "NORMAL"), //
-	INHIBITOR("Inhibitor arc", "INHIBITOR"), //
-	RESET("Reset arc", "RESET");
+	NORMAL("Normal arc", 3.5), //
+	INHIBITOR("Inhibitor arc", 10.2), //
+	RESET("Reset arc", 6.12);
 
-	private String name;
-	private String value;
+	private final String	label;
+	private final double	magicValue;
 
-	private EdgeType(String name, String value) {
-		this.name = name;
-		this.value = value;
+	private EdgeType(String label, double magicValue) {
+		this.label = label;
+		this.magicValue = magicValue;
 	}
 
-	public String getName() {
-		return this.name;
+	public String getLabel() {
+		return this.label;
 	}
 
-	public String getValue() {
-		return this.value;
+	public double getMagicValue() {
+		return this.magicValue;
 	}
 
-	public static EdgeType getEnumByValue(String value) {
+	public static EdgeType getEnumByLabel(String label) {
 		EdgeType ret = EdgeType.getDefault();
 		for (EdgeType cs : EdgeType.values()) {
-			if (cs.getValue().equals(value)) {
+			if (cs.getLabel().equals(label)) {
 				ret = cs;
 			}
 		}
@@ -38,12 +38,12 @@ public enum EdgeType implements DemoEnumable {
 
 	@Override
 	public String toString() {
-		return this.name;
+		return this.label + " (" + this.magicValue + ") " + super.toString();
 	}
 
 	@Override
 	public void hello() {
-
+		// TODO
 	}
 
 }

@@ -34,14 +34,13 @@ public class Program {
 	public static void testEdgeType() {
 		System.out.println("# Test Edge Type");
 
-		EdgeType reset = EdgeType.getEnumByValue("RESET");
+		EdgeType reset = EdgeType.getEnumByLabel("Reset arc");
 		System.out.println(reset + " - " + reset.ordinal());
-		System.out.println("Name: " + reset.getName());
-		System.out.println("Value: " + reset.getValue());
+		System.out.println("Label: " + reset.getLabel());
+		System.out.println("MagicValue: " + reset.getMagicValue());
 
 		System.out.println("EdgeType isEnum? " + EdgeType.NORMAL.getClass().isEnum());
 		System.out.println("AbstractEdgeType isEnum? " + AbstractEdgeType.NORMAL.getClass().isEnum());
-
 	}
 
 	public static void main(String[] args) {

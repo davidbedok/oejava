@@ -13,7 +13,7 @@ public class MultiParam {
 	}
 
 	private String multiParam(Object... args) {
-		return multiParamArray(args);
+		return this.multiParamArray(args);
 	}
 
 	public static void main(String[] args) {

@@ -6,8 +6,6 @@ import hu.qwaevisz.movies.Comedy;
 import hu.qwaevisz.movies.Movie;
 
 import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Main {
 
@@ -44,13 +42,6 @@ public class Main {
 		for (int i = 0; i < isa.length; i++) {
 			isa[i].sell("Joska");
 		}
-
-		Map m = new HashMap();
-		m.put("dwsfew", "fwfew");
-
-		Map mm = new Krumpli();
-		mm.put("ferwfer", "fewfgerw");
-
 	}
 
 }

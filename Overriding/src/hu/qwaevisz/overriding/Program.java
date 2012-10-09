@@ -18,10 +18,9 @@ public class Program {
 		System.out.println("publicOverloadTest(42): " + child.publicOverrideTest(42));
 		System.out.println("protectedOverrideTest(42): " + child.protectedOverrideTest(42));
 
-		child.overrideDummy(new DummyMiddle());
-		// child.overrideDummy(new DummyBase()); // ClassCaseException ('cos bad implementation..)
+		// child.overrideDummy(new DummyMiddle()); // ClassCaseException
+		// child.overrideDummy(new DummyBase());
 		child.overrideDummy(new DummyChild());
-
 	}
 
 }

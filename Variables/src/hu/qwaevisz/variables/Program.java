@@ -335,14 +335,14 @@ public class Program {
 	}
 
 	public static void main(String[] args) {
-		// Program.useValueVariables();
-		// Program.useReferenceVariables();
-		// Program.useValueVariablesWrapperClass();
-		// Program.useReferenceVariablesComplex();
-		// Program.settingValueVariables();
-		// Program.settingReferenceVariables();
-		// Program.compareValueVariables();
-		// Program.compareReferenceVariables();
+		Program.useValueVariables();
+		Program.useReferenceVariables();
+		Program.useValueVariablesWrapperClass();
+		Program.useReferenceVariablesComplex();
+		Program.settingValueVariables();
+		Program.settingReferenceVariables();
+		Program.compareValueVariables();
+		Program.compareReferenceVariables();
 		Program.useString();
 	}
 

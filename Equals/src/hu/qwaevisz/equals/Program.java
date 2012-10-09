@@ -78,8 +78,8 @@ public class Program {
 	}
 
 	public static void main(String[] args) {
-		// Program.testEqualsInCar();
-		// Program.testEqualsInCarWithEquals();
+		Program.testEqualsInCar();
+		Program.testEqualsInCarWithEquals();
 		Program.testEqualsInCarWithHashCode();
 	}
 }

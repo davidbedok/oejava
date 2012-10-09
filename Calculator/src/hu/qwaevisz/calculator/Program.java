@@ -5,16 +5,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 
+/**
+ * Jelen program nelkuloz minden magasabb szintu tervezest, es clean code megkozelitest.
+ * 
+ * Egyetlen celja bemutatna alapveto console in/out muveleteket, egyszeru ertekadasokat es kifejezeseket.
+ * 
+ */
 public class Program extends java.lang.Object {
 
-	private static final int MAX = 20;
-	private static final int TASK_NUMBER = 3;
-	private int opA;
-	private int opB;
-	private int result;
-	private final Random rand;
+	private static final int	MAX			= 20;
+	private static final int	TASK_NUMBER	= 3;
+	private int					opA;
+	private int					opB;
+	private int					result;
+	private final Random		rand;
 
 	public static void main(String[] args) {
+		// Kesobbiekben ide uzleti logikat nem nagyon fogunk elhelyezni..
+
 		Program iProg = new Program();
 		iProg.generateOperations();
 		System.out.print(iProg);
