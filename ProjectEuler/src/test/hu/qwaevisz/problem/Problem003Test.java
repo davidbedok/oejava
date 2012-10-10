@@ -16,34 +16,6 @@ public class Problem003Test {
 	}
 
 	@Test(groups = "unit")
-	public void Number_is_prime_or_not() {
-		Assert.assertTrue(this.problem.isPrime(2));
-		Assert.assertTrue(this.problem.isPrime(3));
-		Assert.assertTrue(this.problem.isPrime(5));
-		Assert.assertTrue(this.problem.isPrime(7));
-		Assert.assertTrue(this.problem.isPrime(11));
-		Assert.assertTrue(this.problem.isPrime(13));
-
-		Assert.assertFalse(this.problem.isPrime(1));
-		Assert.assertFalse(this.problem.isPrime(4));
-		Assert.assertFalse(this.problem.isPrime(6));
-		Assert.assertFalse(this.problem.isPrime(8));
-		Assert.assertFalse(this.problem.isPrime(9));
-		Assert.assertFalse(this.problem.isPrime(10));
-	}
-
-	@Test(groups = "unit")
-	public void Calculate_next_prime_number() {
-		Assert.assertEquals(this.problem.getNextPrimeNumber(2), 3);
-		Assert.assertEquals(this.problem.getNextPrimeNumber(3), 5);
-		Assert.assertEquals(this.problem.getNextPrimeNumber(5), 7);
-		Assert.assertEquals(this.problem.getNextPrimeNumber(7), 11);
-		Assert.assertEquals(this.problem.getNextPrimeNumber(11), 13);
-		Assert.assertEquals(this.problem.getNextPrimeNumber(13), 17);
-		Assert.assertEquals(this.problem.getNextPrimeNumber(17), 19);
-	}
-
-	@Test(groups = "unit")
 	public void Calculate_prime_factors() {
 		this.assertPrimeFactors(this.problem.primeFactors(19), new long[] { 19 });
 		this.assertPrimeFactors(this.problem.primeFactors(20), new long[] { 2, 2, 5 });

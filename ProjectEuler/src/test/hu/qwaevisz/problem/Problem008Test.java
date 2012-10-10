@@ -6,11 +6,11 @@ import org.testng.annotations.Test;
 
 public class Problem008Test {
 
-	private Problem008	problem;
+	private Problem008window	problem;
 
 	@BeforeMethod
 	public void setup() {
-		this.problem = new Problem008();
+		this.problem = new Problem008window();
 	}
 
 	@Test(groups = "unit")

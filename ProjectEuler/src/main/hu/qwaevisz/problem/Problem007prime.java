@@ -1,5 +1,7 @@
 package hu.qwaevisz.problem;
 
+import hu.qwaevisz.util.PrimeCalculator;
+
 /**
  * By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
  * 
@@ -10,10 +12,10 @@ package hu.qwaevisz.problem;
  */
 public class Problem007prime {
 
-	private final Problem003primefactors	primeCalc;
+	private final PrimeCalculator	primeCalc;
 
 	public Problem007prime() {
-		this.primeCalc = new Problem003primefactors();
+		this.primeCalc = new PrimeCalculator();
 	}
 
 	public long getPrimeByIndex(int index) {
