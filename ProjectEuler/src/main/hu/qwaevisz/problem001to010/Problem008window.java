@@ -1,4 +1,4 @@
-package hu.qwaevisz.problem;
+package hu.qwaevisz.problem001to010;
 
 /**
  * Find the greatest product of five consecutive digits in the 1000-digit number.

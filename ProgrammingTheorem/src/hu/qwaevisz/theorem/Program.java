@@ -47,6 +47,16 @@ public class Program {
 		System.out.println("output: " + Arrays.toString(divisibleData));
 	}
 
+	private static void testAssortmentMinimums() {
+		System.out.println("# assortmentMinimums");
+		int[] data = { 7, 4, 2, 7, 2, 9, 8, 2 };
+		System.out.println("input: " + Arrays.toString(data));
+		int[] minimums = Theorems.assortmentMinimums(data);
+		System.out.println("output: " + Arrays.toString(minimums));
+		int[] minimumsAlter = Theorems.assortmentMinimumsAlter(data);
+		System.out.println("output: " + Arrays.toString(minimumsAlter));
+	}
+
 	private static void testSeparateParity() {
 		System.out.println("# separateParity");
 		int[] data = { 6, 1, 5, 2, 4, 9, 7, 3, 8 };
@@ -133,6 +143,7 @@ public class Program {
 		Program.testCountingDivisible();
 		Program.testMaximumSelection();
 		Program.testAssortmentDivisible();
+		Program.testAssortmentMinimums();
 		Program.testSeparateParity();
 		Program.testUnion();
 		Program.testIntersect();

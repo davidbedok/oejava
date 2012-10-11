@@ -1,6 +1,7 @@
-package hu.qwaevisz.problem;
+package hu.qwaevisz.problem001to010;
 
 import hu.qwaevisz.dto.PythagoreanTriplet;
+import hu.qwaevisz.problem001to010.Problem009pythagorean;
 
 import java.util.List;
 

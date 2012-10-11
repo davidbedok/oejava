@@ -1,6 +1,6 @@
 package hu.qwaevisz.util;
 
-import hu.qwaevisz.util.PrimeCalculator;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -41,6 +41,16 @@ public class PrimeCalculatorTest {
 		Assert.assertEquals(this.primeCalculator.getNextPrimeNumber(11), 13);
 		Assert.assertEquals(this.primeCalculator.getNextPrimeNumber(13), 17);
 		Assert.assertEquals(this.primeCalculator.getNextPrimeNumber(17), 19);
+	}
+
+	@Test(groups = "unit")
+	public void Print_all_prime_number_below_a_limit() {
+		List<Integer> primes = this.primeCalculator.eratosthenesAlgorithm(10);
+		Assert.assertEquals(primes.size(), 4);
+		Assert.assertEquals(primes.get(0), new Integer(2));
+		Assert.assertEquals(primes.get(1), new Integer(3));
+		Assert.assertEquals(primes.get(2), new Integer(5));
+		Assert.assertEquals(primes.get(3), new Integer(7));
 	}
 
 }

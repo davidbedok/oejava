@@ -1,5 +1,8 @@
 package hu.qwaevisz.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PrimeCalculator {
 
 	public boolean isPrime(long number) {
@@ -33,6 +36,32 @@ public class PrimeCalculator {
 			number += 2;
 		}
 		return number;
+	}
+
+	public List<Integer> eratosthenesAlgorithm(int limit) {
+		List<Integer> primes = new ArrayList<Integer>();
+		boolean[] sieve = new boolean[limit]; // szita
+		sieve[0] = true;
+		sieve[1] = true;
+		sieve[2] = false; // prime
+		double squareRootOfLimit = Math.sqrt(limit);
+		for (int i = 4; i < limit; i += 2) {
+			sieve[i] = true;
+		}
+		for (int i = 3; i < squareRootOfLimit; i += 2) {
+			if (!sieve[i]) {
+				// all second number are even, and its already have marked
+				for (int j = i * i; j < limit; j += 2 * i) {
+					sieve[j] = true;
+				}
+			}
+		}
+		for (int i = 2; i < limit; i++) {
+			if (!sieve[i]) {
+				primes.add(i);
+			}
+		}
+		return primes;
 	}
 
 }

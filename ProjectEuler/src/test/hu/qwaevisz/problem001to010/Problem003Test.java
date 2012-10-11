@@ -1,4 +1,6 @@
-package hu.qwaevisz.problem;
+package hu.qwaevisz.problem001to010;
+
+import hu.qwaevisz.problem001to010.Problem003primefactors;
 
 import java.util.List;
 

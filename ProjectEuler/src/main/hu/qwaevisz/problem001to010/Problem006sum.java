@@ -1,4 +1,4 @@
-package hu.qwaevisz.problem;
+package hu.qwaevisz.problem001to010;
 
 /**
  * The sum of the squares of the first ten natural numbers is,

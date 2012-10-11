@@ -1,4 +1,4 @@
-package hu.qwaevisz.problem;
+package hu.qwaevisz.problem001to010;
 
 import java.util.ArrayList;
 import java.util.Collections;
