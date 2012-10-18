@@ -1,8 +1,12 @@
 package hu.qwaevisz.oointro;
 
+import java.util.Calendar;
+
 public class Person {
 
 	private static final double CM2INCH = 0.393700787;
+
+	private static int peopleCounter = 0;
 
 	private final String birthName;
 	private final int birthYear;
@@ -12,9 +16,13 @@ public class Person {
 	private int weight;
 	private double heightInInches;
 
-	public Person(String birthName, int birthYear) {
+	private Hair hair;
+
+	public Person(String birthName, int birthYear, HairType typeOfHair) {
 		this.birthName = birthName;
 		this.birthYear = birthYear;
+		Person.peopleCounter++;
+		hair = new Hair(typeOfHair);
 	}
 
 	public String getNickName() {
@@ -56,6 +64,28 @@ public class Person {
 
 	public int getBirthYear() {
 		return birthYear;
+	}
+
+	public static int getPeopleCounter() {
+		return Person.peopleCounter;
+	}
+
+	public int lengthOfNick() {
+		int length = 0;
+		if (this.nickName != null) {
+			length = this.nickName.length();
+		}
+		return length;
+	}
+
+	public int age() {
+		Calendar sysdate = Calendar.getInstance();
+		int currentYear = sysdate.get(Calendar.YEAR);
+		return currentYear - this.getBirthYear();
+	}
+
+	public Hair getHair() {
+		return hair;
 	}
 
 }
