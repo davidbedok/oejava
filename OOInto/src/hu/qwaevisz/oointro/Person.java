@@ -16,17 +16,17 @@ public class Person {
 	private int weight;
 	private double heightInInches;
 
-	private Hair hair;
+	private final Hair hair;
 
 	public Person(String birthName, int birthYear, HairType typeOfHair) {
 		this.birthName = birthName;
 		this.birthYear = birthYear;
 		Person.peopleCounter++;
-		hair = new Hair(typeOfHair);
+		this.hair = new Hair(typeOfHair);
 	}
 
 	public String getNickName() {
-		return nickName;
+		return this.nickName;
 	}
 
 	public void setNickName(String nickName) {
@@ -34,7 +34,7 @@ public class Person {
 	}
 
 	public int getHeight() {
-		return height;
+		return this.height;
 	}
 
 	public void setHeight(int height) {
@@ -45,7 +45,7 @@ public class Person {
 	}
 
 	public int getWeight() {
-		return weight;
+		return this.weight;
 	}
 
 	public void setWeight(int weight) {
@@ -59,11 +59,11 @@ public class Person {
 	}
 
 	public String getBirthName() {
-		return birthName;
+		return this.birthName;
 	}
 
 	public int getBirthYear() {
-		return birthYear;
+		return this.birthYear;
 	}
 
 	public static int getPeopleCounter() {
@@ -85,7 +85,20 @@ public class Person {
 	}
 
 	public Hair getHair() {
-		return hair;
+		return this.hair;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder info = new StringBuilder();
+
+		info.append(this.birthName).append(" was born in ")
+				.append(this.birthYear).append(" (").append(this.age())
+				.append(" year(s) old)").append(".\n");
+		info.append("(S)he is ").append(this.height).append(" cm high and ")
+				.append(this.weight).append(" kg weight.\n");
+		info.append("His/her hair is ").append(this.hair.toString());
+		return info.toString();
 	}
 
 }

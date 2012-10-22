@@ -10,7 +10,7 @@ public class Hair {
 	}
 
 	public HairType getType() {
-		return type;
+		return this.type;
 	}
 
 	public void setType(HairType type) {
@@ -18,7 +18,7 @@ public class Hair {
 	}
 
 	public String getColor() {
-		return color;
+		return this.color;
 	}
 
 	public void setColor(String color) {
@@ -27,7 +27,7 @@ public class Hair {
 
 	@Override
 	public String toString() {
-		return this.color + " and " + this.type;
+		return (this.color != null ? this.color + " and " : "") + this.type;
 	}
 
 }
