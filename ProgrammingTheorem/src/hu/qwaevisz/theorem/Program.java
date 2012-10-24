@@ -47,16 +47,6 @@ public class Program {
 		System.out.println("output: " + Arrays.toString(divisibleData));
 	}
 
-	private static void testAssortmentMinimums() {
-		System.out.println("# assortmentMinimums");
-		int[] data = { 7, 4, 2, 7, 2, 9, 8, 2 };
-		System.out.println("input: " + Arrays.toString(data));
-		int[] minimums = Theorems.assortmentMinimums(data);
-		System.out.println("output: " + Arrays.toString(minimums));
-		int[] minimumsAlter = Theorems.assortmentMinimumsAlter(data);
-		System.out.println("output: " + Arrays.toString(minimumsAlter));
-	}
-
 	private static void testSeparateParity() {
 		System.out.println("# separateParity");
 		int[] data = { 6, 1, 5, 2, 4, 9, 7, 3, 8 };
@@ -64,6 +54,9 @@ public class Program {
 		int[][] separateNumbers = Theorems.separateParity(data);
 		System.out.println("even numbers: " + Arrays.toString(separateNumbers[0]));
 		System.out.println("odd numbers: " + Arrays.toString(separateNumbers[1]));
+		ParitySeparation paritySeparation = Theorems.separateParityOO(data);
+		System.out.println("even numbers: " + Arrays.toString(paritySeparation.getEvenNumbers()));
+		System.out.println("odd numbers: " + Arrays.toString(paritySeparation.getOddNumbers()));
 	}
 
 	private static void testUnion() {
@@ -136,6 +129,18 @@ public class Program {
 		System.out.println("index: " + index);
 	}
 
+	private static void testAssortmentMinimums() {
+		System.out.println("# assortmentMinimums");
+		int[] data = { 7, 4, 2, 7, 2, 9, 8, 2 };
+		System.out.println("input: " + Arrays.toString(data));
+		int[] minimums = ComplexTheorems.assortmentMinimums(data);
+		System.out.println("output: " + Arrays.toString(minimums));
+		int[] minimumsAlter = ComplexTheorems.assortmentMinimumsAlter(data);
+		System.out.println("output: " + Arrays.toString(minimumsAlter));
+		int[] minimumsAlterOO = ComplexTheorems.assortmentMinimumsAlterOO(data);
+		System.out.println("output: " + Arrays.toString(minimumsAlterOO));
+	}
+
 	public static void main(String[] args) {
 		Program.testSummation();
 		Program.testDecisionDivisible();
@@ -143,7 +148,6 @@ public class Program {
 		Program.testCountingDivisible();
 		Program.testMaximumSelection();
 		Program.testAssortmentDivisible();
-		Program.testAssortmentMinimums();
 		Program.testSeparateParity();
 		Program.testUnion();
 		Program.testIntersect();
@@ -153,6 +157,8 @@ public class Program {
 		Program.testLinearSearch();
 		Program.testLinearSearchInSortedArray();
 		Program.testBinarySearch();
+
+		Program.testAssortmentMinimums();
 
 		// Program.testPassingParameters();
 	}
