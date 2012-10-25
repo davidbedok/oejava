@@ -1,9 +1,5 @@
 package hu.qwaevisz.problem001to010;
 
-import hu.qwaevisz.problem001to010.Problem003primefactors;
-
-import java.util.List;
-
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,20 +11,6 @@ public class Problem003Test {
 	@BeforeMethod
 	public void setup() {
 		this.problem = new Problem003primefactors();
-	}
-
-	@Test(groups = "unit")
-	public void Calculate_prime_factors() {
-		this.assertPrimeFactors(this.problem.primeFactors(19), new long[] { 19 });
-		this.assertPrimeFactors(this.problem.primeFactors(20), new long[] { 2, 2, 5 });
-		this.assertPrimeFactors(this.problem.primeFactors(13195), new long[] { 5, 7, 13, 29 });
-		this.assertPrimeFactors(this.problem.primeFactors(600851475143L), new long[] { 71, 839, 1471, 6857 });
-	}
-
-	private void assertPrimeFactors(List<Long> actualPrimeFactors, long[] primeFactors) {
-		for (int i = 0; i < primeFactors.length; i++) {
-			Assert.assertEquals(actualPrimeFactors.get(i), new Long(primeFactors[i]));
-		}
 	}
 
 	@Test(groups = "unit")

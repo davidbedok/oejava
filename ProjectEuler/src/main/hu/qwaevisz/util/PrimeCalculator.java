@@ -64,4 +64,38 @@ public class PrimeCalculator {
 		return primes;
 	}
 
+	public List<Long> primeFactors(long number) {
+		List<Long> primeFactors = new ArrayList<Long>();
+		long numberHolder = number;
+		long prime = 2;
+		while (numberHolder != prime) {
+			if (numberHolder % prime == 0) {
+				primeFactors.add(prime);
+				numberHolder = numberHolder / prime;
+			} else {
+				prime = this.getNextPrimeNumber(prime);
+			}
+		}
+		primeFactors.add(prime);
+
+		return primeFactors;
+	}
+
+	public List<Long> primeFactorsWithEratosthenes(long number, List<Integer> primes) {
+		List<Long> primeFactors = new ArrayList<Long>();
+		long numberHolder = number;
+		int primeIndex = 0;
+		long prime = primes.get(primeIndex);
+		while (numberHolder != prime) {
+			if (numberHolder % prime == 0) {
+				primeFactors.add(prime);
+				numberHolder = numberHolder / prime;
+			} else {
+				prime = primes.get(++primeIndex);
+			}
+		}
+		primeFactors.add(prime);
+		return primeFactors;
+	}
+
 }
