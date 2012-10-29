@@ -53,4 +53,24 @@ public class PrimeCalculatorTest {
 		Assert.assertEquals(primes.get(3), new Integer(7));
 	}
 
+	@Test(groups = "unit")
+	public void Calculate_prime_factors() {
+		this.assertPrimeFactors(this.primeCalculator.primeFactors(19), 19);
+		this.assertPrimeFactors(this.primeCalculator.primeFactors(20), 2, 2, 5);
+		this.assertPrimeFactors(this.primeCalculator.primeFactors(13195), 5, 7, 13, 29);
+		this.assertPrimeFactors(this.primeCalculator.primeFactors(600851475143L), 71, 839, 1471, 6857);
+
+		List<Integer> primes = this.primeCalculator.eratosthenesAlgorithm(10000);
+		this.assertPrimeFactors(this.primeCalculator.primeFactorsWithEratosthenes(19, primes), 19);
+		this.assertPrimeFactors(this.primeCalculator.primeFactorsWithEratosthenes(20, primes), 2, 2, 5);
+		this.assertPrimeFactors(this.primeCalculator.primeFactorsWithEratosthenes(13195, primes), 5, 7, 13, 29);
+		this.assertPrimeFactors(this.primeCalculator.primeFactorsWithEratosthenes(600851475143L, primes), 71, 839, 1471, 6857);
+	}
+
+	private void assertPrimeFactors(List<Long> actualPrimeFactors, long... primeFactors) {
+		for (int i = 0; i < primeFactors.length; i++) {
+			Assert.assertEquals(actualPrimeFactors.get(i), new Long(primeFactors[i]));
+		}
+	}
+
 }
