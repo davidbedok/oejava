@@ -28,7 +28,6 @@ public class SocketWrapper {
 
 		this.outputStream = this.socket.getOutputStream();
 		this.printWriter = new PrintWriter(this.outputStream);
-
 	}
 
 	public void send(Operation operation) {

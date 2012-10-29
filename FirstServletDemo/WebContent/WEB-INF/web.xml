@@ -43,6 +43,12 @@
 		<servlet-name>AjaxServlet</servlet-name>
 		<servlet-class>hu.qwaevisz.servlet.AjaxServlet</servlet-class>
 	</servlet>	
+	<servlet>
+		<description></description>
+		<display-name>AddYourName</display-name>
+		<servlet-name>AddYourName</servlet-name>
+		<servlet-class>hu.qwaevisz.servlet.AddYourName</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>GreetingAgain</servlet-name>
 		<url-pattern>/GreetingAgain</url-pattern>
@@ -66,5 +72,9 @@
 	<servlet-mapping>
 		<servlet-name>AjaxServlet</servlet-name>
 		<url-pattern>/AjaxServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddYourName</servlet-name>
+		<url-pattern>/AddYourName</url-pattern>
 	</servlet-mapping>
 </web-app>
