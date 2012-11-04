@@ -1,0 +1,53 @@
+body {
+	font-size	: 100%;
+	font-family	: Arial, Verdana, sans-serif;
+	background-color: #e6d6bd;
+}
+
+h1 {
+	font-size	: 1.3em;
+	font-variant	: small-caps; 
+}
+
+#calcformid fieldset {
+	width		: 500px;
+	color		: #78a3c0;	
+	font-weight	: bold; 
+}
+
+#calcformid table {
+	vertical-align	: top;	
+}
+
+#calcformid table#outer {
+	width		: 100%;
+}
+
+#calcformid table td {
+	color		: black;
+	padding		: 3px;
+}
+
+#calcformid input, 
+#calcformid select {
+	background-color: #c0ae91;
+	color		: #535353;
+}
+
+#calcformid input[type="number"] {
+	width		: 60px; 	
+}
+
+#calcformid input[type="submit"] {
+	width		: 120px;
+	font-weight	: bold; 
+	cursor		: pointer;	
+}
+
+#calcimg {
+	width		: 100px;	
+}
+
+#calcformid .toright {
+	text-align	: right;
+}
