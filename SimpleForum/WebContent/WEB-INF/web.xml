@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="PersonRegister">
+	<display-name>PersonRegister</display-name>
+	<servlet>
+		<description></description>
+		<display-name>ListServlet</display-name>
+		<servlet-name>ListServlet</servlet-name>
+		<servlet-class>hu.qwaevisz.forum.servlet.ListServlet</servlet-class>
+		<init-param>
+			<param-name>entries</param-name>
+			<param-value>
+				Alice;Lorem ipsum dolor sit amet, consectetur
+				adipiscing
+				elit.|
+				Bob;Donec dui leo, adipiscing ut commodo sit amet,
+				sodales in
+				est.|
+				Charlie;Aliquam porta enim a quam accumsan commodo.
+			</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListServlet</servlet-name>
+		<url-pattern>/list</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>LoginServlet</display-name>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>hu.qwaevisz.forum.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>NewEntryServlet</display-name>
+		<servlet-name>NewEntryServlet</servlet-name>
+		<servlet-class>hu.qwaevisz.forum.servlet.NewEntryServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewEntryServlet</servlet-name>
+		<url-pattern>/newentry</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>LogoutServlet</display-name>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>hu.qwaevisz.forum.servlet.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+</web-app>
