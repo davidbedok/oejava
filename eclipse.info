@@ -9,4 +9,13 @@ Preferences | Java | Buils Path | Variables | New...
  Name: OE_THIRDPARTY
  Path (Folder): C:/work/workspacejava/oejava/thirdparty
  
-REM: testgit
+Preferences | Java | Installed JREs | Add
+	Name: JRE
+	Path: eg.: c:\qapps\Java\jre6
+	
+	Default (checkbox)
+	
+Preferences | Data Management | Driver Definitions
+	MySQL JDBC Driver
+		Edit | Jar List | Add JAR/Zip
+			c:\work\workspacejava\oejava\thirdparty\mysql-connector-java-5.1.22-bin.jar
