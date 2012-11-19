@@ -18,7 +18,7 @@ public class PersonCatalog {
 
 	private static PersonCatalog instance = null;
 
-	protected PersonCatalog() {
+	private PersonCatalog() {
 		this.people = new ArrayList<Person>();
 	}
 
