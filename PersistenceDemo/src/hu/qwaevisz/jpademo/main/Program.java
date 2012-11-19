@@ -34,7 +34,7 @@ public class Program {
 	// }
 
 	private static void insertPersonViaEnum(DemoService service) {
-		service.insertPerson("Richard10", 24, PersonTypeTrunk.ARCHITECT);
+		service.insertPerson("Olga10", 24, PersonTypeTrunk.ARCHITECT);
 	}
 
 	public static void main(String[] args) {

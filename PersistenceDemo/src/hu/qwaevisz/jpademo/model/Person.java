@@ -16,25 +16,25 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name = "persons")
+@Table(name = "people")
 public class Person implements Serializable {
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "PER_ID")
-	private int					id;
+	private int id;
 
 	@Column(name = "PER_AGE")
-	private int					age;
+	private int age;
 
 	@Column(name = "PER_NAME")
-	private String				name;
+	private String name;
 
 	// bi-directional many-to-one association to Persontype
 	@ManyToOne
 	@JoinColumn(name = "PER_PERSONTYPE_ID")
-	private PersonType			personType;
+	private PersonType personType;
 
 	public Person() {
 	}
