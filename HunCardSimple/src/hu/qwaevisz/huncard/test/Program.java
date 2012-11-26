@@ -4,6 +4,8 @@ import hu.qwaevisz.huncard.Card;
 import hu.qwaevisz.huncard.CardRank;
 import hu.qwaevisz.huncard.CardSuit;
 import hu.qwaevisz.huncard.Deck;
+import hu.qwaevisz.huncard.Game;
+import hu.qwaevisz.huncard.Player;
 import hu.qwaevisz.huncard.demo.CardRankC;
 
 import java.util.Random;
@@ -65,6 +67,27 @@ public class Program {
 		System.out.println(deck);
 	}
 
+	private static void testPlayer() {
+		System.out.println("# Test Player");
+		Player player = new Player("Nemecsek Erno");
+		player.addCard(new Card(CardRank.King, CardSuit.Hearts));
+		player.addCard(new Card(CardRank.r7, CardSuit.Leaves));
+		player.addCard(new Card(CardRank.Over, CardSuit.Bells));
+		System.out.println(player);
+		player.dropCards();
+		System.out.println(player);
+	}
+
+	private static void testGame(Random rand) {
+		System.out.println("# Test Game");
+		Game game = new Game(rand);
+		game.addPlayer("Nemecsek Erno");
+		game.addPlayer("Darth Vader");
+		game.addPlayer("Anakin Skywalker");
+		System.out.println(game.play());
+		System.out.println(game);
+	}
+
 	public static void main(String[] args) {
 		Random rand = new Random();
 		Program.testEnum(rand);
@@ -73,6 +96,8 @@ public class Program {
 		// Program.testForEach();
 		Program.testCard(rand);
 		Program.testDeck(rand);
+		Program.testPlayer();
+		Program.testGame(rand);
 	}
 
 }
