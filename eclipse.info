@@ -1,6 +1,40 @@
 Download: http://eclipse.org/ (Eclipse IDE for Java EE Developers) Eclipse Juno
 Import Java cody style, formatter rules (eclipse-oe-java-formatter.epf): File | Import... | General - Preferences 
 Window | Preferences | Java - Editor - Save Actions | Turn on
+	Perform the selected actions on save (checked)
+		Format source code (checked)
+			Format all lines (checked)
+	Organize imports (checked)
+	Additional actions (checked)
+		Configure
+			Code Organizing
+				Remove trailing whitespace (checked)
+					All lines (checked)
+				Correct indentation (checked)
+			Code Style
+				Use blocks in if/while/for/do statements (checked)
+					Allways (checked)
+				Use modifier 'final' where possible (checked)
+					Private fields (checked)
+			Member Accesses
+				Use 'this' qualifier for field acesses (checked)
+					Always (checked)
+				Use 'this' qualifer for method accesses (checked)
+					Always (checked)
+				Use declaring class as qualifier (checked)
+					Qualify field accesses (checked)
+					Qualify method accesses (checked)
+					Change all accesses through subtypes (checked)
+					Change all accesses through instances (checked)
+			Missing Code
+				Add missing Annotations (checked)
+					@Override (checked) 
+						Implementations of interface methods (checked)
+					@Deprecated (checked)
+			Unnecessary Code
+				Remove unused imports (checked)
+				Remove unnecessary casts (checked)
+					
 Install plugins (Help | Install New Software... 
 - TestNG update site: http://beust.com/eclipse
 - ObjectAid UML Explorer: http://www.objectaid.com/update (only class diagram)
