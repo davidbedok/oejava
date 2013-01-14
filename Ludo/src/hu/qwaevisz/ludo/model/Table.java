@@ -1,38 +1,37 @@
 package hu.qwaevisz.ludo.model;
 
-public class Map {
+public class Table {
 
-	private static final int MAP_SIZE = 40;
+	public static final int MAP_SIZE = 80;
 
+	private final Figure[] fields;
 	private final int playersDistance;
 
-	private final FigureColor[] map;
-
-	public Map() {
-		this.map = new FigureColor[Map.MAP_SIZE];
-		this.playersDistance = Map.MAP_SIZE / Game.NUMBER_OF_PLAYERS;
+	public Table() {
+		this.fields = new Figure[Table.MAP_SIZE];
+		this.playersDistance = Table.MAP_SIZE / Game.NUMBER_OF_PLAYERS;
 	}
 
 	public int getPlayersDistance() {
 		return this.playersDistance;
 	}
 
-	public void putFigure(FigureColor figure, int position) {
-		this.map[this.calcRealPosition(position)] = figure;
+	private void putFigure(Figure figure, int position) {
+		this.fields[this.calcRealPosition(position)] = figure;
 	}
 
-	public void takeUpFigure(int position) {
-		this.map[this.calcRealPosition(position)] = null;
+	private void takeUpFigure(int position) {
+		this.fields[this.calcRealPosition(position)] = null;
 	}
 
-	public boolean isValid(int position) {
-		return this.map[this.calcRealPosition(position)] == null;
+	private boolean isValid(int position) {
+		return this.fields[this.calcRealPosition(position)] == null;
 	}
 
 	private int calcRealPosition(int position) {
 		int realPosition = position;
-		if (position >= Map.MAP_SIZE) {
-			realPosition = position - Map.MAP_SIZE;
+		if (position >= Table.MAP_SIZE) {
+			realPosition = position - Table.MAP_SIZE;
 		}
 		return realPosition;
 	}
@@ -41,7 +40,7 @@ public class Map {
 		boolean success = false;
 		if (this.isValid(player.getStartPosition())) {
 			this.putFigure(player.getFigure(), player.getStartPosition());
-			player.startPlayer();
+			player.start();
 			success = true;
 		}
 		return success;
@@ -50,12 +49,12 @@ public class Map {
 	public boolean moveFigure(Player player, int diceValue) {
 		boolean success = false;
 		int position = -1;
-		while ((!success) && (position != -2) && (position < Map.MAP_SIZE)) {
+		while ((!success) && (position != -2) && (position < Table.MAP_SIZE)) {
 			position = this.findFigure(player.getFigure(), position);
 			if (position != -2) {
 				if (this.isValid(position + diceValue)) {
-					if (this.calcRealPosition(position) < player.getStartPosition() && this.calcRealPosition(position + diceValue) > player.getStartPosition()) {
-						player.endPlayer();
+					if (player.isNearBeforeStartPos(position) && player.isNearAfterStartPos(position + diceValue)) {
+						player.finish();
 						this.takeUpFigure(position);
 						success = true;
 					} else {
@@ -69,13 +68,13 @@ public class Map {
 		return success;
 	}
 
-	public int findFigure(FigureColor figure, int from) {
+	private int findFigure(Figure figure, int from) {
 		int position = -2;
 		int i = from + 1;
-		while ((i < this.map.length) && (!figure.equals(this.map[i]))) {
+		while ((i < this.fields.length) && (!figure.equals(this.fields[i]))) {
 			i++;
 		}
-		if (i < this.map.length) {
+		if (i < this.fields.length) {
 			position = i;
 		}
 		return position;
@@ -84,14 +83,17 @@ public class Map {
 	@Override
 	public String toString() {
 		StringBuilder info = new StringBuilder(100);
-		for (int i = 0; i < this.map.length; i++) {
-			if (this.map[i] != null) {
-				info.append(this.map[i].getSign());
+		for (int i = 0; i < this.fields.length; i++) {
+			info.append(i % 10);
+		}
+		info.append("\n");
+		for (int i = 0; i < this.fields.length; i++) {
+			if (this.fields[i] != null) {
+				info.append(this.fields[i].getSign());
 			} else {
 				info.append('-');
 			}
 		}
-		// info.append("\n");
 		return info.toString();
 	}
 

@@ -1,12 +1,15 @@
 package hu.qwaevisz.ludo.model;
 
-public enum FigureColor {
+public enum Figure {
 
-	BLUE('b'), RED('r'), GREEN('g'), YELLOW('y');
+	Blue('O'), //
+	Red('X'), //
+	Green('@'), //
+	Yellow('#');
 
 	private final char sign;
 
-	private FigureColor(char sign) {
+	private Figure(char sign) {
 		this.sign = sign;
 	}
 

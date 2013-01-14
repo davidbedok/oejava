@@ -4,49 +4,85 @@ public class Player {
 
 	private static final int NUMBER_OF_FIGURES = 4;
 
-	private final FigureColor color;
 	private final String name;
+	private final Figure figure;
 	private final int startPosition;
-	private int numOfStartPlayers;
-	private int numOfEndPlayers;
+	private int numOfFigureAtStart;
+	private int numOfFigureAtFinish;
 
-	public Player(String name, FigureColor color, int startPosition) {
+	public Player(String name, Figure figure, int startPosition) {
 		this.name = name;
+		this.figure = figure;
 		this.startPosition = startPosition;
-		this.numOfStartPlayers = Player.NUMBER_OF_FIGURES;
-		this.numOfEndPlayers = 0;
-		this.color = color;
+		this.numOfFigureAtStart = Player.NUMBER_OF_FIGURES;
+		this.numOfFigureAtFinish = 0;
 	}
 
-	public int getNumOfEndPlayers() {
-		return this.numOfEndPlayers;
+	public String getName() {
+		return this.name;
 	}
 
-	public FigureColor getFigure() {
-		return this.color;
+	public Figure getFigure() {
+		return this.figure;
 	}
 
 	public int getStartPosition() {
 		return this.startPosition;
 	}
 
-	public boolean hasStartPlayer() {
-		return this.numOfStartPlayers > 0;
+	public boolean hasFiguresAtStart() {
+		return this.numOfFigureAtStart > 0;
 	}
 
-	public void startPlayer() {
-		this.numOfStartPlayers--;
+	public void start() {
+		if (this.numOfFigureAtStart > 0) {
+			this.numOfFigureAtStart--;
+		}
 	}
 
-	public void endPlayer() {
-		this.numOfEndPlayers++;
+	public void finish() {
+		if (this.numOfFigureAtFinish < Player.NUMBER_OF_FIGURES) {
+			this.numOfFigureAtFinish++;
+		}
+	}
+
+	public boolean isFinish() {
+		return this.numOfFigureAtFinish == Player.NUMBER_OF_FIGURES;
+	}
+
+	public boolean isNearBeforeStartPos(int position) {
+		return position < this.startPosition || (position > Table.MAP_SIZE + this.startPosition - Dice.MAX_VALUE);
+	}
+
+	public boolean isNearAfterStartPos(int position) {
+		return position > this.startPosition;
+	}
+
+	public String printStart() {
+		StringBuilder ret = new StringBuilder(50);
+		for (int i = this.numOfFigureAtStart; i < Player.NUMBER_OF_FIGURES; i++) {
+			ret.append("[ ]");
+		}
+		for (int i = 0; i < this.numOfFigureAtStart; i++) {
+			ret.append("[" + this.figure.getSign() + "]");
+		}
+		return ret.toString();
+	}
+
+	public String printEnd() {
+		StringBuilder ret = new StringBuilder(50);
+		for (int i = 0; i < this.numOfFigureAtFinish; i++) {
+			ret.append("[" + this.figure.getSign() + "]");
+		}
+		for (int i = this.numOfFigureAtFinish; i < Player.NUMBER_OF_FIGURES; i++) {
+			ret.append("[ ]");
+		}
+		return ret.toString();
 	}
 
 	@Override
 	public String toString() {
-		StringBuilder info = new StringBuilder(50);
-		info.append(" > ").append(this.name).append(" ").append(this.color);
-		return info.toString();
+		return this.name + " (" + this.figure + ")";
 	}
 
 }

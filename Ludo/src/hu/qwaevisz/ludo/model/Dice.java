@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Dice {
 
-	private static final int MAX_VALUE = 6;
+	public static final int MAX_VALUE = 6;
 
 	private final Random random;
 
