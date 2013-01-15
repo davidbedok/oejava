@@ -1,6 +1,6 @@
-package hu.qwaevisz.ludo.model;
+package hu.qwaevisz.ludo.first.model;
 
-public enum Figure {
+public enum FigureColor {
 
 	Blue('O'), //
 	Red('X'), //
@@ -9,7 +9,7 @@ public enum Figure {
 
 	private final char sign;
 
-	private Figure(char sign) {
+	private FigureColor(char sign) {
 		this.sign = sign;
 	}
 

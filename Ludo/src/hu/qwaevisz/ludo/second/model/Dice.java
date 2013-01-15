@@ -1,4 +1,4 @@
-package hu.qwaevisz.ludo.model;
+package hu.qwaevisz.ludo.second.model;
 
 import java.util.Random;
 

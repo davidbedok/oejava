@@ -1,4 +1,4 @@
-package hu.qwaevisz.ludo.model;
+package hu.qwaevisz.ludo.second.model;
 
 import java.util.Random;
 
@@ -9,18 +9,18 @@ public class Game {
 
 	private final Dice dice;
 	private final Player[] players;
-	private final Table map;
-	private final String[] palpitating;
+	private final Table table;
 	private int playerIndex;
-	private int palpitatingIndex;
 	private int currentPlayerIndex;
+	private final String[] palpitating;
+	private int palpitatingIndex;
 
 	public Game(Random random) {
 		this.dice = new Dice(random);
 		this.players = new Player[Game.NUMBER_OF_PLAYERS];
+		this.table = new Table();
 		this.playerIndex = 0;
 		this.currentPlayerIndex = 0;
-		this.map = new Table();
 		this.palpitating = new String[3];
 		this.palpitatingIndex = 0;
 	}
@@ -34,7 +34,7 @@ public class Game {
 
 	private void addPlayer(String name) {
 		if (this.playerIndex < this.players.length) {
-			this.players[this.playerIndex] = new Player(name, Figure.values()[this.playerIndex], this.map.getPlayersDistance() * this.playerIndex);
+			this.players[this.playerIndex] = new Player(name, FigureColor.values()[this.playerIndex], this.table.getPlayersDistance() * this.playerIndex);
 			this.playerIndex++;
 		}
 	}
@@ -59,13 +59,13 @@ public class Game {
 
 			boolean success = false;
 			if (diceValue == Game.START_DICE_VALUE && currentPlayer.hasFiguresAtStart()) {
-				success = this.map.initFigure(currentPlayer);
+				success = this.table.initFigure(currentPlayer);
 				if (success) {
 					info.append(" START ");
 				}
 			}
 			if (!success) {
-				success = this.map.moveFigure(currentPlayer, diceValue);
+				success = this.table.moveFigure(currentPlayer, diceValue);
 				if (success) {
 					info.append(" STEP ");
 				}
@@ -109,7 +109,7 @@ public class Game {
 	public String toString() {
 		StringBuilder info = new StringBuilder(100);
 
-		int distance = this.map.getPlayersDistance();
+		int distance = this.table.getPlayersDistance();
 		for (int i = 0; i < this.players.length; i++) {
 			info.append(String.format("%-" + distance + "s", this.players[i].getName()));
 		}
@@ -117,7 +117,7 @@ public class Game {
 		for (int i = 0; i < this.players.length; i++) {
 			info.append(String.format("%-" + distance + "s", this.players[i].printStart()));
 		}
-		info.append("\n").append(this.map).append("\n");
+		info.append("\n").append(this.table).append("\n");
 		for (int i = 0; i < this.players.length; i++) {
 			info.append(String.format("%-" + distance + "s", this.players[i].printEnd()));
 		}

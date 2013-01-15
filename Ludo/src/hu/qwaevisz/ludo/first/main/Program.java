@@ -1,9 +1,9 @@
-package hu.qwaevisz.ludo.main;
+package hu.qwaevisz.ludo.first.main;
 
-import hu.qwaevisz.ludo.model.Dice;
-import hu.qwaevisz.ludo.model.Figure;
-import hu.qwaevisz.ludo.model.Game;
-import hu.qwaevisz.ludo.model.Player;
+import hu.qwaevisz.ludo.first.model.Dice;
+import hu.qwaevisz.ludo.first.model.FigureColor;
+import hu.qwaevisz.ludo.first.model.Game;
+import hu.qwaevisz.ludo.first.model.Player;
 
 import java.util.Random;
 
@@ -11,7 +11,7 @@ public class Program {
 
 	private static void testFigure() {
 		System.out.println("# testFigure()");
-		Figure figure = Figure.Blue;
+		FigureColor figure = FigureColor.Blue;
 		System.out.println(figure + " sign: " + figure.getSign());
 	}
 
@@ -25,7 +25,7 @@ public class Program {
 
 	private static void testPlayer() {
 		System.out.println("# testPlayer()");
-		Player player = new Player("Alice", Figure.Green, 10);
+		Player player = new Player("Alice", FigureColor.Green, 10);
 		System.out.println(player);
 		player.start();
 		player.start();
@@ -50,10 +50,8 @@ public class Program {
 
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
+		System.out.println("First version");
 		Random random = new Random();
 		Program.testFigure();
 		Program.testDice(random);

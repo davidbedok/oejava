@@ -1,14 +1,14 @@
-package hu.qwaevisz.ludo.model;
+package hu.qwaevisz.ludo.first.model;
 
 public class Table {
 
 	public static final int MAP_SIZE = 80;
 
-	private final Figure[] fields;
+	private final FigureColor[] fields;
 	private final int playersDistance;
 
 	public Table() {
-		this.fields = new Figure[Table.MAP_SIZE];
+		this.fields = new FigureColor[Table.MAP_SIZE];
 		this.playersDistance = Table.MAP_SIZE / Game.NUMBER_OF_PLAYERS;
 	}
 
@@ -16,7 +16,7 @@ public class Table {
 		return this.playersDistance;
 	}
 
-	private void putFigure(Figure figure, int position) {
+	private void putFigure(FigureColor figure, int position) {
 		this.fields[this.calcRealPosition(position)] = figure;
 	}
 
@@ -68,7 +68,7 @@ public class Table {
 		return success;
 	}
 
-	private int findFigure(Figure figure, int from) {
+	private int findFigure(FigureColor figure, int from) {
 		int position = -2;
 		int i = from + 1;
 		while ((i < this.fields.length) && (!figure.equals(this.fields[i]))) {

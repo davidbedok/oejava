@@ -1,19 +1,21 @@
-package hu.qwaevisz.ludo.model;
+package hu.qwaevisz.ludo.second.model;
 
 public class Player {
 
 	private static final int NUMBER_OF_FIGURES = 4;
 
 	private final String name;
-	private final Figure figure;
+	private final FigureColor color;
 	private final int startPosition;
+
 	private int numOfFigureAtStart;
 	private int numOfFigureAtFinish;
 
-	public Player(String name, Figure figure, int startPosition) {
+	public Player(String name, FigureColor color, int startPosition) {
 		this.name = name;
-		this.figure = figure;
+		this.color = color;
 		this.startPosition = startPosition;
+
 		this.numOfFigureAtStart = Player.NUMBER_OF_FIGURES;
 		this.numOfFigureAtFinish = 0;
 	}
@@ -22,8 +24,13 @@ public class Player {
 		return this.name;
 	}
 
-	public Figure getFigure() {
-		return this.figure;
+	public Figure createFigure() {
+		this.start();
+		return new Figure(this);
+	}
+
+	public char getSign() {
+		return this.color.getSign();
 	}
 
 	public int getStartPosition() {
@@ -50,21 +57,13 @@ public class Player {
 		return this.numOfFigureAtFinish == Player.NUMBER_OF_FIGURES;
 	}
 
-	public boolean isNearBeforeStartPos(int position) {
-		return position < this.startPosition || (position > Table.MAP_SIZE + this.startPosition - Dice.MAX_VALUE);
-	}
-
-	public boolean isNearAfterStartPos(int position) {
-		return position > this.startPosition;
-	}
-
 	public String printStart() {
 		StringBuilder ret = new StringBuilder(50);
 		for (int i = this.numOfFigureAtStart; i < Player.NUMBER_OF_FIGURES; i++) {
 			ret.append("[ ]");
 		}
 		for (int i = 0; i < this.numOfFigureAtStart; i++) {
-			ret.append("[" + this.figure.getSign() + "]");
+			ret.append("[" + this.getSign() + "]");
 		}
 		return ret.toString();
 	}
@@ -72,7 +71,7 @@ public class Player {
 	public String printEnd() {
 		StringBuilder ret = new StringBuilder(50);
 		for (int i = 0; i < this.numOfFigureAtFinish; i++) {
-			ret.append("[" + this.figure.getSign() + "]");
+			ret.append("[" + this.getSign() + "]");
 		}
 		for (int i = this.numOfFigureAtFinish; i < Player.NUMBER_OF_FIGURES; i++) {
 			ret.append("[ ]");
@@ -82,7 +81,7 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return this.name + " (" + this.figure + ")";
+		return this.name + " (" + this.color + ")";
 	}
 
 }
