@@ -15,10 +15,16 @@ public class Program {
 		player.start();
 		player.start();
 		player.start();
+		// player.start();
+
 		player.finish();
 		player.finish();
 		System.out.println(player.printStart());
 		System.out.println(player.printEnd());
+		System.out.println(player.printStartFigure(1));
+		System.out.println(player.printStartFigure(2));
+		System.out.println(player.printStartFigure(3));
+		System.out.println(player.printStartFigure(4));
 	}
 
 	private static void testGame(Random random) {
@@ -27,8 +33,10 @@ public class Program {
 
 		int i = 1;
 		while (!game.isFinish()) {
-			System.out.println("(" + i + ") " + game.step());
-			System.out.println(game);
+			System.out.println(game.step());
+			if (game.checkLastPlayer("Alice")) {
+				System.out.println(game);
+			}
 			i++;
 		}
 		System.out.println(game.printPalpitating());

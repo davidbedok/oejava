@@ -12,8 +12,10 @@ public class Game {
 	private final Table table;
 	private int playerIndex;
 	private int currentPlayerIndex;
-	private final String[] palpitating;
+	private final Player[] palpitating;
 	private int palpitatingIndex;
+	private int round;
+	private boolean repeat;
 
 	public Game(Random random) {
 		this.dice = new Dice(random);
@@ -21,8 +23,10 @@ public class Game {
 		this.table = new Table();
 		this.playerIndex = 0;
 		this.currentPlayerIndex = 0;
-		this.palpitating = new String[3];
+		this.palpitating = new Player[3];
 		this.palpitatingIndex = 0;
+		this.round = 1;
+		this.repeat = false;
 	}
 
 	public void addPlayers(String nameA, String nameB, String nameC, String nameD) {
@@ -41,7 +45,8 @@ public class Game {
 
 	private void addItemToPalpitating(Player player) {
 		if (this.palpitatingIndex < 3) {
-			this.palpitating[this.palpitatingIndex++] = player.getName();
+			this.palpitating[this.palpitatingIndex++] = player;
+			player.end(this.round);
 		}
 	}
 
@@ -52,18 +57,13 @@ public class Game {
 	public String step() {
 		StringBuilder info = new StringBuilder(30);
 		Player currentPlayer = this.getCurrentPlayer();
+		info.append("R-").append(this.round).append(" ");
 		info.append(currentPlayer);
 		if (!currentPlayer.isFinish()) {
 			int diceValue = this.dice.roll();
 			info.append(" Dice: ").append(diceValue);
 
-			boolean success = false;
-			if (diceValue == Game.START_DICE_VALUE && currentPlayer.hasFiguresAtStart()) {
-				success = this.table.initFigure(currentPlayer);
-				if (success) {
-					info.append(" START ");
-				}
-			}
+			boolean success = this.checkInitFigure(currentPlayer, diceValue, info);
 			if (!success) {
 				success = this.table.moveFigure(currentPlayer, diceValue);
 				if (success) {
@@ -77,16 +77,48 @@ public class Game {
 					this.addItemToPalpitating(currentPlayer);
 				}
 			}
+			if (diceValue != Game.START_DICE_VALUE) {
+				this.nextPlayer();
+				this.repeat = false;
+			} else {
+				this.repeat = true;
+			}
 		} else {
 			info.append(" SKIP");
+			this.nextPlayer();
 		}
 		return info.toString();
 	}
 
+	private boolean checkInitFigure(Player player, int diceValue, StringBuilder info) {
+		boolean success = false;
+		if (diceValue == Game.START_DICE_VALUE && player.hasFiguresAtStart()) {
+			success = this.table.initFigure(player);
+			if (success) {
+				info.append(" START ");
+			}
+		}
+		return success;
+	}
+
 	private Player getCurrentPlayer() {
-		Player player = this.players[this.currentPlayerIndex];
-		this.nextPlayer();
-		return player;
+		return this.players[this.currentPlayerIndex];
+	}
+
+	public boolean checkCurrentPlayer(String name) {
+		return this.players[this.currentPlayerIndex].getName().equals(name);
+	}
+
+	public boolean checkLastPlayer(String name) {
+		if (this.repeat) {
+			return false;
+		} else {
+			if (this.currentPlayerIndex > 0) {
+				return this.players[this.currentPlayerIndex - 1].getName().equals(name);
+			} else {
+				return this.players[3].getName().equals(name);
+			}
+		}
 	}
 
 	private void nextPlayer() {
@@ -94,19 +126,19 @@ public class Game {
 			this.currentPlayerIndex++;
 		} else {
 			this.currentPlayerIndex = 0;
+			this.round++;
 		}
 	}
 
 	public String printPalpitating() {
 		StringBuilder info = new StringBuilder(50);
-		info.append("[1st] place: ").append(this.palpitating[0]).append("\n");
-		info.append("[2nd] place: ").append(this.palpitating[1]).append("\n");
-		info.append("[3rd] place: ").append(this.palpitating[2]).append("\n");
+		for (int i = 0; i < this.palpitating.length; i++) {
+			info.append("[" + (i + 1) + "] ").append(this.palpitating[i].getName()).append(" R-").append(this.palpitating[i].getWinningRound()).append("\n");
+		}
 		return info.toString();
 	}
 
-	@Override
-	public String toString() {
+	public String printSimple() {
 		StringBuilder info = new StringBuilder(100);
 
 		int distance = this.table.getPlayersDistance();
@@ -123,6 +155,11 @@ public class Game {
 		}
 		info.append("\n");
 		return info.toString();
+	}
+
+	@Override
+	public String toString() {
+		return this.table.print(this.players);
 	}
 
 }

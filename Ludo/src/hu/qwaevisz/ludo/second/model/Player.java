@@ -10,6 +10,9 @@ public class Player {
 
 	private int numOfFigureAtStart;
 	private int numOfFigureAtFinish;
+	private int numOfHit;
+	private int numOfDeath;
+	private int winningRound;
 
 	public Player(String name, FigureColor color, int startPosition) {
 		this.name = name;
@@ -18,6 +21,10 @@ public class Player {
 
 		this.numOfFigureAtStart = Player.NUMBER_OF_FIGURES;
 		this.numOfFigureAtFinish = 0;
+
+		this.numOfHit = 0;
+		this.numOfDeath = 0;
+		this.winningRound = -1;
 	}
 
 	public String getName() {
@@ -53,8 +60,51 @@ public class Player {
 		}
 	}
 
+	public void hit() {
+		this.numOfHit++;
+	}
+
+	public void death() {
+		if (this.numOfFigureAtStart < Player.NUMBER_OF_FIGURES) {
+			this.numOfFigureAtStart++;
+			this.numOfDeath++;
+		}
+	}
+
 	public boolean isFinish() {
 		return this.numOfFigureAtFinish == Player.NUMBER_OF_FIGURES;
+	}
+
+	public void end(int round) {
+		this.winningRound = round;
+	}
+
+	public int getWinningRound() {
+		return this.winningRound;
+	}
+
+	public String printStartFigure(int number) {
+		String ret = "( )";
+		if (this.isStartFigure(number)) {
+			ret = "(" + this.getSign() + ")";
+		}
+		return ret;
+	}
+
+	private boolean isStartFigure(int number) {
+		return this.numOfFigureAtStart >= number;
+	}
+
+	public String printFinishFigure(int number) {
+		String ret = "   ";
+		if (this.isFinishFigure(number)) {
+			ret = " " + this.getSign() + " ";
+		}
+		return ret;
+	}
+
+	private boolean isFinishFigure(int number) {
+		return this.numOfFigureAtFinish >= number;
 	}
 
 	public String printStart() {
@@ -65,6 +115,7 @@ public class Player {
 		for (int i = 0; i < this.numOfFigureAtStart; i++) {
 			ret.append("[" + this.getSign() + "]");
 		}
+		ret.append(" D: ").append(this.numOfDeath);
 		return ret.toString();
 	}
 
@@ -76,12 +127,13 @@ public class Player {
 		for (int i = this.numOfFigureAtFinish; i < Player.NUMBER_OF_FIGURES; i++) {
 			ret.append("[ ]");
 		}
+		ret.append(" H: ").append(this.numOfHit);
 		return ret.toString();
 	}
 
 	@Override
 	public String toString() {
-		return this.name + " (" + this.color + ")";
+		return this.name + " (" + this.getSign() + ") Hit: " + this.numOfHit + " Death: " + this.numOfDeath;
 	}
 
 }

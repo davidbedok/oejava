@@ -1,11 +1,20 @@
 package hu.qwaevisz.ludo.second.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Table {
 
-	public static final int MAP_SIZE = 80;
+	public static final int MAP_SIZE = 40;
+
+	private static Comparator<Figure> FigureComparator = new Comparator<Figure>() {
+		@Override
+		public int compare(Figure o1, Figure o2) {
+			return o1.getPosition() - o2.getPosition();
+		}
+	};
 
 	private final List<Figure> figures;
 	private final int playersDistance;
@@ -54,22 +63,36 @@ public class Table {
 
 	public boolean initFigure(Player player) {
 		boolean success = false;
-		if (this.isValid(player.getStartPosition())) {
+		Figure figure = this.find(player.getStartPosition());
+		if (figure == null || figure.getPlayer() != player) {
 			this.figures.add(player.createFigure());
+			this.checkHit(player, figure);
 			success = true;
 		}
 		return success;
 	}
 
+	private void checkHit(Player player, Figure figure) {
+		if (figure != null) {
+			player.hit();
+			figure.getPlayer().death();
+			this.figures.remove(figure);
+		}
+	}
+
 	public boolean moveFigure(Player player, int diceValue) {
 		boolean success = false;
 		List<Figure> playerFigures = this.assortment(player);
+		Collections.sort(playerFigures, Table.FigureComparator);
 		for (Figure currentFigure : playerFigures) {
 			int realPosition = this.calcRealPosition(currentFigure.getPosition() + diceValue);
-			if (this.isValid(realPosition)) {
+
+			Figure figure = this.find(realPosition);
+			if (figure == null || figure.getPlayer() != player) {
 				if (currentFigure.move(realPosition, diceValue)) {
 					this.figures.remove(currentFigure);
 				}
+				this.checkHit(player, figure);
 				success = true;
 				break;
 			}
@@ -81,18 +104,48 @@ public class Table {
 	public String toString() {
 		StringBuilder info = new StringBuilder(100);
 		for (int i = 0; i < Table.MAP_SIZE; i++) {
-			info.append(i % 10);
+			info.append(i % 10).append(" ");
 		}
 		info.append("\n");
 		for (int i = 0; i < Table.MAP_SIZE; i++) {
 			Figure figure = this.find(i);
 			if (figure != null) {
-				info.append(figure.getSign());
+				info.append(figure.getSign()).append(" ");
 			} else {
-				info.append('-');
+				info.append("_ ");
 			}
 		}
 		return info.toString();
 	}
 
+	public String print(Player[] players) {
+		StringBuilder info = new StringBuilder(100);
+		for (int i = 0; i < TableView.VIEW.length; i++) {
+			for (int j = 0; j < TableView.VIEW[i].length; j++) {
+				int current = TableView.VIEW[i][j];
+				if (current >= 0) {
+					Figure figure = this.find(current);
+					if (figure != null) {
+						info.append("[").append(figure.getSign()).append("]");
+					} else {
+						info.append("[ ]");
+					}
+				} else {
+					if (current == TableView.EMPTY) {
+						info.append("   ");
+					} else {
+						int playerIndex = current / -10 - 1;
+						int figureIndex = (current % 10) * -1 + 1;
+						if (figureIndex < 5) {
+							info.append(players[playerIndex].printStartFigure(figureIndex));
+						} else {
+							info.append(players[playerIndex].printFinishFigure(figureIndex - 5));
+						}
+					}
+				}
+			}
+			info.append("\n");
+		}
+		return info.toString();
+	}
 }
