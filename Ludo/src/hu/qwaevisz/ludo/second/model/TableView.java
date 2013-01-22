@@ -19,4 +19,44 @@ public class TableView {
 			{ -22, -1, -23, -1, 18, 19, 20, -1, -32, -1, -33 }, //
 	};
 
+	public static final char FIELD = 'F';
+	public static final char PLAYER_1_START = 'O';
+	public static final char PLAYER_2_START = 'X';
+	public static final char PLAYER_3_START = '#';
+	public static final char PLAYER_4_START = '@';
+	public static final char PLAYER_1_FINISH = 'A';
+	public static final char PLAYER_2_FINISH = 'B';
+	public static final char PLAYER_3_FINISH = 'C';
+	public static final char PLAYER_4_FINISH = 'D';
+
+	public static final char[][] VIEW_TYPE = { //
+	//
+			{ 'O', ' ', 'O', ' ', 'F', 'F', 'F', ' ', '#', ' ', '#' }, //
+			{ ' ', ' ', ' ', ' ', 'F', 'A', 'F', ' ', ' ', ' ', ' ' }, //
+			{ 'O', ' ', 'O', ' ', 'F', 'A', 'F', ' ', '#', ' ', '#' }, //
+			{ ' ', ' ', ' ', ' ', 'F', 'A', 'F', ' ', ' ', ' ', ' ' }, //
+			{ 'F', 'F', 'F', 'F', 'F', 'A', 'F', 'F', 'F', 'F', 'F' }, //
+			{ 'F', 'B', 'B', 'B', 'B', ' ', 'D', 'D', 'D', 'D', 'F' }, //
+			{ 'F', 'F', 'F', 'F', 'F', 'C', 'F', 'F', 'F', 'F', 'F' }, //
+			{ ' ', ' ', ' ', ' ', 'F', 'C', 'F', ' ', ' ', ' ', ' ' }, //
+			{ 'X', ' ', 'X', ' ', 'F', 'C', 'F', ' ', '@', ' ', '@' }, //
+			{ ' ', ' ', ' ', ' ', 'F', 'C', 'F', ' ', ' ', ' ', ' ' }, //
+			{ 'X', ' ', 'X', ' ', 'F', 'F', 'F', ' ', '@', ' ', '@' }, //
+	};
+
+	public static final int[][] VIEW_DETAILS = { //
+	//
+			{ 0, -1, 1, -1, 0, 39, 38, -1, 1, -1, 0 }, //
+			{ -1, -1, -1, -1, 1, 3, 37, -1, -1, -1, -1 }, //
+			{ 2, -1, 3, -1, 2, 2, 36, -1, 3, -1, 2 }, //
+			{ -1, -1, -1, -1, 3, 1, 35, -1, -1, -1, -1 }, //
+			{ 8, 7, 6, 5, 4, 0, 34, 33, 32, 31, 30 }, //
+			{ 9, 3, 2, 1, 0, -1, 0, 1, 2, 3, 29 }, //
+			{ 10, 11, 12, 13, 14, 3, 24, 25, 26, 27, 28 }, //
+			{ -1, -1, -1, -1, 15, 2, 23, -1, -1, -1, -1 }, //
+			{ 2, -1, 3, -1, 16, 1, 22, -1, 3, -1, 2 }, //
+			{ -1, -1, -1, -1, 17, 0, 21, -1, -1, -1, -1 }, //
+			{ 0, -1, 1, -1, 18, 19, 20, -1, 1, -1, 0 }, //
+	};
+
 }

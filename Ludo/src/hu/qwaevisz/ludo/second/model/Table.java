@@ -118,7 +118,7 @@ public class Table {
 		return info.toString();
 	}
 
-	public String print(Player[] players) {
+	public String printSingleMatrix(Player[] players) {
 		StringBuilder info = new StringBuilder(100);
 		for (int i = 0; i < TableView.VIEW.length; i++) {
 			for (int j = 0; j < TableView.VIEW[i].length; j++) {
@@ -142,6 +142,54 @@ public class Table {
 							info.append(players[playerIndex].printFinishFigure(figureIndex - 5));
 						}
 					}
+				}
+			}
+			info.append("\n");
+		}
+		return info.toString();
+	}
+
+	public String print(Player[] players) {
+		StringBuilder info = new StringBuilder(100);
+		for (int i = 0; i < TableView.VIEW_TYPE.length; i++) {
+			for (int j = 0; j < TableView.VIEW_TYPE[i].length; j++) {
+				char currentType = TableView.VIEW_TYPE[i][j];
+				int current = TableView.VIEW_DETAILS[i][j];
+				switch (currentType) {
+					case TableView.FIELD:
+						Figure figure = this.find(current);
+						if (figure != null) {
+							info.append("[").append(figure.getSign()).append("]");
+						} else {
+							info.append("[ ]");
+						}
+						break;
+					case TableView.PLAYER_1_START:
+						info.append(players[0].printStartFigure(current + 1));
+						break;
+					case TableView.PLAYER_2_START:
+						info.append(players[1].printStartFigure(current + 1));
+						break;
+					case TableView.PLAYER_3_START:
+						info.append(players[2].printStartFigure(current + 1));
+						break;
+					case TableView.PLAYER_4_START:
+						info.append(players[3].printStartFigure(current + 1));
+						break;
+					case TableView.PLAYER_1_FINISH:
+						info.append(players[0].printFinishFigure(current + 1));
+						break;
+					case TableView.PLAYER_2_FINISH:
+						info.append(players[1].printFinishFigure(current + 1));
+						break;
+					case TableView.PLAYER_3_FINISH:
+						info.append(players[2].printFinishFigure(current + 1));
+						break;
+					case TableView.PLAYER_4_FINISH:
+						info.append(players[3].printFinishFigure(current + 1));
+						break;
+					default:
+						info.append("   ");
 				}
 			}
 			info.append("\n");

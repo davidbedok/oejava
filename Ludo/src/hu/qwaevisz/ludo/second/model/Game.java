@@ -133,7 +133,7 @@ public class Game {
 	public String printPalpitating() {
 		StringBuilder info = new StringBuilder(50);
 		for (int i = 0; i < this.palpitating.length; i++) {
-			info.append("[" + (i + 1) + "] ").append(this.palpitating[i].getName()).append(" R-").append(this.palpitating[i].getWinningRound()).append("\n");
+			info.append("[" + (i + 1) + "] ").append(this.palpitating[i]).append(" R-").append(this.palpitating[i].getWinningRound()).append("\n");
 		}
 		return info.toString();
 	}
