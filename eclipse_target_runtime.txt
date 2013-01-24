@@ -24,4 +24,6 @@ Servers view: right click | New | Server...
 
 Server | right click | Add and Remove..
 	add selected web project(s)
+	
+	test
 
