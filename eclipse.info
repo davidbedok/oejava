@@ -1,4 +1,4 @@
-Download: http://eclipse.org/ (Eclipse IDE for Java EE Developers) Eclipse Juno
+Download: http://eclipse.org/ (Eclipse IDE for Java EE Developers) Eclipse Juno SR1
 Import Java cody style, formatter rules (eclipse-oe-java-formatter.epf): File | Import... | General - Preferences 
 Window | Preferences | Java - Editor - Save Actions | Turn on
 	Perform the selected actions on save (checked)
@@ -42,14 +42,36 @@ Install plugins (Help | Install New Software...
 Preferences | Java | Buils Path | Variables | New...
  Name: OE_THIRDPARTY
  Path (Folder): C:/work/workspacejava/oejava/thirdparty
+		or : j:/source/oejava/thirdparty
  
 Preferences | Java | Installed JREs | Add
-	Name: JRE
-	Path: eg.: c:\qapps\Java\jre6
+	Standard VM
+	JRE home: j:\java\jre6\
+	JRE name: JRE
 	
 	Default (checkbox)
 	
-Preferences | Data Management | Driver Definitions
-	MySQL JDBC Driver
-		Edit | Jar List | Add JAR/Zip
-			c:\work\workspacejava\oejava\thirdparty\mysql-connector-java-5.1.22-bin.jar
+Preferences | Data Management | Connectivity | Driver Definitions
+	Add | Vendor filter: MySQL | Select: MySQL JDBC Driver 5.1
+		JAR List tab | Add JAR/Zip | j:\source\oejava\thirdparty\mysql-connector-java-5.1.22-bin.jar
+			(original: Remove JAR/zip)
+	
+Window | Preferences | Server | Runtime Environment | Add
+	Apache Tomcat v7.0
+	Name: Apache Tomcat
+	Tomcat installation directory: j:\apache-tomcat-7.0.34
+	Finish | OK
+	
+Window | Show view | Servers
+
+Servers view: right click | New | Server...
+	Tomcat v7.0 Server
+	Server host name: localhost
+	Server name: Apache Tomcat Server
+	Server runtime environment: Apache Tomcat (prev. steps)
+	
+Window | Show view | Markers
+	View menu | Configure Contents.. |
+		New | Rename: OEConfiguration | Scope: On selected element and its children
+
+		

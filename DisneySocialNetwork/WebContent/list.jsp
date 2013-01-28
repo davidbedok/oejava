@@ -1,4 +1,4 @@
-<%@page import="java.util.Set" %>
+<%@page import="java.util.Set" %>  
 <%@page import="hu.qwaevisz.disney.service.SocialNetwork" %>  
 <%@page import="hu.qwaevisz.disney.model.Member" %>
 <%

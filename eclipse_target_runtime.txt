@@ -3,24 +3,9 @@ c:\qapps\apache-tomcat-7.0.32\conf\server.xml
 <Valve ... />
 <Valve ... resolveHosts="true" />
 
-Eclipse
-Target runtime
-
-Window | Preferences | Server | Runtime Environment | Add
-	Apache Tomcat v7.0
-Name: Apache Tomcat
-Tomcat installation directory: C:\qapps\apache-tomcat-7.0.32
 
 Project | Properties | Target Runtimes |
 	Apache Tomcat (select)
-
-Window | Show view | Servers
-
-Servers view: right click | New | Server...
-	Tomcat v7.0 Server
-	Server host name: localhost
-	Server name: Apache Tomcat Server
-	Server runtime environment: Apache Tomcat (prev. steps)
 
 Server | right click | Add and Remove..
 	add selected web project(s)
