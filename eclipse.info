@@ -1,4 +1,4 @@
-Download: http://eclipse.org/ (Eclipse IDE for Java EE Developers) Eclipse Juno SR1
+Download: http://eclipse.org/ (Eclipse IDE for Java EE Developers) Eclipse Juno SR1 v4.2
 Import Java cody style, formatter rules (eclipse-oe-java-formatter.epf): File | Import... | General - Preferences 
 Window | Preferences | Java - Editor - Save Actions | Turn on
 	Perform the selected actions on save (checked)
@@ -35,7 +35,7 @@ Window | Preferences | Java - Editor - Save Actions | Turn on
 				Remove unused imports (checked)
 				Remove unnecessary casts (checked)
 					
-Install plugins (Help | Install New Software... 
+Install plugins: Help | Install New Software... 
 - TestNG update site: http://beust.com/eclipse
 - ObjectAid UML Explorer: http://www.objectaid.com/update (only class diagram)
 
@@ -74,4 +74,7 @@ Window | Show view | Markers
 	View menu | Configure Contents.. |
 		New | Rename: OEConfiguration | Scope: On selected element and its children
 
-		
+
+------------
+Hibernate tools (JBoss tools)
+Update site: http://download.jboss.org/jbosstools/updates/stable/juno/
