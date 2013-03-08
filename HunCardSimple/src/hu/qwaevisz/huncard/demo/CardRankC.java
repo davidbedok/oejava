@@ -1,6 +1,5 @@
 package hu.qwaevisz.huncard.demo;
 
-
 public class CardRankC {
 
 	public final static CardRankC r7 = new CardRankC(7, false, "7");
@@ -41,6 +40,11 @@ public class CardRankC {
 	@Override
 	public String toString() {
 		return this.label;
+	}
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		throw new CloneNotSupportedException();
 	}
 
 }

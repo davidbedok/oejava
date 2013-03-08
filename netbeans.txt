@@ -1,0 +1,47 @@
+http://netbeans.org/downloads/
+NetBeans IDE Download Bundles: Java EE (cc. 172 MB)
+netbeans-7.2.1-ml-javaee-windows.exe
+
+Install:
+Select the application servers to install with the IDE:
+X Apache Tomcat 7.0.27
+
+
+Netbeans web project
+--------------------------------
+File | New project.. | 
+	Java Web | Web Application
+		Project name: SampleWebApp
+		Server: Apache Tomcat 7.0.27.0
+		Context path: /SampleWebApp
+		Select the frameworks you want to use in your web application: NONE
+		
+Run project (F6)
+
+Megnyitja böngészőt: http://localhost:8084/SampleWebApp/
+	Meg kell jelennie: Hello World!
+	
+Source Packages | helyi menü | New | Java package
+	Package Name: hu.qwaevisz.demo.servlet
+	
+hu.qwaevisz.demo.servlet | helyi menü | New | Servlet
+	Class Name: Welcome
+		Next: X Add information to deployment descriptor (web.xml)
+			Servlet Name: Welcome
+			URL pattern(s): /Welcome
+			
+Run project (F6)
+Böngészőbe írjuk be: http://localhost:8084/SampleWebApp/Welcome
+	Meg kell jelennie: Servlet Welcome at /SampleWebApp
+
+Window | Services (Ctrl + 5)
+	Servers | Apache Tomcat 7.0.27.0
+		helyi menü | Start, Restart, Stop..
+
+Open project | 
+	Resolve Missing Server Problem warning..
+		project | helyi menü | Resolve Missing Server Problem 
+			Available Java EE 6 Web compatible servers:
+				Apache Tomcat 7.0.27.0 kiválasztása
+				
+				

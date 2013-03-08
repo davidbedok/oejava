@@ -74,7 +74,7 @@ public class Wardrobe extends AbstractFurniture implements BuiltInLampCapable {
 
 	@Override
 	protected String printType() {
-		return CsvFurnitureType.TABLE.toString();
+		return CsvFurnitureType.WARDROBE.toString();
 	}
 
 	@Override
