@@ -27,7 +27,7 @@ public class Game {
 	}
 
 	public Player play() {
-		this.deck.rotate();
+		this.deck.shuffle();
 		this.deal();
 		return this.winner();
 	}

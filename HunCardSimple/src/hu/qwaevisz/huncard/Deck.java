@@ -37,7 +37,7 @@ public class Deck {
 		this.cards[indexB] = card;
 	}
 
-	public void rotate() {
+	public void shuffle() {
 		this.topCardIndex = 0;
 		int size = this.cards.length;
 		for (int i = 0; i < Deck.ROTATE_NUM; i++) {
@@ -48,7 +48,7 @@ public class Deck {
 	@Override
 	public String toString() {
 		StringBuilder info = new StringBuilder(100);
-		info.append("Deck:\n");
+		info.append("---[ Deck ]---\n");
 		for (int i = 0; i < this.cards.length; i++) {
 			info.append(this.cards[i]);
 			if (i == this.topCardIndex) {

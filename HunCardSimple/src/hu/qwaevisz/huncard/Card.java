@@ -22,8 +22,7 @@ public class Card {
 
 	@Override
 	public String toString() {
-		return ("Card: [" + this.suit + "-" + this.rank + "] value: " + this
-				.value());
+		return ("Card: [" + this.suit + "-" + this.rank + "] value: " + this.value());
 	}
 
 }

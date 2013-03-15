@@ -63,7 +63,7 @@ public class Program {
 		System.out.println(deck.topCard());
 		System.out.println(deck.topCard());
 		System.out.println(deck);
-		deck.rotate();
+		deck.shuffle();
 		System.out.println(deck);
 	}
 
@@ -90,13 +90,15 @@ public class Program {
 
 	public static void main(String[] args) {
 		Random rand = new Random();
+
 		Program.testEnum(rand);
-		// Program.testEnumAsClass();
-		// Program.testRandom();
-		// Program.testForEach();
+		Program.testEnumAsClass();
+		Program.testRandom();
+		Program.testForEach();
 		Program.testCard(rand);
 		Program.testDeck(rand);
 		Program.testPlayer();
+
 		Program.testGame(rand);
 	}
 

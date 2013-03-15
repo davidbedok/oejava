@@ -35,8 +35,7 @@ public class Player {
 	@Override
 	public String toString() {
 		StringBuilder info = new StringBuilder(40);
-		info.append(this.name).append(" card values: ")
-				.append(this.cardValues()).append("\n");
+		info.append(this.name).append(" card values: ").append(this.cardValues()).append("\n");
 		for (int i = 0; i < this.currentCardIndex; i++) {
 			info.append("[").append((i + 1)).append("] ");
 			info.append(this.cards[i]).append("\n");
