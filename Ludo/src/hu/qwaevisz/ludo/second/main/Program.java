@@ -47,7 +47,7 @@ public class Program {
 		System.out.println("Second version");
 		Random random = new Random();
 		Program.testPlayer();
-		Program.testGame(random);
+		// Program.testGame(random);
 	}
 
 }

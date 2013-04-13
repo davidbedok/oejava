@@ -47,10 +47,6 @@ public class Table {
 		return figure;
 	}
 
-	private boolean isValid(int position) {
-		return this.find(position) == null;
-	}
-
 	private List<Figure> assortment(Player player) {
 		List<Figure> figures = new ArrayList<Figure>();
 		for (Figure currentFigure : this.figures) {
