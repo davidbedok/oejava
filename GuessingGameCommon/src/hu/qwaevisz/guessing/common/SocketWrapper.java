@@ -10,14 +10,14 @@ import java.net.Socket;
 
 public class SocketWrapper {
 
-	private final Socket socket;
+	private final Socket			socket;
 
-	private final InputStream inputStream;
-	private final InputStreamReader inputStreamReader;
-	private final BufferedReader bufferedReader;
+	private final InputStream		inputStream;
+	private final InputStreamReader	inputStreamReader;
+	private final BufferedReader	bufferedReader;
 
-	private final OutputStream outputStream;
-	private final PrintWriter printWriter;
+	private final OutputStream		outputStream;
+	private final PrintWriter		printWriter;
 
 	public SocketWrapper(Socket socket) throws IOException {
 		this.socket = socket;

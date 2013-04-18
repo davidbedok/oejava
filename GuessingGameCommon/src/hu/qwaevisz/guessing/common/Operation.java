@@ -11,7 +11,7 @@ public enum Operation {
 	SERVER_EXIT(60), //
 	CLIENT_KILL(70);
 
-	private final int code;
+	private final int	code;
 
 	private Operation() {
 		this.code = 0;
