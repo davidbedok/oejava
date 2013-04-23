@@ -7,18 +7,20 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Random;
 
-public class GameThread extends Thread {
+public class GameThread implements Runnable {
 
-	private static final String	MY_NAME_IS		= "My name is";
-	private static final int	MAXIMUM_NUMBER	= 100;
+	private static final String MY_NAME_IS = "My name is";
+	private static final int MAXIMUM_NUMBER = 100;
 
-	private final Random		random;
-	private final SocketWrapper	socketWrapper;
-	private int					fabricatedNumber;
-	private String				name;
+	private final Random random;
+	private final SocketWrapper socketWrapper;
+	private int fabricatedNumber;
+	private String name;
+	private final String threadName; // not real thread name
 
-	public GameThread(String theadName, Random random, Socket socket) throws IOException {
-		super(theadName);
+	public GameThread(String threadName, Random random, Socket socket) throws IOException {
+		// super(threadName); // if extends Thread
+		this.threadName = threadName;
 		this.random = random;
 		this.socketWrapper = new SocketWrapper(socket);
 	}
@@ -47,7 +49,7 @@ public class GameThread extends Thread {
 			case CLIENT_INTRODUCTION:
 				String introduction = this.socketWrapper.receiveMessage();
 				System.out.println("Client sent an introduction: " + introduction);
-				int startIndex = introduction.indexOf(MY_NAME_IS) + MY_NAME_IS.length() + 1;
+				int startIndex = introduction.indexOf(GameThread.MY_NAME_IS) + GameThread.MY_NAME_IS.length() + 1;
 				int endIndex = introduction.indexOf('.', startIndex);
 				this.name = introduction.substring(startIndex, endIndex);
 				this.startGame();
@@ -70,7 +72,8 @@ public class GameThread extends Thread {
 	private void startGame() {
 		this.fabricatedNumber = this.random.nextInt(GameThread.MAXIMUM_NUMBER);
 		System.out.println("FabricatedNumber for " + this.name + ": " + this.fabricatedNumber);
-		this.socketWrapper.send(Operation.SERVER_STARTGAME, this.name + ", I thought a number between 1 and " + GameThread.MAXIMUM_NUMBER + ". Try to figure out!");
+		this.socketWrapper.send(Operation.SERVER_STARTGAME, this.name + ", I thought a number between 1 and " + GameThread.MAXIMUM_NUMBER
+				+ ". Try to figure out!");
 	}
 
 	private boolean serverAnswer(String tipStr) {
