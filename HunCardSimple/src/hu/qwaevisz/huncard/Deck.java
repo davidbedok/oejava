@@ -31,18 +31,18 @@ public class Deck {
 		return card;
 	}
 
-	private void changeCards(int indexA, int indexB) {
-		Card card = this.cards[indexA];
-		this.cards[indexA] = this.cards[indexB];
-		this.cards[indexB] = card;
-	}
-
 	public void shuffle() {
 		this.topCardIndex = 0;
 		int size = this.cards.length;
 		for (int i = 0; i < Deck.ROTATE_NUM; i++) {
 			this.changeCards(this.rand.nextInt(size), this.rand.nextInt(size));
 		}
+	}
+	
+	private void changeCards(int indexA, int indexB) {
+		Card card = this.cards[indexA];
+		this.cards[indexA] = this.cards[indexB];
+		this.cards[indexB] = card;
 	}
 
 	@Override
