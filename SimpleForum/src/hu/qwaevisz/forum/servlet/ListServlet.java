@@ -21,21 +21,18 @@ public class ListServlet extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-		String initEntriesStr = config
-				.getInitParameter(ListServlet.INIT_PARAM_ENTRIES);
+		String initEntriesStr = config.getInitParameter(ListServlet.INIT_PARAM_ENTRIES);
 		List<ForumEntry> initEntries = Forum.parseEntries(initEntriesStr);
 		Forum.getInstance().getPosts().addAll(initEntries);
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("listPage.jsp");
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
 

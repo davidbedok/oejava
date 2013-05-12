@@ -1,11 +1,13 @@
-package hu.qwaevisz.inheritance;
+package hu.qwaevisz.inheritance.basic.alter;
+
+import hu.qwaevisz.inheritance.basic.Point;
 
 public class LineAlter extends Object {
 
 	protected final Point start;
 	protected final Point end;
 
-	public LineAlter(int x1, int y1, int x2, int y2) {
+	public LineAlter(float x1, float y1, float x2, float y2) {
 		this(new Point(x1, y1), new Point(x2, y2));
 	}
 
@@ -23,19 +25,19 @@ public class LineAlter extends Object {
 	}
 
 	public double distance() {
-		int xsd = LineAlter.sqrDifference(this.end.getX(), this.start.getX());
-		int ysd = LineAlter.sqrDifference(this.end.getY(), this.start.getY());
+		float xsd = LineAlter.sqrDifference(this.end.getX(), this.start.getX());
+		float ysd = LineAlter.sqrDifference(this.end.getY(), this.start.getY());
 		return Math.sqrt(xsd + ysd);
 	}
 
-	private static int sqrDifference(int a, int b) {
-		int diff = a - b;
+	private static float sqrDifference(float a, float b) {
+		float diff = a - b;
 		return diff * diff;
 	}
 
 	@Override
 	public String toString() {
-		return this.start + " - " + this.end;
+		return this.start + " and " + this.end;
 	}
 
 }
