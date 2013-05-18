@@ -20,24 +20,28 @@ public class DemoService {
 	private final EntityManager entityManager;
 
 	public DemoService() {
-		this.factory = Persistence.createEntityManagerFactory(DemoService.UNIT_NAME);
+		this.factory = Persistence
+				.createEntityManagerFactory(DemoService.UNIT_NAME);
 		this.entityManager = this.factory.createEntityManager();
 	}
 
 	public List<Person> listOfPerson() {
-		TypedQuery<Person> query = this.entityManager.createQuery("SELECT p FROM Person p", Person.class);
+		TypedQuery<Person> query = (TypedQuery<Person>) this.entityManager
+				.createQuery("SELECT p FROM Person p");
 		List<Person> people = query.getResultList();
 		return people;
 	}
 
 	public List<PersonType> listOfPersonType() {
-		TypedQuery<PersonType> query = this.entityManager.createQuery("SELECT t FROM PersonType t", PersonType.class);
+		TypedQuery<PersonType> query = (TypedQuery<PersonType>) this.entityManager
+				.createQuery("SELECT t FROM PersonType t");
 		List<PersonType> people = query.getResultList();
 		return people;
 	}
 
 	public <T> List<T> list(Class<T> clazz) {
-		TypedQuery<T> query = this.entityManager.createQuery("SELECT t FROM " + clazz.getSimpleName() + " t", clazz);
+		TypedQuery<T> query = (TypedQuery<T>) this.entityManager
+				.createQuery("SELECT t FROM " + clazz.getSimpleName() + " t");
 		List<T> list = query.getResultList();
 		return list;
 	}
@@ -57,11 +61,13 @@ public class DemoService {
 	public void insertPerson(String name, int age, int personTypeId) {
 		EntityTransaction transaction = this.entityManager.getTransaction();
 		transaction.begin();
-		this.entityManager.persist(new Person(name, age, this.getPersonType(personTypeId)));
+		this.entityManager.persist(new Person(name, age, this
+				.getPersonType(personTypeId)));
 		transaction.commit();
 	}
 
-	public void insertPerson(String name, int age, PersonTypeTrunk personTypeTrunk) {
+	public void insertPerson(String name, int age,
+			PersonTypeTrunk personTypeTrunk) {
 		PersonType personType = DataTrunk.getInstance().map(personTypeTrunk);
 
 		EntityTransaction transaction = this.entityManager.getTransaction();

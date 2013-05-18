@@ -8,5 +8,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.datatools.connectivity.jdt.DRIVERLIBRARY/MySQL JDBC Driver"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="OE_THIRDPARTY/eclipselink_v241/eclipselink.jar"/>
+	<classpathentry kind="var" path="OE_THIRDPARTY/eclipselink_v241/javax.persistence_1.0.0.jar"/>
+	<classpathentry kind="var" path="OE_THIRDPARTY/eclipselink_v241/javax.persistence_2.0.4.v201112161009.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
