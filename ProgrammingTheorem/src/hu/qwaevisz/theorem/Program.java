@@ -11,6 +11,13 @@ public class Program {
 		System.out.println("output: " + Theorems.summation(data));
 	}
 
+	private static void testDecisionDivisibleSimple() {
+		System.out.println("# decisionDivisibleSimple (3) ");
+		int[] numbers = { 6, 4, 2, 8 };
+		System.out.println("input: " + Arrays.toString(numbers));
+		System.out.println("output: " + Theorems.decisionDivisibleSimple(numbers, 7));
+	}
+
 	private static void testDecisionDivisible() {
 		System.out.println("# decisionDivisible (3)");
 		int[] data = { 6, 4, 2, 8 };
@@ -142,23 +149,8 @@ public class Program {
 	}
 
 	public static void main(String[] args) {
-		Program.testSummation();
-		Program.testDecisionDivisible();
-		Program.testSelectionDivisible();
-		Program.testCountingDivisible();
-		Program.testMaximumSelection();
-		Program.testAssortmentDivisible();
-		Program.testSeparateParity();
-		Program.testUnion();
-		Program.testIntersect();
-		Program.testRunUpSortedSet();
-		Program.testSimpleSwapSort();
-		Program.testMinimumSelectionSort();
-		Program.testLinearSearch();
-		Program.testLinearSearchInSortedArray();
-		Program.testBinarySearch();
 
-		Program.testAssortmentMinimums();
+		Program.testDecisionDivisibleSimple();
 
 		// Program.testPassingParameters();
 	}

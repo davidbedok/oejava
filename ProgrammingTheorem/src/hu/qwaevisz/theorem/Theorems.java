@@ -10,6 +10,19 @@ public class Theorems {
 		return result;
 	}
 
+	public static boolean decisionDivisibleSimple(int[] data, int divider) {
+		boolean find = false;
+		int i = 0;
+		while (i < data.length && !find) {
+			int current = data[i];
+			if (current % divider == 0) {
+				find = true;
+			}
+			i++;
+		}
+		return find;
+	}
+
 	public static boolean decisionDivisible(int[] data, int divider) {
 		int i = 0;
 		while ((i < data.length) && (data[i] % divider != 0)) {
