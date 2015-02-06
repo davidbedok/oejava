@@ -7,6 +7,7 @@ public enum Securities {
 	MOL, //
 	EGIS, //
 	PREZI, //
-	TISSOT;
+	TISSOT, //
+	wfefefwe;
 
 }
