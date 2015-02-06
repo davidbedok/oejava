@@ -5,7 +5,8 @@ public enum Currency {
 	HUF(1), //
 	EUR(308), //
 	CHF(290), //
-	USD(270);
+	USD(270), //
+	AUS(105);
 
 	private final double initialRate;
 
