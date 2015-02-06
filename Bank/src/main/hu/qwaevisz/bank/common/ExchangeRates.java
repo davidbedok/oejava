@@ -17,7 +17,15 @@ public class ExchangeRates {
 		}
 	}
 
-	public ExchangeRates getInstance() {
+	public void change(final Currency currency, final double rate) {
+		this.rates.put(currency, rate);
+	}
+
+	public double get(final Currency currency) {
+		return this.rates.get(currency);
+	}
+
+	public static ExchangeRates getInstance() {
 		if (instance == null) {
 			instance = new ExchangeRates();
 		}
