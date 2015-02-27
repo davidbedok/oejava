@@ -19,11 +19,15 @@ public class Client {
 		this.accounts = new ArrayList<Account>();
 	}
 
+	public String getName() {
+		return this.name;
+	}
+
 	public void add(final String accountNumber, final double value, final Currency currency) {
 		this.add(new MoneyAccount(accountNumber, value, currency));
 	}
 
-	private void add(final Account account) {
+	public void add(final Account account) {
 		this.accounts.add(account);
 	}
 
