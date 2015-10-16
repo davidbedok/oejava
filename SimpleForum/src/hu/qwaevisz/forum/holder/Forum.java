@@ -37,7 +37,7 @@ public class Forum {
 	public String toString() {
 		StringBuilder info = new StringBuilder();
 		for (ForumEntry entry : this.posts) {
-			info.append(info.toString()).append("\n");
+			info.append(entry.getNick()).append(": ").append(entry.getMessage()).append("\n");
 		}
 		return info.toString();
 	}
