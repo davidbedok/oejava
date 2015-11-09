@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.Set" %>  
 <%@ page import="hu.qwaevisz.library.domain.Book" %> 
 <% Book book = (Book) request.getAttribute("book"); %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="style/page.css" />
 <title>:: <% out.print(book.getTitle()); %> ::</title>
 </head>
@@ -17,6 +16,10 @@
 	<div><label>Price: </label><span><% out.print(book.getPrice()); %> Ft</span></div>
 	<div><label>Category: </label><span><% out.print(book.getCategory()); %></span></div>	
 	<br/><br/>
-	<div><a href="BookList">back</a></div>
+	<div>
+		<a href="BookList">back</a>&nbsp;
+		<a href="Book?isbn=<% out.print(book.getIsbn()); %>&edit=1">edit</a>
+	</div>
+	
 </body>
 </html>
