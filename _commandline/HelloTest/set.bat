@@ -1,0 +1,1 @@
+set JAVA_BIN=j:\java\jdk1.7.0_67\bin

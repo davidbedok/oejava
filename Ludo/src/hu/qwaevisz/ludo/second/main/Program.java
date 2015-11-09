@@ -10,7 +10,7 @@ public class Program {
 
 	private static void testPlayer() {
 		System.out.println("# testPlayer()");
-		Player player = new Player("Alice", FigureColor.Green, 10);
+		final Player player = new Player("Alice", FigureColor.Green, 10);
 		System.out.println(player);
 		player.start();
 		player.start();
@@ -27,8 +27,8 @@ public class Program {
 		System.out.println(player.printStartFigure(4));
 	}
 
-	private static void testGame(Random random) {
-		Game game = new Game(random);
+	private static void testGame(final Random random) {
+		final Game game = new Game(random);
 		game.addPlayers("Alice", "Bob", "Charlie", "Delta");
 
 		int i = 1;
@@ -43,11 +43,11 @@ public class Program {
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		System.out.println("Second version");
-		Random random = new Random();
-		Program.testPlayer();
-		// Program.testGame(random);
+		final Random random = new Random();
+		// Program.testPlayer();
+		Program.testGame(random);
 	}
 
 }

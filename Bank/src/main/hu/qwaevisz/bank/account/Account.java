@@ -1,5 +1,6 @@
 package hu.qwaevisz.bank.account;
 
+
 public abstract class Account {
 
 	private final String accountNumber;
