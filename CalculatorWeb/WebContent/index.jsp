@@ -7,8 +7,6 @@
 <title>calculator</title>
 </head>
 <body>  
-<!-- Tomcat 7 (calc.war) -->
-<!-- http://localhost:8080/calc/ -->
 <%! 
 	int convertParameter( String paramStr, int defaultValue, JspWriter out ) throws IOException {
 		int result = defaultValue;
