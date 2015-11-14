@@ -21,32 +21,34 @@ public class BookListView extends HttpServlet {
 
 	private static final String PARAM_CATEGORY = "category";
 	private static final String VALUE_CATEGORY_ALL = "-1";
+
 	private static final String ATTRIBUTE_BOOKS = "books";
-	private static final String ATTRIBUTE_CATEGORY_VALUE = "category";
+	private static final String ATTRIBUTE_CATEGORY = "category";
 
 	private static final String PAGE = "list.jsp";
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
 		final List<Book> books = Library.getInstance().getBooks();
-		request.setAttribute(ATTRIBUTE_BOOKS, books);
-		request.setAttribute(ATTRIBUTE_CATEGORY_VALUE, VALUE_CATEGORY_ALL);
-
-		final RequestDispatcher view = request.getRequestDispatcher(PAGE);
-		view.forward(request, response);
+		this.forward(request, response, books, VALUE_CATEGORY_ALL);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
 		List<Book> books = null;
-		String categoryName = request.getParameter(PARAM_CATEGORY);
+		final String categoryName = request.getParameter(PARAM_CATEGORY);
 		if (categoryName.equals(VALUE_CATEGORY_ALL)) {
 			books = Library.getInstance().getBooks();
 		} else {
 			books = Library.getInstance().getBooks(BookCategory.valueOf(categoryName));
 		}
+		this.forward(request, response, books, categoryName);
+	}
+
+	private void forward(final HttpServletRequest request, final HttpServletResponse response, final List<Book> books, final String categoryName)
+			throws ServletException, IOException {
 		request.setAttribute(ATTRIBUTE_BOOKS, books);
-		request.setAttribute(ATTRIBUTE_CATEGORY_VALUE, categoryName);
+		request.setAttribute(ATTRIBUTE_CATEGORY, categoryName);
 
 		final RequestDispatcher view = request.getRequestDispatcher(PAGE);
 		view.forward(request, response);

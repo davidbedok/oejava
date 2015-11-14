@@ -15,25 +15,26 @@ public class UserData {
 		this.users.add(new User("test4", "222", "test4nick"));
 	}
 
-	public boolean login(String userName, String password) {
+	public User login(final String userName, final String password) {
+		User result = null;
 		boolean find = false;
 		int i = 0;
 		while (i < this.users.size() && !find) {
-			User user = this.users.get(i);
-			if (user.getUserName().equals(userName)
-					&& user.getPassword().equals(password)) {
+			final User user = this.users.get(i);
+			if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
 				find = true;
+				result = user;
 			}
 			i++;
 		}
-		return find;
+		return result;
 	}
 
-	public User findUser(String userName) {
+	public User findUser(final String userName) {
 		User result = null;
 		int i = 0;
 		while (i < this.users.size() && result == null) {
-			User user = this.users.get(i);
+			final User user = this.users.get(i);
 			if (user.getUserName().equals(userName)) {
 				result = user;
 			}

@@ -20,7 +20,7 @@
 		<div>
 			<label for="category">Category: </label>
 			<select name="category" id="category">
-				<option value="-1">-</option>
+				<option value="-1" <% out.print( "-1".equals(categoryName) ? "selected=\"selected\"" : "" ); %>>-</option>
 				<% for ( BookCategory category : BookCategory.values()) { %>
 					<option value="<% out.print(category.name()); %>" <% out.print( category.name().equals(categoryName) ? "selected=\"selected\"" : "" ); %> ><% out.print(category.getLabel()); %></option>
 				<% } %>

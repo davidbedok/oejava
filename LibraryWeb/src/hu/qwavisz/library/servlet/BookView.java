@@ -1,9 +1,5 @@
 package hu.qwavisz.library.servlet;
 
-import hu.qwaevisz.library.domain.Book;
-import hu.qwaevisz.library.domain.BookCategory;
-import hu.qwaevisz.library.holder.Library;
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -13,25 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import hu.qwaevisz.library.domain.Book;
+import hu.qwaevisz.library.domain.BookCategory;
+import hu.qwaevisz.library.holder.Library;
+
 @WebServlet("/Book")
 public class BookView extends HttpServlet {
-
-	private static final String PARAM_CATEGORY = "category";
-
-	private static final String PARAM_PRICE = "price";
-
-	private static final String PARAM_NUMBER_OF_PAGES = "numberofpages";
-
-	private static final String PARAM_TITLE = "title";
-
-	private static final String PARAM_AUTHOR = "author";
 
 	private static final long serialVersionUID = -4068275526750462197L;
 
 	private static final String PARAM_ISBN = "isbn";
 	private static final String PARAM_EDIT_FLAG = "edit";
+	private static final String PARAM_CATEGORY = "category";
+	private static final String PARAM_PRICE = "price";
+	private static final String PARAM_NUMBER_OF_PAGES = "numberofpages";
+	private static final String PARAM_TITLE = "title";
+	private static final String PARAM_AUTHOR = "author";
+
 	private static final String ATTRIBUTE_BOOK = "book";
+
 	private static final String TRUE_VALUE = "1";
+
 	private static final String VIEW_PAGE = "book.jsp";
 	private static final String EDIT_PAGE = "book-edit.jsp";
 
@@ -40,6 +38,11 @@ public class BookView extends HttpServlet {
 		final String isbn = request.getParameter(PARAM_ISBN);
 		final boolean editFlag = TRUE_VALUE.equals(request.getParameter(PARAM_EDIT_FLAG));
 		final Book book = Library.getInstance().find(isbn);
+		this.forward(request, response, editFlag, book);
+	}
+
+	private void forward(final HttpServletRequest request, final HttpServletResponse response, final boolean editFlag, final Book book)
+			throws ServletException, IOException {
 		request.setAttribute(ATTRIBUTE_BOOK, book);
 		final RequestDispatcher view = request.getRequestDispatcher(editFlag ? EDIT_PAGE : VIEW_PAGE);
 		view.forward(request, response);
@@ -60,9 +63,7 @@ public class BookView extends HttpServlet {
 		book.setNumberOfPages(numberOfPages);
 		book.setPrice(price);
 		book.setCategory(category);
-		request.setAttribute(ATTRIBUTE_BOOK, book);
-		final RequestDispatcher view = request.getRequestDispatcher(VIEW_PAGE);
-		view.forward(request, response);
+		this.forward(request, response, false, book);
 	}
 
 }

@@ -2,16 +2,17 @@
 <%@page import="java.util.List" %>
 <%@page import="hu.qwaevisz.forum.holder.Forum" %>
 <%@page import="hu.qwaevisz.forum.holder.ForumEntry" %>
+<%@page import="hu.qwaevisz.forum.common.ListAttribute" %>
+<%@page import="hu.qwaevisz.forum.common.ListField" %>
+<%@page import="hu.qwaevisz.forum.common.SessionAttribute" %>
 <%@page session="true" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>:: forum ::</title>
+<title>:: Forum ::</title>
 </head> 
 <body>  
-<%
-	List<ForumEntry> posts = Forum.getInstance().getPosts();
-%>
+<% List<ForumEntry> entries = (List<ForumEntry>) request.getAttribute(ListAttribute.ENTRIES); %>
 <h1>List forum entries</h1>
 <table border="1">
 	<thead>
@@ -21,8 +22,8 @@
 		</tr>
 	</thead>
 	<tbody>
-	<% if (posts != null) { %>
-		<% for ( ForumEntry entry : posts) { %>
+	<% if (entries != null) { %>
+		<% for ( ForumEntry entry : entries) { %>
 			<tr>
 				<td><% out.print(entry.getNick()); %></td>
 				<td><% out.print(entry.getMessage()); %></td>
@@ -32,13 +33,13 @@
 	</tbody>
 </table>
 <br/>
-<% if ( session.getAttribute("username") != null ) { %>
-	<form action="newentry" method="POST">
+<% if ( session.getAttribute(SessionAttribute.USER) != null ) { %>
+	<form action="list" method="POST">
 		<fieldset>
 			<legend>New message</legend>
 			<table>
 				<tr>
-					<td><textarea name="message"></textarea>
+					<td><textarea name="<%= ListField.ENTRY %>"></textarea>
 				</tr>
 				<tr>
 					<td><input type="submit" value="Send" /></td>

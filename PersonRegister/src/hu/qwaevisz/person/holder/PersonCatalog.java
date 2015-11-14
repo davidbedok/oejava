@@ -7,7 +7,7 @@ public class PersonCatalog {
 
 	private final List<Person> people;
 
-	public void addPerson(String name, String password, String email) {
+	public void addPerson(final String name, final String password, final String email) {
 		this.people.add(new Person(name, password, email));
 	}
 
