@@ -1,4 +1,4 @@
-package hu.qwavisz.library.servlet;
+package hu.qwaevisz.library.servlet;
 
 import java.io.IOException;
 import java.util.List;
