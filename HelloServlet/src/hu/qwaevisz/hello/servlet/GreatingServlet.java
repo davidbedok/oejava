@@ -10,10 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Greating")
-public class Greating extends HttpServlet {
-
-	// Tomcat 7 (hello.war)
-	// http://localhost:8080/hello/Greating
+public class GreatingServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 4678131951377472233L;
 
@@ -23,8 +20,7 @@ public class Greating extends HttpServlet {
 	private static final String META_CONTENT = "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">";
 
 	@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println(this.responseContent());
@@ -32,16 +28,15 @@ public class Greating extends HttpServlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
 
 	private String responseContent() {
-		String head = Greating.META_CONTENT;
+		String head = GreatingServlet.META_CONTENT;
 		head += "<title>Greating</title>";
 
-		String frame = Greating.HTML5_HEADER + Greating.HTML_FRAME;
+		String frame = GreatingServlet.HTML5_HEADER + GreatingServlet.HTML_FRAME;
 		frame = frame.replace("{head}", head);
 		frame = frame.replace("{body}", "Hello World!");
 		return frame;
