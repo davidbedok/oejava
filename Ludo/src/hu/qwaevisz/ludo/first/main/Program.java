@@ -1,11 +1,12 @@
 package hu.qwaevisz.ludo.first.main;
 
+import java.util.Random;
+
 import hu.qwaevisz.ludo.first.model.Dice;
 import hu.qwaevisz.ludo.first.model.FigureColor;
 import hu.qwaevisz.ludo.first.model.Game;
 import hu.qwaevisz.ludo.first.model.Player;
-
-import java.util.Random;
+import hu.qwaevisz.ludo.first.model.Table;
 
 public class Program {
 
@@ -21,11 +22,12 @@ public class Program {
 		for (int i = 0; i < 10; i++) {
 			System.out.print(dice.roll() + " ");
 		}
+		System.out.println();
 	}
 
 	private static void testPlayer() {
 		System.out.println("# testPlayer()");
-		Player player = new Player("Alice", FigureColor.Green, 10);
+		Player player = new Player("Alice", FigureColor.Green, 20);
 		System.out.println(player);
 		player.start();
 		player.start();
@@ -34,6 +36,20 @@ public class Program {
 		player.finish();
 		System.out.println(player.printStart());
 		System.out.println(player.printEnd());
+	}
+
+	private static void testTable() {
+		System.out.println("# testTable()");
+
+		Table table = new Table();
+		Player player = new Player("Charlie", FigureColor.Green, table.getPlayersDistance() * 2);
+		table.initFigure(player);
+
+		System.out.println(table);
+		table.moveFigure(player, 6);
+		System.out.println(table);
+		table.moveFigure(player, 3);
+		System.out.println(table);
 	}
 
 	private static void testGame(Random random) {
@@ -56,7 +72,8 @@ public class Program {
 		Program.testFigure();
 		Program.testDice(random);
 		Program.testPlayer();
-		Program.testGame(random);
+		Program.testTable();
+		// Program.testGame(random);
 	}
 
 }
