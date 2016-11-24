@@ -37,6 +37,7 @@
                 <th>Category</th>
                 <th>Price</th>
                 <th>Number of pages</th>
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -47,9 +48,14 @@
                     <td><%= book.getCategory().getLabel() %></td>
                     <td><%= book.getPrice() %> Ft</td>
                     <td><%= book.getNumberOfPages() %></td>
+                    <td><a href="BookDelete?isbn=<%= book.getIsbn() %>">delete</a></td>
                 </tr>
             <% } %>
         </tbody>
     </table>
+    <br/><br/>
+	<div>
+	    <a href="Book?isbn=-1&edit=1">Create</a> a brand new book.
+	</div>
 </body>
 </html>

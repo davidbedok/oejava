@@ -18,6 +18,22 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
+	public Book saveBook(String isbn, String author, String title, int numberOfPages, double price, BookCategory category) {
+		Book book = this.getBook(isbn);
+		if (book == null) {
+			book = new Book(isbn, author, title, numberOfPages, price, category);
+			this.books.add(book);
+		} else {
+			book.setAuthor(author);
+			book.setTitle(title);
+			book.setNumberOfPages(numberOfPages);
+			book.setPrice(price);
+			book.setCategory(category);
+		}
+		return book;
+	}
+
+	@Override
 	public List<Book> getBooks() {
 		return this.books;
 	}
@@ -43,6 +59,11 @@ public class BookServiceImpl implements BookService {
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public void removeBook(String isbn) {
+		this.books.remove(this.getBook(isbn));
 	}
 
 	private static BookService instance = null;
