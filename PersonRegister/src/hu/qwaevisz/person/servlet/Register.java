@@ -1,8 +1,5 @@
 package hu.qwaevisz.person.servlet;
 
-import hu.qwaevisz.person.holder.Person;
-import hu.qwaevisz.person.holder.PersonCatalog;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Register extends HttpServlet {
+import hu.qwaevisz.person.holder.Person;
+import hu.qwaevisz.person.holder.PersonCatalog;
 
-	// Tomcat 7 (pr.war)
-	// http://localhost:8080/pr/registerpage.html
+public class Register extends HttpServlet {
 
 	private static final long serialVersionUID = -4138617877339469130L;
 
@@ -33,21 +30,18 @@ public class Register extends HttpServlet {
 	private static final String META_CONTENT = "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">";
 
 	@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter(Register.PARAM_NAME);
 		String password = request.getParameter(Register.PARAM_PASS);
 		String repassword = request.getParameter(Register.PARAM_PASS_AGAIN);
 		String email = request.getParameter(Register.PARAM_EMAIL);
 
-		List<String> errors = this.checkParams(name, password, repassword,
-				email);
+		List<String> errors = this.checkParams(name, password, repassword, email);
 		if (errors.isEmpty()) {
 			PersonCatalog.getInstance().addPerson(name, password, email);
 		}
@@ -58,14 +52,12 @@ public class Register extends HttpServlet {
 		out.close();
 	}
 
-	private List<String> checkParams(String name, String password,
-			String repassword, String email) {
+	private List<String> checkParams(String name, String password, String repassword, String email) {
 		List<String> errors = new ArrayList<String>();
 		if (name == null) {
 			errors.add("Name is empty.");
 		} else if (name.length() < Register.MIN_NAME_LENGTH) {
-			errors.add("Name is too short (min: " + Register.MIN_NAME_LENGTH
-					+ ").");
+			errors.add("Name is too short (min: " + Register.MIN_NAME_LENGTH + ").");
 		}
 		if ((password == null) || (repassword == null)) {
 			errors.add("Password(s) is/are empty.");
