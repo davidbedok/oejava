@@ -12,38 +12,38 @@ import javax.servlet.http.HttpServletResponse;
 
 import hu.qwaevisz.bookstore.domain.Book;
 import hu.qwaevisz.bookstore.domain.BookCategory;
-import hu.qwaevisz.bookstore.service.BookService;
 import hu.qwaevisz.bookstore.service.BookServiceImpl;
+import hu.qwaevisz.bookstore.servlet.domain.Page;
+import hu.qwaevisz.bookstore.servlet.domain.View;
 
-@WebServlet("/BookList")
+@WebServlet("/" + Page.BOOKLIST)
 public class BookListController extends HttpServlet {
 
-	private static final long serialVersionUID = -1977646750178615187L;
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BookService service = BookServiceImpl.getInstance();
-		List<Book> books = service.getBooks();
+		List<Book> books = BookServiceImpl.getInstance().getBooks();
+		this.forward(request, response, books, "-1");
+	}
+
+	private void forward(HttpServletRequest request, HttpServletResponse response, List<Book> books, String category) throws ServletException, IOException {
 		request.setAttribute("books", books);
-		request.setAttribute("category", "-1");
-		final RequestDispatcher view = request.getRequestDispatcher("list.jsp");
+		request.setAttribute("category", category);
+		final RequestDispatcher view = request.getRequestDispatcher(View.LIST.getPage());
 		view.forward(request, response);
 	}
 
 	@Override
 	protected void doPost(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
 		final String category = request.getParameter("category");
-		BookService service = BookServiceImpl.getInstance();
 		List<Book> books = null;
 		if ("-1".equals(category)) {
-			books = service.getBooks();
+			books = BookServiceImpl.getInstance().getBooks();
 		} else {
-			books = service.getBooks(BookCategory.valueOf(category));
+			books = BookServiceImpl.getInstance().getBooks(BookCategory.valueOf(category));
 		}
-		request.setAttribute("books", books);
-		request.setAttribute("category", category);
-		final RequestDispatcher view = request.getRequestDispatcher("list.jsp");
-		view.forward(request, response);
+		this.forward(request, response, books, category);
 	}
 
 }

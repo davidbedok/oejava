@@ -3,7 +3,7 @@
 <%@ page import="hu.qwaevisz.bookstore.domain.BookCategory" %>
 <% 
 	Book book = (Book) request.getAttribute("book"); 
-	boolean isNew = (Boolean) request.getAttribute("new"); 
+	boolean isNew = (Boolean) request.getAttribute("isnew"); 
 %>
 <!DOCTYPE html>
 <html>
@@ -48,7 +48,11 @@
 			<br/><br/>
 			<div>
 				<input type="submit" value="Save" />&nbsp;
-				<a href="Book?isbn=<%= book.getIsbn() %>">cancel</a>
+				<% if ( isNew ) {  %>     
+					<a href="BookList">cancel</a>
+                <% } else { %>
+                    <a href="Book?isbn=<%= book.getIsbn() %>">cancel</a>
+                <% } %>
 			</div>
 		</form>
 	</div>

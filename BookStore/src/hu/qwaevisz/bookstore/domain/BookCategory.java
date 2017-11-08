@@ -17,4 +17,8 @@ public enum BookCategory {
 		return this.label;
 	}
 
+	public String getName() {
+		return this.name();
+	}
+
 }

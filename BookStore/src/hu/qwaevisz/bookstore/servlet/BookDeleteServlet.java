@@ -8,20 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import hu.qwaevisz.bookstore.service.BookService;
 import hu.qwaevisz.bookstore.service.BookServiceImpl;
+import hu.qwaevisz.bookstore.servlet.domain.Page;
 
-@WebServlet("/BookDelete")
+@WebServlet("/" + Page.BOOKDELETE)
 public class BookDeleteServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 74534137280934999L;
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		final String isbn = request.getParameter("isbn");
-		BookService service = BookServiceImpl.getInstance();
-		service.removeBook(isbn);
-		response.sendRedirect("BookList");
+		BookServiceImpl.getInstance().removeBook(isbn);
+		response.sendRedirect(Page.BOOKLIST);
 	}
 
 }
