@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app id="PersonRegister">
   <display-name>PersonRegister</display-name>
+  
   <servlet>
-    <description></description>
-    <display-name>PersonRegister</display-name>
     <servlet-name>PersonRegister</servlet-name>
     <servlet-class>hu.qwaevisz.person.servlet.Register</servlet-class>
   </servlet>
+  
+  
   <servlet-mapping>
     <servlet-name>PersonRegister</servlet-name>
     <url-pattern>/perreg</url-pattern>
   </servlet-mapping>
+
+
 </web-app>

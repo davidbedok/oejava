@@ -2,8 +2,8 @@ package hu.qwaevisz.bookstore.servlet.domain;
 
 public enum View {
 
-	LIST("list-el"),
-	BOOK("book-el");
+	LIST("list"),
+	BOOK("book");
 
 	private static final String EXTENSION = "jsp";
 	private static final String EDIT_POSTFIX = "-edit";
